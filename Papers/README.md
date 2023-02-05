@@ -7,7 +7,11 @@
 - brief introduction  
 - methods  
 - contributions or results  
-- remark (optional)  
+- remark (optional)
+
+**Exceptions:**  
+- Important entry from the Internet  
+- Other important non-paper reference
 ## Misleading effect and spatial learning in head-mounted mixed reality-based navigation
 ### Detail
 [Misleading effect and spatial learning in head-mounted mixed reality-based navigation](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/Misleading%20effect%20and%20spatial%20learning%20in%20head%20mounted%20mixed%20reality%20based%20navigation.pdf), 《Geo-spatial Information Science》, 2022, SCI 2, JCR Q2, IF 4.278
@@ -42,6 +46,14 @@ Nothing new, just talk about the design workflow and feedback.
 ### Detail
 [The impact of augmented reality on cognitive load and performance: A systematic review](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/The%20impact%20of%20augmented%20reality%20on%20cognitive%20load%20and%20performance%20A%20systematic%20review.pdf), 《Journal of Computer Assisted Learning》, 2021, SCI 2, JCR Q1, IF 3.761
 ### Introduction
+Research the impact from AR to people's learning ability. The paper is trying to answer this question: whether the AR would increase or decrease cognitive load.
 ### Methods
+This is a review paper so it provides its comprehensive understanding.
 ### Results
+The result shows that the AR is helpful for learning under the consideration of the integrated presentation, which avoids frequent shifting between screens and papers.  
+
+**Some hints realted to spatial aspect**  
+The paper mentions *see-through AR using special glasses*, which is like *HoloLens*, which is helpful for navigation due to benefit in the visual guidance system.  
+Spatial AR is superior compared to see-through AR, as in the scenario of spatial AR, users can understand the gestures they are familiar with - but it is probably out of our topic (a technique where digital information is displayed directly onto a physical object without the need to carry a device).  
 ### Remark
+Some contradictions: Young et al. (2016) point out that AR is not yet able to overcome cognitive burden occurring during a simulation on driving with an automobile. However, Radu et al. (2014) supports that AR contributes to concentration.
