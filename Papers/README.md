@@ -29,7 +29,7 @@ Users will focus on the next arrow while without lines, and focus on the real ob
 The paper focuses on the visual interruption research in the mix-reality application. Testers are required.
 ## Design and development of a spatial mixed reality touring guide to the Egyptian museum
 ### Detail
-[Design and development of a spatial mixed reality touring guide to the Egyptian museum](), 《Multimedia Tools and Applications》, 2019, SCI 4, JCR Q2, IF 2.577
+[Design and development of a spatial mixed reality touring guide to the Egyptian museum](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/Design%20and%20development%20of%20a%20spatial%20mixed%20reality%20touring%20guide%20to%20the%20Egyptian%20museum.pdf), 《Multimedia Tools and Applications》, 2019, SCI 4, JCR Q2, IF 2.577
 ### Introduction
 Design an MR guidance application for the Egyptian museum *MuseumEye*, with the assistance from *HoloLens*.
 ### Methods
