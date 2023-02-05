@@ -57,3 +57,13 @@ The paper mentions *see-through AR using special glasses*, which is like *HoloLe
 Spatial AR is superior compared to see-through AR, as in the scenario of spatial AR, users can understand the gestures they are familiar with - but it is probably out of our topic (a technique where digital information is displayed directly onto a physical object without the need to carry a device).  
 ### Remark
 Some contradictions: Young et al. (2016) point out that AR is not yet able to overcome cognitive burden occurring during a simulation on driving with an automobile. However, Radu et al. (2014) supports that AR contributes to concentration.
+## A Review on Mixed Reality: Current Trends, Challenges and Prospects
+### Detail: [A Review on Mixed Reality: Current Trends, Challenges and Prospects](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/A%20Review%20on%20Mixed%20Reality%20Current%20Trends%2C%20Challenges%20and%20Prospects.pdf), 《Applied Sciences》, 2020, SCI 4, JCR Q2, IF 2.838
+### Introduction
+
+### Methods
+
+### Results
+
+### Remark
+
