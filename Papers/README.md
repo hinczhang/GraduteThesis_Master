@@ -38,3 +38,10 @@ Design the application and then use the questionnaires to investigate the touris
 Prove the effectiveness of the MR device and application.
 ### Remark
 Nothing new, just talk about the design workflow and feedback.
+## The impact of augmented reality on cognitive load and performance: A systematic review
+### Detail
+[The impact of augmented reality on cognitive load and performance: A systematic review](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/The%20impact%20of%20augmented%20reality%20on%20cognitive%20load%20and%20performance%20A%20systematic%20review.pdf), 《Journal of Computer Assisted Learning》, 2021, SCI 2, JCR Q1, IF 3.761
+### Introduction
+### Methods
+### Results
+### Remark
