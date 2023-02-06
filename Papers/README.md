@@ -66,4 +66,13 @@ Some contradictions: Young et al. (2016) point out that AR is not yet able to ov
 ### Results
 
 ### Remark
+## In the eye of the beholder: A simulator study of the impact of Google Glass on driving performance
+### Detail: [In the eye of the beholder: A simulator study of the impact of Google Glass on driving performance](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/In%20the%20eye%20of%20the%20beholder_%20A%20simulator%20study%20of%20the%20impact%20of%20Google%20Glass%20on%20driving%20performance.pdf), 《Accident Analysis and Prevention》, 2015, SCI 1, JCR Q1, IF 6.376
+### Introduction
+
+### Methods
+
+### Results
+
+### Remark
 
