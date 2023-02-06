@@ -60,12 +60,17 @@ Some contradictions: Young et al. (2016) point out that AR is not yet able to ov
 ## A Review on Mixed Reality: Current Trends, Challenges and Prospects
 ### Detail: [A Review on Mixed Reality: Current Trends, Challenges and Prospects](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/A%20Review%20on%20Mixed%20Reality%20Current%20Trends%2C%20Challenges%20and%20Prospects.pdf), 《Applied Sciences》, 2020, SCI 4, JCR Q2, IF 2.838
 ### Introduction
-
+Raise a general framework for MR development. Define MR functions: compared with AR, it could interact with the real objects
 ### Methods
-
+It is a kind of review paper. Three questions are raised:  
+- Q1: Which concepts are necessary to create a generic framework for MR applications?  
+- Q2: Which components are necessary in MR applications to create a general MR framework?  
+- Q3: What are the future prospects of the proposed framework?
 ### Results
-
+The research results were twofold, comprising a generic framework and its necessary components for MR applications. The proposed framework is made up of five layers: *MR concepts*, *MR systems
+architecture*, *MR Middleware*, *MR applications*, and *MR user interface (UI)*.
 ### Remark
+Just some definition of MR. Might be used as the terminology reference.
 ## In the eye of the beholder: A simulator study of the impact of Google Glass on driving performance
 ### Detail: [In the eye of the beholder: A simulator study of the impact of Google Glass on driving performance](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/In%20the%20eye%20of%20the%20beholder_%20A%20simulator%20study%20of%20the%20impact%20of%20Google%20Glass%20on%20driving%20performance.pdf), 《Accident Analysis and Prevention》, 2015, SCI 1, JCR Q1, IF 6.376
 ### Introduction
