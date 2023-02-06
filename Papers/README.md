@@ -1,5 +1,5 @@
 # Paper review
-**Keywords for retrieval:** Mixed Reality, Spatial Learning, Spatial Chunking, Navigation, Cognitive Load  
+**Keywords for retrieval:** Mixed Reality, Spatial Learning, Spatial Chunking, Navigation, Cognitive Load, Information Chunking  
   
 **Each paper review section should contain:**  
 - title (along with the journal or conference name, the publication date, impact factor, JCR and SCI partition)  
