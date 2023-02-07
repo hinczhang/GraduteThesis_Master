@@ -74,10 +74,15 @@ Just some definition of MR. Might be used as the terminology reference.
 ## In the eye of the beholder: A simulator study of the impact of Google Glass on driving performance
 ### Detail: [In the eye of the beholder: A simulator study of the impact of Google Glass on driving performance](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/In%20the%20eye%20of%20the%20beholder_%20A%20simulator%20study%20of%20the%20impact%20of%20Google%20Glass%20on%20driving%20performance.pdf), 《Accident Analysis and Prevention》, 2015, SCI 1, JCR Q1, IF 6.376
 ### Introduction
-
+The paper mainly researches the influence from the text in the Google glass. As in the AR or MR research, researchers always put texts or symbols on the screen, which might cause negative effect on users, for example, no-concentration on surroundings or mistakes.
 ### Methods
-
+20 participants with driving licenses and also reading messages during driving. Texts are played on the glass and the participants should read as more as possible, with the volume and mistakes recording.  
+Use some indicators:  
+- The NASA – Raw Task Load Index (NASA-RTLX) (Byers et al.,
+1989) 
 ### Results
-
+1. People cannot gain experience in using Google glass with limitation.  
+2. Compared with mobile phone, the lane excursions have no great difference.  
+3. Reading in the glass has more advantage
 ### Remark
-
+The AR or MR device might lead to the ignorance of the surroundings.
