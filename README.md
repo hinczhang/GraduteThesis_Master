@@ -20,7 +20,7 @@ gantt
     Slides                          :b3, after b2, 7d
     section Thesis work
     Tech. learning and plan         :c1, after a1, 20d
-    Design and deploy               :c2, after c1, 30d
+    Design and deploy               :c2, after c1, 40d
     Searching volunteers            :c3, 2023-04-01, 60d
 ```
 ## Scheduled meeting
