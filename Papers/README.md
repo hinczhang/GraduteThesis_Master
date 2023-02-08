@@ -58,7 +58,8 @@ Spatial AR is superior compared to see-through AR, as in the scenario of spatial
 ### Remark
 Some contradictions: Young et al. (2016) point out that AR is not yet able to overcome cognitive burden occurring during a simulation on driving with an automobile. However, Radu et al. (2014) supports that AR contributes to concentration.
 ## A Review on Mixed Reality: Current Trends, Challenges and Prospects
-### Detail: [A Review on Mixed Reality: Current Trends, Challenges and Prospects](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/A%20Review%20on%20Mixed%20Reality%20Current%20Trends%2C%20Challenges%20and%20Prospects.pdf), 《Applied Sciences》, 2020, SCI 4, JCR Q2, IF 2.838
+### Detail
+[A Review on Mixed Reality: Current Trends, Challenges and Prospects](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/A%20Review%20on%20Mixed%20Reality%20Current%20Trends%2C%20Challenges%20and%20Prospects.pdf), 《Applied Sciences》, 2020, SCI 4, JCR Q2, IF 2.838
 ### Introduction
 Raise a general framework for MR development. Define MR functions: compared with AR, it could interact with the real objects
 ### Methods
@@ -72,7 +73,8 @@ architecture*, *MR Middleware*, *MR applications*, and *MR user interface (UI)*.
 ### Remark
 Just some definition of MR. Might be used as the terminology reference.
 ## In the eye of the beholder: A simulator study of the impact of Google Glass on driving performance
-### Detail: [In the eye of the beholder: A simulator study of the impact of Google Glass on driving performance](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/In%20the%20eye%20of%20the%20beholder_%20A%20simulator%20study%20of%20the%20impact%20of%20Google%20Glass%20on%20driving%20performance.pdf), 《Accident Analysis and Prevention》, 2015, SCI 1, JCR Q1, IF 6.376
+### Detail
+ [In the eye of the beholder: A simulator study of the impact of Google Glass on driving performance](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/In%20the%20eye%20of%20the%20beholder_%20A%20simulator%20study%20of%20the%20impact%20of%20Google%20Glass%20on%20driving%20performance.pdf), 《Accident Analysis and Prevention》, 2015, SCI 1, JCR Q1, IF 6.376
 ### Introduction
 The paper mainly researches the influence from the text in the Google glass. As in the AR or MR research, researchers always put texts or symbols on the screen, which might cause negative effect on users, for example, no-concentration on surroundings or mistakes.
 ### Methods
@@ -86,3 +88,42 @@ Use some indicators:
 3. Reading in the glass has more advantage
 ### Remark
 The AR or MR device might lead to the ignorance of the surroundings.
+## Work-in-Progress–—Improve Spatial Learning by Chunking Navigation Instructions in Mixed Reality
+### Detail
+[Work-in-Progress–—Improve Spatial Learning by Chunking Navigation Instructions in Mixed Reality](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/BingLiu/Work-in-Progress%E2%80%93%E2%80%94Improve%20Spatial%20Learning%20by%20Chunking%20Navigation%20Instructions%20in%20Mixed%20Reality.pdf), 《2021 7th International Conference of the Immersive Learning Research Network (iLRN)》, 2021, Conference paper
+### Introduction
+Try to chunck the space to let the users learn by MR. Chuncking space should lead to a better memory.
+### Methods
+Use VGI to understand that how people try to separate the space, as VGI is the open-source data of recording people's daily perception. The method sets some decision points with different granularity.
+### Results
+Expect to gain more knowledge with the help of chuncking.
+### Remark
+Give a universal experiment for such kind of researches.
+## Knowledge visualization with location-based concept mapping  in mixed reality
+### Detail
+[Knowledge visualization with location-based concept mapping  in mixed reality](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/BingLiu/Knowledge%20visualization%20with%20location-based%20concept%20mapping%20in%20mixed%20reality.pdf), 《International Cartography Association》, 2021, Conference paper
+### Introduction
+Based the concept maps, extend the top-down navigation and learning method. The project is going to make the learners like experiencing a story.
+## Designing Mixed Reality‑Based Indoor Navigation for User Studies
+### Detail
+[Designing Mixed Reality‑Based Indoor Navigation for User Studies](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/BingLiu/Designing%20Mixed%20Reality-Based%20Indoor%20Navigation%20for%20User%20Studies.pdf), 《Journal of Cartography and Geographic Information》, 2022, SCI 3, JCR Q3, IF 2.354
+### Introduction
+Use spatial mapping, spatial localization, path generation, and instruction visualization to organize a framework.
+### Methods
+For developing the application, we need:  
+- sptial mapping: get the model of indoor space  
+- spatial localization  
+- path generation: navigation algorithm  
+- instruction visualization
+  
+For the part about user study design, please refer to: *Doctoral Colloquium—Towards a Better User Interface of Augmented Reality Based Indoor Navigation Application*.  
+  
+There are four ways to develop it:  
+- Local Anchor–Predefined Path Approach: no network, prototype, predefined.  
+- Local Anchor–Generated Path Approach: more flexible, allow to set the first target.  
+- Cloud Anchor–Predefined Path Approach: with network  
+- Cloud Anchor–Generated Path Approach: with network
+### Results
+Discuss some points about MR system development.
+### Remark
+A basic workflow which can be referred.
