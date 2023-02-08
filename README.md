@@ -2,10 +2,6 @@
 Master Graduate Thesis Materials
 
 ## Plan
-Testers: April  
-Design: March - April  
-Exp: May  
-Paper writing: July - August  
 ```mermaid
 gantt
     title Timeline for graduate thesis
