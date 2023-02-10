@@ -127,3 +127,14 @@ There are four ways to develop it:
 Discuss some points about MR system development.
 ### Remark
 A basic workflow which can be referred.
+## Spatial knowledge acquisition with virtual semantic landmarks in mixed reality-based indoor navigation
+### Detail
+[Spatial knowledge acquisition with virtual semantic landmarks in mixed reality-based indoor navigation](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/BingLiu/Spatial%20knowledge%20acquisition%20with%20virtual%20semantic%20landmarks%20in%20mixed%20reality%20based%20indoor%20navigation.pdf), 《Cartography and Geographic Information Science》, 2021, SCI 3, JCR Q3, IF 2.354
+### Introduction
+Set virtual landmarks which are hardly seen in the indoor environment. The research assumes that the virual landmarks should assist spatial learning.
+### Methods
+Choose an area in TUM campus with similar outlooks (white wall and grey door). There are rooms with different functions but without salient landmarks. There are 28 participants. The experiment uses *Q1-Q15, Santa Barbara Sense of Direction Scale* to measure the spatial learning performance.
+### Result
+The result shows that the MR and virtual landmarks are helpful for indoor spatial learning, and most volunteers give positive feedback to the application.
+### Remark
+The paper gives reference to the experiment design related to spatial settings.
