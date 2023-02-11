@@ -138,3 +138,15 @@ Choose an area in TUM campus with similar outlooks (white wall and grey door). T
 The result shows that the MR and virtual landmarks are helpful for indoor spatial learning, and most volunteers give positive feedback to the application.
 ### Remark
 The paper gives reference to the experiment design related to spatial settings.
+## Wayfinding Behavior and Spatial Knowledge Acquisition: Are They the Same in Virtual Reality and in Real-World Environments?
+### Detail
+[Wayfinding Behavior and Spatial Knowledge Acquisition: Are They the Same in Virtual Reality and in Real-World Environments?](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/BingLiu/Wayfinding%20Behavior%20and%20Spatial%20Knowledge%20Acquisition_Are%20They%20the%20Same%20in%20Virtual%20Reality%20%20and%20in%20Real-World%20Environments.pdf), 《Annals of the American Association of Geographers》, 2021, SCI 2, JCR Q1, IF 3.982
+### Introduction
+Use eye-tracking to track the eye movement, in order to understand users' focus. The paper assumes that pedestrians in iVR would exhibit the same wayfinding behavior and obtain equivalent spatial knowledge compared with pedestrians in real environment.
+### Methods
+40 participants in iVR and 25 in RE, with a table to evaluate their performance. The iVR environment is carried by HMD. The participants need to draw the sketch and recall the focus process.  
+After that, data process is required. Way-finding efficiency and effectiveness are measured. The paper use many metrics to quantify these concepts. 
+### Result
+The result shows that the the efficiency is similar under two kind of situations. But iVR users show more active feedback to the sketching task... And some other comparisons. iVR users might have better performance on spatial learning under normalized situation.
+### Remark
+A new idea: eye-tracking.
