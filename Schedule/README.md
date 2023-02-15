@@ -1,0 +1,1 @@
+**For initial proposals, please refer to the material from wiki, especially for [conference records](https://github.com/hinczhang/GraduteThesis_Master/wiki/Weekly-Conference-Record) and [schedule draft](https://github.com/hinczhang/GraduteThesis_Master/wiki/Schedule).**
