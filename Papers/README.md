@@ -150,3 +150,14 @@ After that, data process is required. Way-finding efficiency and effectiveness a
 The result shows that the the efficiency is similar under two kind of situations. But iVR users show more active feedback to the sketching task... And some other comparisons. iVR users might have better performance on spatial learning under normalized situation.
 ### Remark
 A new idea: eye-tracking.
+## Doctoral Colloquium—Towards a Better User Interface of Augmented Reality Based Indoor Navigation Application
+### Detail
+[Doctoral Colloquium—Towards a Better User Interface of Augmented Reality Based Indoor Navigation Application](https://github.com/hinczhang/GraduteThesis_Master/blob/main/Papers/BingLiu/Doctoral_ColloquiumTowards_a_Better_User_Interface_of_Augmented_Reality_Based_Indoor_Navigation_Application.pdf), 2020, Conference
+### Introduction
+Try to investigate influence on spatial learning from arrows (or any other marks to navigate) with different types.
+### Methods
+Use volunteers with different arrows and require them to recall the routes and some details
+### Results
+AR is a good tool for indoor navigation, but insufficient designs might lead to security.
+### Remark
+Just some general remarks.
