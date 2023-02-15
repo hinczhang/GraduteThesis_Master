@@ -22,4 +22,7 @@ gantt
     Sup. exp. and anlysis           :c5, 2023-06-01, 30d
 ```
 ## Scheduled meeting
-Every Thursday or Friday
+Every Thursday or Friday.
+
+## Paper work
+Please refer to [the sharelatex site](https://sharelatex.tum.de/project/63a8a5565ac510008631f18f) of TU Munich.
