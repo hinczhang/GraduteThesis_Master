@@ -18,7 +18,7 @@ gantt
     Tech. learning and plan         :c1, after a1, 20d
     Design and deploy               :c2, after c1, 40d
     Searching volunteers            :crit, c3, 2023-04-01, 60d
-    Iterative experiment            :crit, c4, after c2, 60d
+    Iterative exp. and design       :crit, c4, after c2, 60d
     Sup. exp. and anlysis           :c5, 2023-06-01, 30d
 ```
 ## Scheduled meeting
