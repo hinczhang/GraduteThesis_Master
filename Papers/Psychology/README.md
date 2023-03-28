@@ -22,6 +22,5 @@
 为了让低SOD用户的学习能力，建议控制信息量。学习者需要的空间信息量取决于环境的复杂性，并且在包含不同路径和不规则地理特征的环境中是不等价的。信息需求的差异似乎提供了一种以目标为导向的方式来减少错误。
 ### Spatial knowledge acquired from first-person and dynamic map perspectives
 考虑结合缩略地图增强多视角学习  
-https://link.springer.com/article/10.1007/s00426-020-01384-3  
-https://link.springer.com/article/10.1007/s00426-020-01415-z  
-(待看)
+### Acquisition of landmark, route, and survey knowledge in a wayfinding task: in stages or in parallel?
+表明landmark knowledge，route knowledge以及survey knowledge是在空间学习中并行产生的。
