@@ -24,3 +24,5 @@
 考虑结合缩略地图增强多视角学习  
 ### Acquisition of landmark, route, and survey knowledge in a wayfinding task: in stages or in parallel?
 表明landmark knowledge，route knowledge以及survey knowledge是在空间学习中并行产生的。
+### Where are we going and where have we been? Examining the effects of maps on spatial learning in an indoor guided navigation task
+该文章表明对于高SOD和低SOD的人地图的作用是不同的，对于低SOD用户，复杂的地图会明显降低其空间学习性能，而非常复杂的地图也会让高SOD的人抱怨，并且可能会使其忽略地图中存在的很多细节以达到把握全局的学习效果。
