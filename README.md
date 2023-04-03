@@ -16,7 +16,7 @@ gantt
         Paper draft                     : b2, 2023-07-01, 30d
         Paper refine                    : crit, b3, after b2, 15d
         Paper submit                    : milestone, m2, after b3, 1d
-        Slides                          : b4, after b3, 7d
+        Slides & Poster                 : b4, after b3, 7d
     section Thesis work
         Tech. learning and plan         : active, c1, after a1, 40d
         Design and deploy               : c2, after c1, 30d
