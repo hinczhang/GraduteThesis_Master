@@ -2,7 +2,7 @@
 Master Graduate Thesis Materials
 
 ## Plan
-```mermaid
+```mermaid{dpi:300}
 gantt
     title Timeline for graduate thesis
     dateFormat  YYYY-MM-DD
