@@ -12,8 +12,9 @@ gantt
         Longterm reading                : a3, after a2, 60d
     section Paper work
         ERP                             : crit, b1, 2023-04-01, 15d
+        Initialization done             : milestone, m1, 2023-04-15
         Paper draft                     : b2, 2023-07-01, 30d
-        Paper refinement                : crit, b3, after b2, 15d
+        Paper refine                    : crit, b3, after b2, 15d
         Slides                          : b4, after b3, 7d
     section Thesis work
         Tech. learning and plan         : active, c1, after a1, 40d
