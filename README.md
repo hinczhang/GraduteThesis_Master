@@ -16,11 +16,11 @@ gantt
         Paper refinement                : crit, b3, after b2, 15d
         Slides                          : b4, after b3, 7d
     section Thesis work
-        Tech. learning and plan         : active, c1, after a1, 50d
+        Tech. learning and plan         : active, c1, after a1, 40d
         Design and deploy               : c2, after c1, 40d
-        Searching volunteers            : crit, c3, 2023-04-15, 90d
-        Iterative exp. and design       : crit, c4, after c2, 90d
-        Sup. exp. and anlysis           : c5, 2023-06-01, 30d
+        Searching volunteers            : crit, c3, 2023-04-15, 80d
+        Iterative exp. and design       : crit, c4, after c2, 80d
+        Sup. exp. and anlysis           : c5, 2023-07-01, 30d
 ```
 ## Scheduled meeting
 Every Thursday or Friday.
