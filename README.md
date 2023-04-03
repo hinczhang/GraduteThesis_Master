@@ -8,12 +8,13 @@ gantt
     dateFormat  YYYY-MM-DD
     section Paper reading
     Initial understand              : a1, 2023-02-05, 15d
-    Basic reading                   :active, a2, after a1, 20d
-    Longterm reading                :2023-03-31, 60d
+    Basic reading                   : a2, after a1, 30d
+    Longterm reading                : a3, after a2, 60d
     section Paper work
-    ERP                             :crit, b1, 2023-03-15, 15d
-    Paper                           :crit, b2, 2023-07-01, 15d
-    Slides                          :b3, after b2, 7d
+    ERP                             : crit, b1, 2023-04-01, 15d
+    Paper draft                     : b2, 2023-07-01, 30d
+    Paper refinement                : crit, b3, after b2, 15d
+    Slides                          : b4, after b3, 7d
     section Thesis work
     Tech. learning and plan         :active, c1, after a1, 20d
     Design and deploy               :c2, after c1, 40d
