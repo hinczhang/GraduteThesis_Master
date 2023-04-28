@@ -5,10 +5,12 @@ using System.IO;
 using Microsoft.MixedReality.Toolkit.UI;
 using Microsoft.MixedReality.Toolkit.Input;
 
-public class testGettingObj : MonoBehaviour, IMixedRealityPointerHandler
+public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
 {
     // private GameObject obj;
     List<VirtualLandmark> landmarks = new List<VirtualLandmark>();
+    // TODO: 将landmarks的List改为Dictionary，key为name，value为VirtualLandmark
+    // TODO: 将各个object的name集成在HashSet<string>中，用于判断是否存在，因为我们只对研究对象object进行操作
 
     // Start is called before the first frame update
     void Start()
@@ -68,48 +70,19 @@ public class testGettingObj : MonoBehaviour, IMixedRealityPointerHandler
 
     }
 
-    public void OnPointerDown(MixedRealityPointerEventData eventData)
+    void IMixedRealityFocusHandler.OnFocusEnter(FocusEventData eventData)
     {
-        // 按下目光时的处理
-    }
+        // 获取被注视的游戏对象
+        GameObject focusedObject = eventData.NewFocusedObject;
 
-    public void OnPointerDragged(MixedRealityPointerEventData eventData)
-    {
-        // 点击目光时的处理
-        if (eventData.MixedRealityInputAction == MixedRealityInputAction.None)
+        // 如果找到了匹配的Cube对象，则将其变色
+        if (focusedObject != null)
         {
-            // 没有指定任何输入操作
-            return;
+            Debug.Log("Focused Object: " + focusedObject.name);
         }
-
-        // 获取当前目光指向的物体
-        GameObject focusedObject = eventData.Pointer.Result.CurrentPointerTarget;
-        if (focusedObject == null)
-        {
-            return;
-        } else {
-            MeshRenderer renderer;
-            if (focusedObject.TryGetComponent<MeshRenderer>(out renderer)) {
-                // 访问renderer组件
-                renderer = focusedObject.GetComponent<MeshRenderer>();
-                renderer.material.color = Color.green;
-                
-            } else {
-                // 没有renderer组件
-                renderer = focusedObject.AddComponent<MeshRenderer>();
-                renderer.material.color = Color.green;
-            }   
-        }
-        // 对目标进行处理
-        // ...
     }
 
-    public void OnPointerUp(MixedRealityPointerEventData eventData)
-    {
-        // 松开目光时的处理
-    }
-
-    public void OnPointerClicked(MixedRealityPointerEventData eventData)
+    void IMixedRealityFocusHandler.OnFocusExit(FocusEventData eventData)
     {
         
     }
