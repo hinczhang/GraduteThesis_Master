@@ -9,16 +9,35 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
 {
     // private GameObject obj;
     List<VirtualLandmark> landmarks = new List<VirtualLandmark>();
-    // TODO: 将landmarks的List改为Dictionary，key为name，value为VirtualLandmark
-    // TODO: 将各个object的name集成在HashSet<string>中，用于判断是否存在，因为我们只对研究对象object进行操作
+    Dictionary<string, VirtualLandmark> landmarksDict = new Dictionary<string, VirtualLandmark>();
+    HashSet<string> objectNames = new HashSet<string>();
+    Camera mainCamera;
+
+    void Awake()
+    {
+        // Get main camera
+        mainCamera = Camera.main;
+        if (mainCamera != null)
+        {
+            Debug.Log("Main camera found: " + mainCamera.name);
+            Vector3 cameraPosition = mainCamera.transform.position;
+            Debug.Log("Camera position: " + cameraPosition);
+        }
+        else
+        {
+            Debug.Log("Main camera not found!");
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        
+
+        // Get all landmarks
         string scenePath = Application.dataPath + "/Codes/landmarks.json";
         string sceneJson = File.ReadAllText(scenePath);
         ArrayData sceneData = JsonUtility.FromJson<ArrayData>(sceneJson);
-        Debug.Log(sceneData.objs.Count);
         foreach (var item in sceneData.objs) {
             GameObject obj = GameObject.Find(item.name);
             if(obj == null) {
@@ -34,32 +53,12 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
             
             landmark.SetGameObject(ref obj);
             landmarks.Add(landmark);
+            landmarksDict.Add(item.name, landmark);
+            objectNames.Add(item.name);
         }
         foreach (var item in landmarks) {
             GameObject obj = item.GetGameObject();
-            MeshRenderer renderer;
-            if (obj.TryGetComponent<MeshRenderer>(out renderer)) {
-                // 访问renderer组件
-                renderer = obj.GetComponent<MeshRenderer>();
-                if (item.GetLandmarkType() == VirtualLandmarkType.PRIMARY) {
-                    renderer.material.color = Color.red;
-                } else if (item.GetLandmarkType() == VirtualLandmarkType.SECONDARY) {
-                    renderer.material.color = Color.yellow;
-                } else {
-                    renderer.material.color = Color.blue;
-                }
-            } else {
-                // 没有renderer组件
-                renderer = obj.AddComponent<MeshRenderer>();
-                if (item.GetLandmarkType() == VirtualLandmarkType.PRIMARY) {
-                    renderer.material.color = Color.red;
-                } else if (item.GetLandmarkType() == VirtualLandmarkType.SECONDARY) {
-                    renderer.material.color = Color.yellow;
-                } else {
-                    renderer.material.color = Color.blue;
-                }
-            }
-            
+            setColor(ref obj, item.GetLandmarkType(), Color.white);
         }
         
     }
@@ -67,23 +66,72 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
     // Update is called once per frame
     void Update()
     {
-
+        /* Camera positioning test.
+        *    if(mainCamera != null) {
+        *        Vector3 cameraPosition = mainCamera.transform.position;
+        *        Debug.Log("Camera position: " + cameraPosition);
+        *    }
+        */
     }
 
     void IMixedRealityFocusHandler.OnFocusEnter(FocusEventData eventData)
     {
-        // 获取被注视的游戏对象
+        // Get the object being focused on
         GameObject focusedObject = eventData.NewFocusedObject;
 
-        // 如果找到了匹配的Cube对象，则将其变色
-        if (focusedObject != null)
+        // Change color if the object is found
+        if (focusedObject != null && objectNames.Contains(focusedObject.name))
         {
-            Debug.Log("Focused Object: " + focusedObject.name);
+            VirtualLandmarkType type = landmarksDict[focusedObject.name].GetLandmarkType();
+            setColor(ref focusedObject, type, Color.green);
         }
     }
 
     void IMixedRealityFocusHandler.OnFocusExit(FocusEventData eventData)
     {
+        // Get the object being focused on
+        GameObject focusedObject = eventData.OldFocusedObject;
+
+        // Change color if the object is found
+        if (focusedObject != null && objectNames.Contains(focusedObject.name))
+        {
+            VirtualLandmarkType type = landmarksDict[focusedObject.name].GetLandmarkType();
+            setColor(ref focusedObject, type, Color.white);
+        }
         
+    }
+
+    private void setColor(ref GameObject obj, VirtualLandmarkType type, Color color) {
+        MeshRenderer renderer;
+        if (obj.TryGetComponent<MeshRenderer>(out renderer)) {
+            // Visit the renderer component
+            renderer = obj.GetComponent<MeshRenderer>();
+            if(color == Color.white) {
+                if (type == VirtualLandmarkType.PRIMARY) {
+                    renderer.material.color = Color.red;
+                } else if (type == VirtualLandmarkType.SECONDARY) {
+                    renderer.material.color = Color.yellow;
+                } else {
+                    renderer.material.color = Color.blue;
+                }
+            } else {
+                renderer.material.color = color;
+            }
+            
+        } else {
+            // No renderer component found, add one
+            renderer = obj.AddComponent<MeshRenderer>();
+            if(color == Color.white) {
+                if (type == VirtualLandmarkType.PRIMARY) {
+                    renderer.material.color = Color.red;
+                } else if (type == VirtualLandmarkType.SECONDARY) {
+                    renderer.material.color = Color.yellow;
+                } else {
+                    renderer.material.color = Color.blue;
+                }
+            } else {
+                renderer.material.color = color;
+            }
+        }
     }
 }

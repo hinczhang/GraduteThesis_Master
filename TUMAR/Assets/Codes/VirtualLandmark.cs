@@ -50,48 +50,7 @@ public class VirtualLandmark : BaseEyeFocusHandler
     {
         
     }
-    /*
-    protected override void OnEyeFocusStart()
-    {
-        MeshRenderer renderer;
-        if (obj.TryGetComponent<MeshRenderer>(out renderer)) {
-            // 访问renderer组件
-            renderer = obj.GetComponent<MeshRenderer>();
-            renderer.material.color = Color.green;
-            
-        } else {
-            // 没有renderer组件
-            renderer = obj.AddComponent<MeshRenderer>();
-            renderer.material.color = Color.green;
-        }    
-    }
-
-    protected override void OnEyeFocusStop()
-    {
-        MeshRenderer renderer;
-        if (obj.TryGetComponent<MeshRenderer>(out renderer)) {
-            // 访问renderer组件
-            renderer = obj.GetComponent<MeshRenderer>();
-            if (landmarkType == VirtualLandmarkType.PRIMARY) {
-                renderer.material.color = Color.red;
-            } else if (landmarkType == VirtualLandmarkType.SECONDARY) {
-                renderer.material.color = Color.yellow;
-            } else {
-                renderer.material.color = Color.blue;
-            }
-        } else {
-            // 没有renderer组件
-            renderer = obj.AddComponent<MeshRenderer>();
-            if (landmarkType == VirtualLandmarkType.PRIMARY) {
-                renderer.material.color = Color.red;
-            } else if (landmarkType == VirtualLandmarkType.SECONDARY) {
-                renderer.material.color = Color.yellow;
-            } else {
-                renderer.material.color = Color.blue;
-            }
-        }    
-    }
-    */
+    
     // Set landmark id
     public void SetLandmarkId(int id)
     {
