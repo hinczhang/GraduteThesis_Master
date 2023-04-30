@@ -10,6 +10,7 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
     // private GameObject obj;
     List<VirtualLandmark> landmarks = new List<VirtualLandmark>();
     Dictionary<string, VirtualLandmark> landmarksDict = new Dictionary<string, VirtualLandmark>();
+    Dictionary<int, VirtualLandmark> landmarksIdDict = new Dictionary<int, VirtualLandmark>();
     HashSet<string> objectNames = new HashSet<string>();
     Camera mainCamera;
 
@@ -32,8 +33,6 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
     // Start is called before the first frame update
     void Start()
     {   
-        
-
         // Get all landmarks
         string scenePath = Application.dataPath + "/Codes/landmarks.json";
         string sceneJson = File.ReadAllText(scenePath);
@@ -50,11 +49,22 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
             landmark.SetLandmarkDescription(item.description);
             landmark.SetLandmarkRealName(item.realName);
             landmark.SetLandmarkType(item.type);
-            
+            if(item.type != 0) {
+                obj.SetActive(false);
+            }
             landmark.SetGameObject(ref obj);
             landmarks.Add(landmark);
             landmarksDict.Add(item.name, landmark);
+            landmarksIdDict.Add(item.id, landmark);
             objectNames.Add(item.name);
+        }
+
+        foreach (var item in sceneData.objs) {
+            if(item.type == 0) {
+                for(int i = 0; i < item.connectedIDs.Count; i++) {
+                    landmarksDict[item.name].AddConnectedLandmark(landmarksIdDict[item.connectedIDs[i]]);
+                }
+            }
         }
         foreach (var item in landmarks) {
             GameObject obj = item.GetGameObject();
@@ -84,6 +94,14 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
         {
             VirtualLandmarkType type = landmarksDict[focusedObject.name].GetLandmarkType();
             setColor(ref focusedObject, type, Color.green);
+
+            if(type == VirtualLandmarkType.PRIMARY) {
+                foreach (var item in landmarksDict[focusedObject.name].GetConnectedLandmarks()) {
+                    GameObject obj = item.GetGameObject();
+                    obj.SetActive(true);
+                    // setColor(ref obj, item.GetLandmarkType(), Color.green);
+                }
+            }
         }
     }
 
