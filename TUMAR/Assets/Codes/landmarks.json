@@ -1,5 +1,6 @@
 {
-  "objs": [ {"id": 1,
+  "objs": [ 
+            {"id": 1,
               "type": 2,
               "name": "GlassDoor_A-B",
               "realName": "Glass door",

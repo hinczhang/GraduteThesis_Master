@@ -8,11 +8,12 @@ using Microsoft.MixedReality.Toolkit.Input;
 public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
 {
     // private GameObject obj;
-    List<VirtualLandmark> landmarks = new List<VirtualLandmark>();
-    Dictionary<string, VirtualLandmark> landmarksDict = new Dictionary<string, VirtualLandmark>();
-    Dictionary<int, VirtualLandmark> landmarksIdDict = new Dictionary<int, VirtualLandmark>();
-    HashSet<string> objectNames = new HashSet<string>();
-    Camera mainCamera;
+    private List<VirtualLandmark> landmarks = new List<VirtualLandmark>();
+    private List<ChunkLandmark> chunks = new List<ChunkLandmark>();
+    private Dictionary<string, VirtualLandmark> landmarksDict = new Dictionary<string, VirtualLandmark>();
+    private Dictionary<int, VirtualLandmark> landmarksIdDict = new Dictionary<int, VirtualLandmark>();
+    private HashSet<string> objectNames = new HashSet<string>();
+    private Camera mainCamera;
 
     void Awake()
     {
@@ -20,19 +21,15 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
         mainCamera = Camera.main;
         if (mainCamera != null)
         {
-            Debug.Log("Main camera found: " + mainCamera.name);
+            /* Debug.Log("Main camera found: " + mainCamera.name);
             Vector3 cameraPosition = mainCamera.transform.position;
-            Debug.Log("Camera position: " + cameraPosition);
+            Debug.Log("Camera position: " + cameraPosition); */
         }
         else
         {
             Debug.Log("Main camera not found!");
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {   
+      
         // Get all landmarks
         string scenePath = Application.dataPath + "/Codes/landmarks.json";
         string sceneJson = File.ReadAllText(scenePath);
@@ -49,9 +46,10 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
             landmark.SetLandmarkDescription(item.description);
             landmark.SetLandmarkRealName(item.realName);
             landmark.SetLandmarkType(item.type);
-            if(item.type != 0) {
+            /* if(item.type != 0) {
                 obj.SetActive(false);
-            }
+            }*/ 
+            obj.SetActive(false);
             landmark.SetGameObject(ref obj);
             landmarks.Add(landmark);
             landmarksDict.Add(item.name, landmark);
@@ -71,6 +69,23 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
             setColor(ref obj, item.GetLandmarkType(), Color.white);
         }
         
+        // Get chunks
+        string chunkPath = Application.dataPath + "/Codes/chunks.json";
+        string chunkJson = File.ReadAllText(chunkPath);
+        ArrayChunk chunkData = JsonUtility.FromJson<ArrayChunk>(chunkJson);
+        foreach (var chunk in chunkData.chunks) {
+            ChunkLandmark chunkObj = GameObject.Find(chunk.name).GetComponent<ChunkLandmark>();
+            chunkObj.SetChunkName(chunk.name);
+            foreach (var id in chunk.objs) {
+                chunkObj.AddChunkObj(landmarksIdDict[id].GetGameObject());
+            }
+            chunks.Add(chunkObj);
+        }
+    }
+
+    // Start is called before the first frame update
+    void Start() {
+
     }
 
     // Update is called once per frame
