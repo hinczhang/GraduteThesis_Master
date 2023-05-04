@@ -91,12 +91,7 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
     // Update is called once per frame
     void Update()
     {
-        /* Camera positioning test.
-        *    if(mainCamera != null) {
-        *        Vector3 cameraPosition = mainCamera.transform.position;
-        *        Debug.Log("Camera position: " + cameraPosition);
-        *    }
-        */
+        
     }
 
     void IMixedRealityFocusHandler.OnFocusEnter(FocusEventData eventData)
@@ -109,7 +104,7 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
         {
             VirtualLandmarkType type = landmarksDict[focusedObject.name].GetLandmarkType();
             setColor(ref focusedObject, type, Color.green);
-
+            setText(ref focusedObject, landmarksDict[focusedObject.name].GetLandmarkDescription());
             if(type == VirtualLandmarkType.PRIMARY) {
                 foreach (var item in landmarksDict[focusedObject.name].GetConnectedLandmarks()) {
                     GameObject obj = item.GetGameObject();
@@ -166,5 +161,26 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
                 renderer.material.color = color;
             }
         }
+    }
+
+    private void setText(ref GameObject obj, string description) {
+        // 创建一个空对象
+        GameObject textObject = new GameObject("Text");
+
+        // 将该对象添加到 cube 上
+        Camera mainCamera = Camera.main;
+        Vector3 cameraPos = mainCamera.transform.position;
+        Vector3 cameraForward = mainCamera.transform.forward;
+        Vector3 textPosition = cameraPos + cameraForward * 0.05f + Vector3.up * 0.2f;
+        textObject.transform.position = textPosition;
+
+        // 添加 TextMesh 组件
+        TextMesh textMesh = textObject.AddComponent<TextMesh>();
+
+        // 设置 TextMesh 的属性
+        textMesh.text = "提示信息";
+        textMesh.fontSize = 5;
+        textMesh.color = Color.blue;
+        textMesh.alignment = TextAlignment.Center;
     }
 }
