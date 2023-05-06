@@ -4,19 +4,26 @@ using UnityEngine;
 using System.IO;
 using Microsoft.MixedReality.Toolkit.UI;
 using Microsoft.MixedReality.Toolkit.Input;
+using UnityEngine.UI;
 
 public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
 {
     // private GameObject obj;
     private List<VirtualLandmark> landmarks = new List<VirtualLandmark>();
-    private List<ChunkLandmark> chunks = new List<ChunkLandmark>();
+    public static List<ChunkLandmark> chunks = new List<ChunkLandmark>();
     private Dictionary<string, VirtualLandmark> landmarksDict = new Dictionary<string, VirtualLandmark>();
-    private Dictionary<int, VirtualLandmark> landmarksIdDict = new Dictionary<int, VirtualLandmark>();
+    public static Dictionary<int, VirtualLandmark> landmarksIdDict = new Dictionary<int, VirtualLandmark>();
     private HashSet<string> objectNames = new HashSet<string>();
     private Camera mainCamera;
+    private RawImage miniMap;
+    private GameObject Environment;
+    private int minimapLayer;
 
     void Awake()
     {
+        miniMap = GameObject.Find("MiniMap").GetComponent<RawImage>();
+        Environment = GameObject.Find("Environment");
+        minimapLayer = LayerMask.NameToLayer("MinimapObjects");
         // Get main camera
         mainCamera = Camera.main;
         if (mainCamera != null)
@@ -36,6 +43,7 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
         ArrayData sceneData = JsonUtility.FromJson<ArrayData>(sceneJson);
         foreach (var item in sceneData.objs) {
             GameObject obj = GameObject.Find(item.name);
+
             if(obj == null) {
                 Debug.Log("Object not found: " + item.id);
                 continue;
@@ -46,6 +54,21 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
             landmark.SetLandmarkDescription(item.description);
             landmark.SetLandmarkRealName(item.realName);
             landmark.SetLandmarkType(item.type);
+
+            Vector3 spherePosition = new Vector3(obj.transform.position.x, obj.transform.position.y + 5, obj.transform.position.z);
+            GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            sphere.name = item.name + "_sphere";
+            sphere.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            sphere.transform.position = spherePosition;
+            sphere.layer = minimapLayer;
+            sphere.transform.SetParent(Environment.transform, false);
+            sphere.SetActive(true);
+            switch(item.type) {
+                case 0: setColor(ref sphere, VirtualLandmarkType.PRIMARY, Color.white); break;
+                case 1: setColor(ref sphere, VirtualLandmarkType.SECONDARY, Color.white); break;
+                case 2: setColor(ref sphere, VirtualLandmarkType.NOT_SHOW, Color.white); break;
+                default: setColor(ref sphere, VirtualLandmarkType.NOT_SHOW, Color.white); break;
+            }
             /* if(item.type != 0) {
                 obj.SetActive(false);
             }*/ 
@@ -125,6 +148,7 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
         {
             VirtualLandmarkType type = landmarksDict[focusedObject.name].GetLandmarkType();
             setColor(ref focusedObject, type, Color.white);
+            DestroyImmediate(GameObject.Find("Text_Notation"));
         }
         
     }
@@ -165,21 +189,22 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
 
     private void setText(ref GameObject obj, string description) {
         // 创建一个空对象
-        GameObject textObject = new GameObject("Text");
+        GameObject textObject = new GameObject("Text_Notation");
 
         // 将该对象添加到 cube 上
         Camera mainCamera = Camera.main;
-        Vector3 cameraPos = mainCamera.transform.position;
         Vector3 cameraForward = mainCamera.transform.forward;
-        Vector3 textPosition = cameraPos + cameraForward * 0.05f + Vector3.up * 0.2f;
+        Vector3 textPosition = obj.transform.position - cameraForward * 0.05f;
         textObject.transform.position = textPosition;
+        textObject.transform.forward = obj.transform.forward;
 
         // 添加 TextMesh 组件
         TextMesh textMesh = textObject.AddComponent<TextMesh>();
 
         // 设置 TextMesh 的属性
-        textMesh.text = "提示信息";
-        textMesh.fontSize = 5;
+        textMesh.text = "test";
+        textMesh.fontSize = 36;
+        textMesh.characterSize = 0.02f;
         textMesh.color = Color.blue;
         textMesh.alignment = TextAlignment.Center;
     }
