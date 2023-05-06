@@ -14,6 +14,7 @@ public class InfoData
     public string name;
     public string realName;
     public string description;
+    public List<int> connectedIDs;
 }
 
 [Serializable]
@@ -37,7 +38,7 @@ public class VirtualLandmark : BaseEyeFocusHandler
     private string landmarkDescription;
     private string landmarkRealName;
     private VirtualLandmarkType landmarkType;
-    private Dictionary<int, VirtualLandmark> connectedLandmarks;
+    private List<VirtualLandmark> connectedLandmarks = new List<VirtualLandmark>();
     private GameObject obj;
     // Start is called before the first frame update
     void Start()
@@ -50,48 +51,7 @@ public class VirtualLandmark : BaseEyeFocusHandler
     {
         
     }
-    /*
-    protected override void OnEyeFocusStart()
-    {
-        MeshRenderer renderer;
-        if (obj.TryGetComponent<MeshRenderer>(out renderer)) {
-            // 访问renderer组件
-            renderer = obj.GetComponent<MeshRenderer>();
-            renderer.material.color = Color.green;
-            
-        } else {
-            // 没有renderer组件
-            renderer = obj.AddComponent<MeshRenderer>();
-            renderer.material.color = Color.green;
-        }    
-    }
-
-    protected override void OnEyeFocusStop()
-    {
-        MeshRenderer renderer;
-        if (obj.TryGetComponent<MeshRenderer>(out renderer)) {
-            // 访问renderer组件
-            renderer = obj.GetComponent<MeshRenderer>();
-            if (landmarkType == VirtualLandmarkType.PRIMARY) {
-                renderer.material.color = Color.red;
-            } else if (landmarkType == VirtualLandmarkType.SECONDARY) {
-                renderer.material.color = Color.yellow;
-            } else {
-                renderer.material.color = Color.blue;
-            }
-        } else {
-            // 没有renderer组件
-            renderer = obj.AddComponent<MeshRenderer>();
-            if (landmarkType == VirtualLandmarkType.PRIMARY) {
-                renderer.material.color = Color.red;
-            } else if (landmarkType == VirtualLandmarkType.SECONDARY) {
-                renderer.material.color = Color.yellow;
-            } else {
-                renderer.material.color = Color.blue;
-            }
-        }    
-    }
-    */
+    
     // Set landmark id
     public void SetLandmarkId(int id)
     {
@@ -168,18 +128,15 @@ public class VirtualLandmark : BaseEyeFocusHandler
     }
 
     // Set connected landmark
-    public void SetConnectedLandmark(int id, ref VirtualLandmark landmark)
+    public void AddConnectedLandmark(VirtualLandmark landmark)
     {
-        connectedLandmarks.Add(id, landmark);
+        connectedLandmarks.Add(landmark);
     }
 
-    // Get connected landmark
-    public VirtualLandmark GetConnectedLandmark(int id)
+    // Get connected landmarks
+    public List<VirtualLandmark> GetConnectedLandmarks()
     {
-        if(connectedLandmarks.ContainsKey(id)) {
-            return connectedLandmarks[id];
-        }
-        return null;
+        return connectedLandmarks;
     }
 
     // Set GameObject
