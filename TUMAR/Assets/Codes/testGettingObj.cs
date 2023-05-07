@@ -13,24 +13,28 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
     public static List<ChunkLandmark> chunks = new List<ChunkLandmark>();
     private Dictionary<string, VirtualLandmark> landmarksDict = new Dictionary<string, VirtualLandmark>();
     public static Dictionary<int, VirtualLandmark> landmarksIdDict = new Dictionary<int, VirtualLandmark>();
+    public static Dictionary<string, GameObject> spheres = new Dictionary<string, GameObject>();
     private HashSet<string> objectNames = new HashSet<string>();
     private Camera mainCamera;
-    private RawImage miniMap;
+    private Camera miniCamera;
+    private int cameraHeight = 30;
     private GameObject Environment;
+    private GameObject loc;
     private int minimapLayer;
+
 
     void Awake()
     {
-        miniMap = GameObject.Find("MiniMap").GetComponent<RawImage>();
         Environment = GameObject.Find("Environment");
         minimapLayer = LayerMask.NameToLayer("MinimapObjects");
+        loc = GameObject.Find("Localization");
         // Get main camera
         mainCamera = Camera.main;
+        miniCamera = GameObject.Find("miniCamera").GetComponent<Camera>();
+        
         if (mainCamera != null)
         {
-            /* Debug.Log("Main camera found: " + mainCamera.name);
-            Vector3 cameraPosition = mainCamera.transform.position;
-            Debug.Log("Camera position: " + cameraPosition); */
+            miniCamera.transform.position = new Vector3(mainCamera.transform.position.x, cameraHeight, mainCamera.transform.position.z);
         }
         else
         {
@@ -57,18 +61,20 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
 
             Vector3 spherePosition = new Vector3(obj.transform.position.x, obj.transform.position.y + 5, obj.transform.position.z);
             GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            sphere.name = item.name + "_sphere";
+            sphere.name = obj.name + "_sphere";
             sphere.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             sphere.transform.position = spherePosition;
             sphere.layer = minimapLayer;
-            sphere.transform.SetParent(Environment.transform, false);
-            sphere.SetActive(true);
+            // sphere.transform.SetParent(Environment.transform, false);
+            
             switch(item.type) {
                 case 0: setColor(ref sphere, VirtualLandmarkType.PRIMARY, Color.white); break;
                 case 1: setColor(ref sphere, VirtualLandmarkType.SECONDARY, Color.white); break;
                 case 2: setColor(ref sphere, VirtualLandmarkType.NOT_SHOW, Color.white); break;
                 default: setColor(ref sphere, VirtualLandmarkType.NOT_SHOW, Color.white); break;
             }
+            sphere.SetActive(false);
+            spheres.Add(item.name, sphere);
             /* if(item.type != 0) {
                 obj.SetActive(false);
             }*/ 
@@ -97,7 +103,7 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
         string chunkJson = File.ReadAllText(chunkPath);
         ArrayChunk chunkData = JsonUtility.FromJson<ArrayChunk>(chunkJson);
         foreach (var chunk in chunkData.chunks) {
-            ChunkLandmark chunkObj = GameObject.Find(chunk.name).GetComponent<ChunkLandmark>();
+            ChunkLandmark chunkObj = GameObject.Find(chunk.name).AddComponent<ChunkLandmark>();
             chunkObj.SetChunkName(chunk.name);
             foreach (var id in chunk.objs) {
                 chunkObj.AddChunkObj(landmarksIdDict[id].GetGameObject());
@@ -114,7 +120,9 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
     // Update is called once per frame
     void Update()
     {
-        
+        miniCamera.transform.position = new Vector3(mainCamera.transform.position.x, cameraHeight, mainCamera.transform.position.z);
+        loc.transform.position = new Vector3(mainCamera.transform.position.x, 0, mainCamera.transform.position.z);
+        loc.transform.rotation = Quaternion.Euler(0, mainCamera.transform.rotation.eulerAngles.y, 0);
     }
 
     void IMixedRealityFocusHandler.OnFocusEnter(FocusEventData eventData)
@@ -132,6 +140,7 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
                 foreach (var item in landmarksDict[focusedObject.name].GetConnectedLandmarks()) {
                     GameObject obj = item.GetGameObject();
                     obj.SetActive(true);
+                    spheres[obj.name].SetActive(true);
                     // setColor(ref obj, item.GetLandmarkType(), Color.green);
                 }
             }
