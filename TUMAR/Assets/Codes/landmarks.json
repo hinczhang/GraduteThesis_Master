@@ -18,14 +18,14 @@
               "type": 0,
               "name": "Room_Door_1757",
               "realName": "Room 1757",
-              "description": "Office.",
+              "description": "Connected Transport Systems, Prof. Antoniou",
               "connectedIDs": [4, 5]
             },
             {"id": 4,
               "type": 1,
               "name": "Room_Door_1755",
               "realName": "Room 1755",
-              "description": "Office.",
+              "description": "Chair of Traffic Engineering, Prof. Bogenberger",
               "connectedIDs": []
             },
             {"id": 5,
@@ -158,7 +158,7 @@
               "type": 1,
               "name": "Room_Door_1784",
               "realName": "Room 1784",
-              "description": "Room 1784",
+              "description": "LRZ node.",
               "connectedIDs": []
             },
             {"id": 24,
@@ -347,7 +347,7 @@
               "type": 0,
               "name": "Room_Door_1795A",
               "realName": "Room 1795 A",
-              "description": "Office.",
+              "description": "Emergency balcony.",
               "connectedIDs": [51]
             },
             {"id": 51,
@@ -522,7 +522,7 @@
               "type": 1,
               "name": "Room_Door_1717",
               "realName": "Room 1717",
-              "description": "Office.",
+              "description": "Hydrology & River Basin Management, Prof. Disse.",
               "connectedIDs": []
             },
             {"id": 76,
