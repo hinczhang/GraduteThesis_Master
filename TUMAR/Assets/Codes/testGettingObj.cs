@@ -205,13 +205,13 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
         Vector3 cameraForward = mainCamera.transform.forward;
         Vector3 textPosition = obj.transform.position - cameraForward * 0.05f;
         textObject.transform.position = textPosition;
-        textObject.transform.forward = obj.transform.forward;
+        textObject.transform.forward = mainCamera.transform.forward;
 
         // 添加 TextMesh 组件
         TextMesh textMesh = textObject.AddComponent<TextMesh>();
 
         // 设置 TextMesh 的属性
-        textMesh.text = "test";
+        textMesh.text = description;
         textMesh.fontSize = 36;
         textMesh.characterSize = 0.02f;
         textMesh.color = Color.blue;
