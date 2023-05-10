@@ -45,6 +45,8 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
         string scenePath = Application.dataPath + "/Codes/landmarks.json";
         string sceneJson = File.ReadAllText(scenePath);
         ArrayData sceneData = JsonUtility.FromJson<ArrayData>(sceneJson);
+
+        int colorID = 0;
         foreach (var item in sceneData.objs) {
             GameObject obj = GameObject.Find(item.name);
 
@@ -67,11 +69,16 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
             sphere.layer = minimapLayer;
             // sphere.transform.SetParent(Environment.transform, false);
             
-            switch(item.type) {
+            /* switch(item.type) {
                 case 0: setColor(ref sphere, VirtualLandmarkType.PRIMARY, Color.white); break;
                 case 1: setColor(ref sphere, VirtualLandmarkType.SECONDARY, Color.white); break;
                 case 2: setColor(ref sphere, VirtualLandmarkType.NOT_SHOW, Color.white); break;
                 default: setColor(ref sphere, VirtualLandmarkType.NOT_SHOW, Color.white); break;
+            }*/
+            if(item.type == 0) {
+                landmark.SetLandmarkColor(ColorUtility.GetColorById(colorID%ColorUtility.GetLength() + 1));
+                setColor(ref obj, VirtualLandmarkType.PRIMARY, landmark.GetLandmarkColor());
+                setColor(ref sphere, VirtualLandmarkType.PRIMARY, landmark.GetLandmarkColor());
             }
             sphere.SetActive(false);
             spheres.Add(item.name, sphere);
@@ -84,19 +91,23 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
             landmarksDict.Add(item.name, landmark);
             landmarksIdDict.Add(item.id, landmark);
             objectNames.Add(item.name);
+            colorID++;
         }
 
         foreach (var item in sceneData.objs) {
             if(item.type == 0) {
                 for(int i = 0; i < item.connectedIDs.Count; i++) {
                     landmarksDict[item.name].AddConnectedLandmark(landmarksIdDict[item.connectedIDs[i]]);
+                    string name = landmarksIdDict[item.connectedIDs[i]].GetLandmarkName();
+                    GameObject sphere = spheres[name];
+                    setColor(ref sphere, VirtualLandmarkType.SECONDARY, landmarksDict[item.name].GetLandmarkColor());
                 }
             }
         }
-        foreach (var item in landmarks) {
-            GameObject obj = item.GetGameObject();
-            setColor(ref obj, item.GetLandmarkType(), Color.white);
-        }
+        // foreach (var item in landmarks) {
+        //    GameObject obj = item.GetGameObject();
+        //    setColor(ref obj, item.GetLandmarkType(), Color.white);
+        // }
         
         // Get chunks
         string chunkPath = Application.dataPath + "/Codes/chunks.json";
@@ -123,6 +134,7 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
         miniCamera.transform.position = new Vector3(mainCamera.transform.position.x, cameraHeight, mainCamera.transform.position.z);
         loc.transform.position = new Vector3(mainCamera.transform.position.x, 0, mainCamera.transform.position.z);
         loc.transform.rotation = Quaternion.Euler(0, mainCamera.transform.rotation.eulerAngles.y, 0);
+
     }
 
     void IMixedRealityFocusHandler.OnFocusEnter(FocusEventData eventData)
@@ -134,11 +146,15 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
         if (focusedObject != null && objectNames.Contains(focusedObject.name))
         {
             VirtualLandmarkType type = landmarksDict[focusedObject.name].GetLandmarkType();
-            setColor(ref focusedObject, type, Color.green);
+            Color color = landmarksDict[focusedObject.name].GetLandmarkColor();
+            Color highlight = new Color(0f, 0.5f, 1f, 1f);
+            setColor(ref focusedObject, type, highlight);
             setText(ref focusedObject, landmarksDict[focusedObject.name].GetLandmarkDescription());
             if(type == VirtualLandmarkType.PRIMARY) {
                 foreach (var item in landmarksDict[focusedObject.name].GetConnectedLandmarks()) {
                     GameObject obj = item.GetGameObject();
+                    item.SetLandmarkColor(color);
+                    setColor(ref obj, item.GetLandmarkType(), color);
                     obj.SetActive(true);
                     spheres[obj.name].SetActive(true);
                     // setColor(ref obj, item.GetLandmarkType(), Color.green);
@@ -156,7 +172,7 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
         if (focusedObject != null && objectNames.Contains(focusedObject.name))
         {
             VirtualLandmarkType type = landmarksDict[focusedObject.name].GetLandmarkType();
-            setColor(ref focusedObject, type, Color.white);
+            setColor(ref focusedObject, type, landmarksDict[focusedObject.name].GetLandmarkColor());
             DestroyImmediate(GameObject.Find("Text_Notation"));
         }
         
@@ -167,7 +183,7 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
         if (obj.TryGetComponent<MeshRenderer>(out renderer)) {
             // Visit the renderer component
             renderer = obj.GetComponent<MeshRenderer>();
-            if(color == Color.white) {
+            /*if(color == Color.white) {
                 if (type == VirtualLandmarkType.PRIMARY) {
                     renderer.material.color = Color.red;
                 } else if (type == VirtualLandmarkType.SECONDARY) {
@@ -175,14 +191,14 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
                 } else {
                     renderer.material.color = Color.blue;
                 }
-            } else {
-                renderer.material.color = color;
-            }
+            } else {*/
+            renderer.material.color = color;
+            // }
             
         } else {
             // No renderer component found, add one
             renderer = obj.AddComponent<MeshRenderer>();
-            if(color == Color.white) {
+            /*if(color == Color.white) {
                 if (type == VirtualLandmarkType.PRIMARY) {
                     renderer.material.color = Color.red;
                 } else if (type == VirtualLandmarkType.SECONDARY) {
@@ -190,9 +206,9 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
                 } else {
                     renderer.material.color = Color.blue;
                 }
-            } else {
-                renderer.material.color = color;
-            }
+            } else {*/
+            renderer.material.color = color;
+            // }
         }
     }
 

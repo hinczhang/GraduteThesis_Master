@@ -37,6 +37,7 @@ public class VirtualLandmark : BaseEyeFocusHandler
     private string landmarkName;
     private string landmarkDescription;
     private string landmarkRealName;
+    private Color landmarkColor;
     private VirtualLandmarkType landmarkType;
     private List<VirtualLandmark> connectedLandmarks = new List<VirtualLandmark>();
     private GameObject obj;
@@ -149,6 +150,18 @@ public class VirtualLandmark : BaseEyeFocusHandler
     public GameObject GetGameObject()
     {
         return obj;
+    }
+
+    // Set landmark color
+    public void SetLandmarkColor(Color color)
+    {
+        landmarkColor = color;
+    }
+
+    // Get landmark color
+    public Color GetLandmarkColor()
+    {
+        return landmarkColor;
     }
 
 }
