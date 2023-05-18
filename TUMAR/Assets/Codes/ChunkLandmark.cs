@@ -62,10 +62,10 @@ public class ChunkLandmark : MonoBehaviour
             if (m_Collider.bounds.Contains(mainCamera.transform.position)) {
                 isActive = true;
                 foreach (var subObj in chunkObjs) {
-                    string name = subObj.name;
-                    GameObject miniObj = testGettingObj.spheres[name];
+                    // string name = subObj.name;
+                    // GameObject miniObj = EnvironmentControl.spheres[name];
                     
-                    miniObj.SetActive(true);
+                    // miniObj.SetActive(true);
                     subObj.SetActive(true);
                 }
                 // miniMap.SendMessage("reDrawMap", chunkName);

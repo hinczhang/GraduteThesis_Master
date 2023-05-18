@@ -6,67 +6,67 @@ using Microsoft.MixedReality.Toolkit.UI;
 using Microsoft.MixedReality.Toolkit.Input;
 using UnityEngine.UI;
 
-public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
+public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
 {
     // private GameObject obj;
     private List<VirtualLandmark> landmarks = new List<VirtualLandmark>();
-    public static List<ChunkLandmark> chunks = new List<ChunkLandmark>();
+    // public static List<ChunkLandmark> chunks = new List<ChunkLandmark>();
     private Dictionary<string, VirtualLandmark> landmarksDict = new Dictionary<string, VirtualLandmark>();
     public static Dictionary<int, VirtualLandmark> landmarksIdDict = new Dictionary<int, VirtualLandmark>();
-    public static Dictionary<string, GameObject> spheres = new Dictionary<string, GameObject>();
+    // public static Dictionary<string, GameObject> spheres = new Dictionary<string, GameObject>();
     private HashSet<string> objectNames = new HashSet<string>();
     private Camera mainCamera;
-    private Camera miniCamera;
+    // private Camera miniCamera;
     private int cameraHeight = 30;
-    private GameObject Environment;
-    private GameObject loc;
-    private int minimapLayer;
-
+    // private GameObject Environment;
+    // private GameObject loc;
+    // private int minimapLayer;
 
     void Awake()
     {
-        Environment = GameObject.Find("Environment");
-        minimapLayer = LayerMask.NameToLayer("MinimapObjects");
-        loc = GameObject.Find("Localization");
+        // Environment = GameObject.Find("Environment");
+        // minimapLayer = LayerMask.NameToLayer("MinimapObjects");
+        // loc = GameObject.Find("Localization");
         // Get main camera
         mainCamera = Camera.main;
-        miniCamera = GameObject.Find("miniCamera").GetComponent<Camera>();
+        // miniCamera = GameObject.Find("miniCamera").GetComponent<Camera>();
         
         if (mainCamera != null)
         {
-            miniCamera.transform.position = new Vector3(mainCamera.transform.position.x, cameraHeight, mainCamera.transform.position.z);
+            // miniCamera.transform.position = new Vector3(mainCamera.transform.position.x, cameraHeight, mainCamera.transform.position.z);
         }
         else
         {
             Debug.Log("Main camera not found!");
         }
-      
+    
+        LandmarkData data = new LandmarkData();
         // Get all landmarks
-        string scenePath = Application.dataPath + "/Codes/landmarks.json";
-        string sceneJson = File.ReadAllText(scenePath);
-        ArrayData sceneData = JsonUtility.FromJson<ArrayData>(sceneJson);
+        // string scenePath = Application.dataPath + "/Codes/landmarks.json";
+        // string sceneJson = File.ReadAllText(scenePath);
+        // ArrayData sceneData = JsonUtility.FromJson<ArrayData>(sceneJson);
 
         int colorID = 0;
-        foreach (var item in sceneData.objs) {
+        foreach (var item in data.objs) {
             GameObject obj = GameObject.Find(item.name);
-
             if(obj == null) {
                 Debug.Log("Object not found: " + item.id);
                 continue;
             }
             VirtualLandmark landmark = new VirtualLandmark();
             landmark.SetLandmarkId(item.id);
+            Debug.Log("Landmark id: " + item.id);
             landmark.SetLandmarkName(item.name);
             landmark.SetLandmarkDescription(item.description);
             landmark.SetLandmarkRealName(item.realName);
             landmark.SetLandmarkType(item.type);
 
-            Vector3 spherePosition = new Vector3(obj.transform.position.x, obj.transform.position.y + 5, obj.transform.position.z);
-            GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            sphere.name = obj.name + "_sphere";
-            sphere.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            sphere.transform.position = spherePosition;
-            sphere.layer = minimapLayer;
+            // Vector3 spherePosition = new Vector3(obj.transform.position.x, obj.transform.position.y + 5, obj.transform.position.z);
+            // GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            // sphere.name = obj.name + "_sphere";
+            // sphere.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            // sphere.transform.position = spherePosition;
+            // sphere.layer = minimapLayer;
             // sphere.transform.SetParent(Environment.transform, false);
             
             /* switch(item.type) {
@@ -78,14 +78,14 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
             if(item.type == 0) {
                 landmark.SetLandmarkColor(ColorUtility.GetColorById(colorID%ColorUtility.GetLength() + 1));
                 setColor(ref obj, VirtualLandmarkType.PRIMARY, landmark.GetLandmarkColor());
-                setColor(ref sphere, VirtualLandmarkType.PRIMARY, landmark.GetLandmarkColor());
-            }
-            sphere.SetActive(false);
-            spheres.Add(item.name, sphere);
+                // setColor(ref sphere, VirtualLandmarkType.PRIMARY, landmark.GetLandmarkColor());
+            } 
+            // sphere.SetActive(false);
+            // spheres.Add(item.name, sphere);
             /* if(item.type != 0) {
                 obj.SetActive(false);
             }*/ 
-            obj.SetActive(false);
+            // obj.SetActive(false);
             landmark.SetGameObject(ref obj);
             landmarks.Add(landmark);
             landmarksDict.Add(item.name, landmark);
@@ -94,13 +94,24 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
             colorID++;
         }
 
-        foreach (var item in sceneData.objs) {
+        foreach (var item in data.objs) {
             if(item.type == 0) {
+                Color color = landmarksDict[item.name].GetLandmarkColor();
                 for(int i = 0; i < item.connectedIDs.Count; i++) {
                     landmarksDict[item.name].AddConnectedLandmark(landmarksIdDict[item.connectedIDs[i]]);
-                    string name = landmarksIdDict[item.connectedIDs[i]].GetLandmarkName();
-                    GameObject sphere = spheres[name];
-                    setColor(ref sphere, VirtualLandmarkType.SECONDARY, landmarksDict[item.name].GetLandmarkColor());
+                    // make the color less bright
+                    Color.RGBToHSV(color, out float initialHue, out float initialSaturation, out float initialValue);
+                    float fadedValue = Mathf.Clamp01(initialSaturation * 0.5f);
+                    Color fadedColor = Color.HSVToRGB(initialHue, fadedValue, initialValue);
+                    // Color fadedColor = color;
+                    // fadedColor.a = 0.5f;
+
+                    landmarksIdDict[item.connectedIDs[i]].SetLandmarkColor(fadedColor);
+                    GameObject obj = landmarksIdDict[item.connectedIDs[i]].GetGameObject();
+                    setColor(ref obj, VirtualLandmarkType.SECONDARY, fadedColor);
+                    // string name = landmarksIdDict[item.connectedIDs[i]].GetLandmarkName();
+                    // GameObject sphere = spheres[name];
+                    //setColor(ref sphere, VirtualLandmarkType.SECONDARY, landmarksDict[item.name].GetLandmarkColor());
                 }
             }
         }
@@ -110,7 +121,13 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
         // }
         
         // Get chunks
-        string chunkPath = Application.dataPath + "/Codes/chunks.json";
+        /*
+        string chunkPath = null;
+        #if UNITY_EDITOR
+            chunkPath = Application.dataPath + "/Codes/chunks.json";
+        #else
+            chunkPath = Application.persistentDataPath + "/Codes/chunks.json";
+        #endif
         string chunkJson = File.ReadAllText(chunkPath);
         ArrayChunk chunkData = JsonUtility.FromJson<ArrayChunk>(chunkJson);
         foreach (var chunk in chunkData.chunks) {
@@ -121,6 +138,7 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
             }
             chunks.Add(chunkObj);
         }
+        */
     }
 
     // Start is called before the first frame update
@@ -131,9 +149,9 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
     // Update is called once per frame
     void Update()
     {
-        miniCamera.transform.position = new Vector3(mainCamera.transform.position.x, cameraHeight, mainCamera.transform.position.z);
-        loc.transform.position = new Vector3(mainCamera.transform.position.x, 0, mainCamera.transform.position.z);
-        loc.transform.rotation = Quaternion.Euler(0, mainCamera.transform.rotation.eulerAngles.y, 0);
+        // miniCamera.transform.position = new Vector3(mainCamera.transform.position.x, cameraHeight, mainCamera.transform.position.z);
+        // loc.transform.position = new Vector3(mainCamera.transform.position.x, 0, mainCamera.transform.position.z);
+        // loc.transform.rotation = Quaternion.Euler(0, mainCamera.transform.rotation.eulerAngles.y, 0);
 
     }
 
@@ -150,16 +168,16 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
             Color highlight = new Color(0f, 0.5f, 1f, 1f);
             setColor(ref focusedObject, type, highlight);
             setText(ref focusedObject, landmarksDict[focusedObject.name].GetLandmarkDescription());
-            if(type == VirtualLandmarkType.PRIMARY) {
+            /*if(type == VirtualLandmarkType.PRIMARY) {
                 foreach (var item in landmarksDict[focusedObject.name].GetConnectedLandmarks()) {
                     GameObject obj = item.GetGameObject();
                     item.SetLandmarkColor(color);
                     setColor(ref obj, item.GetLandmarkType(), color);
                     obj.SetActive(true);
-                    spheres[obj.name].SetActive(true);
+                    // spheres[obj.name].SetActive(true);
                     // setColor(ref obj, item.GetLandmarkType(), Color.green);
                 }
-            }
+            }*/
         }
     }
 
@@ -228,7 +246,7 @@ public class testGettingObj : MonoBehaviour, IMixedRealityFocusHandler
 
         // 设置 TextMesh 的属性
         textMesh.text = description;
-        textMesh.fontSize = 36;
+        textMesh.fontSize = 72;
         textMesh.characterSize = 0.02f;
         textMesh.color = Color.blue;
         textMesh.alignment = TextAlignment.Center;
