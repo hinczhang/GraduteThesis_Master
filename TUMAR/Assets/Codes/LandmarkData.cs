@@ -18,12 +18,24 @@ public struct DataCell
 // Meanwhile, the color of the corresponding secondary objects should be set as half saturation. We preset
 // some object types and assign them with different colors (mainly for office objects, which are full of 
 // senmantic information). Highlight all related objects if the primary object is being watched.
+
+/*************************************************************
+
+PINK: (1f, 0.5f, 0.5f, 1f), fire extinguisher
+ORANGE: (1f, 0.5f, 0f, 1f), garbage can
+SHALLOW BLUE: (0f, 0.5f, 1f, 1f), show board
+GREEN: (0f, 1f, 0f, 1f), stereoscope
+YELLOW: (1f, 1f, 0f, 1f), toilet
+
+*************************************************************/
 public class LandmarkData
 {
     public List<DataCell> objs = new List<DataCell>();
     public LandmarkData()
     {
         // Area D and G should be abondoned
+
+
         // Area A: corner area of the U route.
         objs.Add(new DataCell
         {
@@ -204,7 +216,7 @@ public class LandmarkData
             name = "Room_Door_1775",
             realName = "Room 1775",
             description = "Cartography Prof. Meng",
-            connectedIDs = new List<int> { 14, 16, 18, 22 }
+            connectedIDs = new List<int> { 14, 16, 18, 22, 44 }
         });
         objs.Add(new DataCell
         {
@@ -417,7 +429,7 @@ public class LandmarkData
         objs.Add(new DataCell
         {
             id = 44,
-            type = 0,
+            type = 1,
             name = "Room_Door_1796",
             realName = "Room 1796",
             description = "Carto Coodinator Office",
@@ -438,7 +450,7 @@ public class LandmarkData
             type = 1,
             name = "Room_Door_1780",
             realName = "Room 1780",
-            description = "Remote Sensing Dr. Office",
+            description = "PR. Dr. Office",
             connectedIDs = new List<int>()
         });
         objs.Add(new DataCell
@@ -457,16 +469,16 @@ public class LandmarkData
             name = "Room_Door_1783",
             realName = "Room 1783",
             description = "Photogrammetry & Remote Sensing Prof Office",
-            connectedIDs = new List<int> { 45 }
+            connectedIDs = new List<int> { 45, 46, 47, 49 }
         });
         objs.Add(new DataCell
         {
             id = 49,
-            type = 0,
+            type = 1,
             name = "Room_Door_1789",
             realName = "Room 1789",
-            description = "Remote Sensing Methodology, Prof. Bamler, Prof. Zhu",
-            connectedIDs = new List<int> { 46, 47 }
+            description = "PR, Prof. Bamler, Prof. Zhu",
+            connectedIDs = new List<int>()
         });
         objs.Add(new DataCell
         {
@@ -564,11 +576,11 @@ public class LandmarkData
         objs.Add(new DataCell
         {
             id = 60,
-            type = 0,
+            type = 1,
             name = "Room_Door_1743",
             realName = "Room 1743",
             description = "OpenLAB Dr. Wulfhorst",
-            connectedIDs = new List<int> { 59, 61 }
+            connectedIDs = new List<int>()
         });
         objs.Add(new DataCell
         {
@@ -605,7 +617,7 @@ public class LandmarkData
             name = "Room_Door_1734",
             realName = "Room 1734",
             description = "OpenLab City Mobility",
-            connectedIDs = new List<int> { 65 }
+            connectedIDs = new List<int> { 60, 65, 66 }
         });
         objs.Add(new DataCell
         {
@@ -619,7 +631,7 @@ public class LandmarkData
         objs.Add(new DataCell
         {
             id = 66,
-            type = 0,
+            type = 1,
             name = "Room_Door_1736",
             realName = "Room 1736",
             description = "Settlement Structure and Transport Planning, Prof. Wulfhorst.",

@@ -79,7 +79,10 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                 landmark.SetLandmarkColor(ColorUtility.GetColorById(colorID%ColorUtility.GetLength() + 1));
                 setColor(ref obj, VirtualLandmarkType.PRIMARY, landmark.GetLandmarkColor());
                 // setColor(ref sphere, VirtualLandmarkType.PRIMARY, landmark.GetLandmarkColor());
-            } 
+            }
+            if(item.type == 2) {
+                obj.SetActive(false);
+            }
             // sphere.SetActive(false);
             // spheres.Add(item.name, sphere);
             /* if(item.type != 0) {
@@ -168,6 +171,10 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
             Color highlight = new Color(0f, 0.5f, 1f, 1f);
             setColor(ref focusedObject, type, highlight);
             setText(ref focusedObject, landmarksDict[focusedObject.name].GetLandmarkDescription());
+            foreach (var item in landmarksDict[focusedObject.name].GetConnectedLandmarks()) {
+                GameObject obj = item.GetGameObject();
+                setColor(ref obj, item.GetLandmarkType(), highlight);
+            }
             /*if(type == VirtualLandmarkType.PRIMARY) {
                 foreach (var item in landmarksDict[focusedObject.name].GetConnectedLandmarks()) {
                     GameObject obj = item.GetGameObject();
@@ -191,6 +198,10 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         {
             VirtualLandmarkType type = landmarksDict[focusedObject.name].GetLandmarkType();
             setColor(ref focusedObject, type, landmarksDict[focusedObject.name].GetLandmarkColor());
+            foreach (var item in landmarksDict[focusedObject.name].GetConnectedLandmarks()) {
+                GameObject obj = item.GetGameObject();
+                setColor(ref obj, item.GetLandmarkType(), item.GetLandmarkColor());
+            }
             DestroyImmediate(GameObject.Find("Text_Notation"));
         }
         
