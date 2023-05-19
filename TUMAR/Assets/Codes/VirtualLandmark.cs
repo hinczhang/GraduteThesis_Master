@@ -31,26 +31,16 @@ public enum VirtualLandmarkType
 };
 
 
-public class VirtualLandmark : BaseEyeFocusHandler
+public class VirtualLandmark
 {
     private int landmarkId;
     private string landmarkName;
     private string landmarkDescription;
     private string landmarkRealName;
+    private Color landmarkColor;
     private VirtualLandmarkType landmarkType;
     private List<VirtualLandmark> connectedLandmarks = new List<VirtualLandmark>();
     private GameObject obj;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     // Set landmark id
     public void SetLandmarkId(int id)
@@ -149,6 +139,18 @@ public class VirtualLandmark : BaseEyeFocusHandler
     public GameObject GetGameObject()
     {
         return obj;
+    }
+
+    // Set landmark color
+    public void SetLandmarkColor(Color color)
+    {
+        landmarkColor = color;
+    }
+
+    // Get landmark color
+    public Color GetLandmarkColor()
+    {
+        return landmarkColor;
     }
 
 }

@@ -5,539 +5,616 @@
               "name": "GlassDoor_A-B",
               "realName": "Glass door",
               "description": "Glass door",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "A"
             },
             {"id": 2,
               "type": 2,
               "name": "GlassDoor_A-E",
               "realName": "Glass door",
               "description": "Glass door",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "A"
             },
             {"id": 3,
               "type": 0,
               "name": "Room_Door_1757",
               "realName": "Room 1757",
-              "description": "Office.",
-              "connectedIDs": [4, 5]
+              "description": "Connected Transport Systems, Prof. Antoniou",
+              "connectedIDs": [],
+              "__area__": "A"
             },
             {"id": 4,
-              "type": 1,
+              "type": 0,
               "name": "Room_Door_1755",
               "realName": "Room 1755",
-              "description": "Office.",
-              "connectedIDs": []
+              "description": "Chair of Traffic Engineering, Prof. Bogenberger",
+              "connectedIDs": [],
+              "__area__": "A"
             },
             {"id": 5,
-              "type": 1,
+              "type": 0,
               "name": "Restroom1",
-              "realName": "Restroom",
-              "description": "Restroom",
-              "connectedIDs": []
+              "realName": "Room 1751",
+              "description": "Toilet",
+              "connectedIDs": [],
+              "__area__": "A"
             },
             {"id": 6,
               "type": 0,
               "name": "show6",
               "realName": "Show board",
               "description": "Show board",
-              "connectedIDs": [7]
+              "connectedIDs": [7],
+              "__area__": "A"
             },
             {"id": 7,
               "type": 1,
               "name": "show7",
               "realName": "Show board",
               "description": "Show board",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "A"
             },
             {"id": 8,
-              "type": 1,
+              "type": 0,
               "name": "Room_Door_1761",
               "realName": "Room 1761",
               "description": "Hydrology & River Basin Management, Prof. Broich",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 9,
-              "type": 1,
+              "type": 0,
               "name": "Room_Door_1762",
               "realName": "Room 1762",
               "description": "Transportation Construction",
-              "connectedIDs": []
+              "connectedIDs": [10, 11, 12, 13],
+              "__area__": "B"
             },
             {"id": 10,
-              "type": 0,
+              "type": 1,
               "name": "Room_Door_1763",
               "realName": "Room 1763",
               "description": "TC Secretariat",
-              "connectedIDs": [8, 9, 11]
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 11,
               "type": 1,
               "name": "Room_Door_1766",
               "realName": "Room 1766",
               "description": "TC Library",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 12,
               "type": 1,
               "name": "Room_Door_1765",
               "realName": "Room 1765",
               "description": "TC Prof. Freudenstein",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 13,
               "type": 1,
               "name": "Room_Door_1768",
               "realName": "Room 1768",
               "description": "TC Dr. Lechner, Msc. Lillin",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 14,
-              "type": 0,
+              "type": 1,
               "name": "Room_Door_1767",
               "realName": "Room 1767",
               "description": "Carto Library",
-              "connectedIDs": [12, 13, 15, 16, 17]
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 15,
-              "type": 1,
+              "type": 0,
               "name": "Room_Door_1770",
               "realName": "Room 1770",
               "description": "Photogrammetry & Remote Sensing, workshop",
-              "connectedIDs": []
+              "connectedIDs": [17, 19, 21],
+              "__area__": "B"
             },
             {"id": 16,
               "type": 1,
               "name": "Room_Door_1769",
               "realName": "Room 1769",
               "description": "Carto Msc. office",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 17,
               "type": 1,
               "name": "Room_Door_1772",
               "realName": "Room 1772",
               "description": "PR Msc. office",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 18,
               "type": 1,
               "name": "Room_Door_1771",
               "realName": "Room 1771",
               "description": "Carto Dr. office",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 19,
               "type": 1,
               "name": "Room_Door_1774",
               "realName": "Room 1774",
               "description": "PR Msc. office",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 20,
               "type": 0,
               "name": "Room_Door_1775",
               "realName": "Room 1775",
               "description": "Cartography Prof. Meng",
-              "connectedIDs": [18, 19, 21, 22, 23]
+              "connectedIDs": [14, 16, 18, 22],
+              "__area__": "B"
             },
             {"id": 21,
               "type": 1,
               "name": "Room_Door_1776",
               "realName": "Room 1776",
               "description": "PR Msc. office",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 22,
               "type": 1,
               "name": "Room_Door_1777",
               "realName": "Room 1777",
               "description": "Cartography Prof. Meng",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 23,
-              "type": 1,
+              "type": 0,
               "name": "Room_Door_1784",
               "realName": "Room 1784",
-              "description": "Room 1784",
-              "connectedIDs": []
+              "description": "LRZ node.",
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 24,
               "type": 0,
               "name": "show8",
               "realName": "Show board",
               "description": "Show board",
-              "connectedIDs": [25, 26, 27]
+              "connectedIDs": [25, 26, 27],
+              "__area__": "B"
             },
             {"id": 25,
               "type": 1,
               "name": "show9",
               "realName": "Show board",
               "description": "Show board",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 26,
               "type": 1,
               "name": "show10",
               "realName": "Show board",
               "description": "Show board",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 27,
               "type": 1,
               "name": "show11",
               "realName": "Show board",
               "description": "Show board",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 28,
               "type": 0,
               "name": "fireExitinguisher3",
               "realName": "Fire extinguisher",
               "description": "Fire extinguisher",
-              "connectedIDs": [29]
+              "connectedIDs": [29],
+              "__area__": "B"
             },
             {"id": 29,
               "type": 1,
               "name": "fireExitinguisher4",
               "realName": "Fire extinguisher",
               "description": "Fire extinguisher",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 30,
               "type": 0,
               "name": "stereoScope1",
               "realName": "Stereo scope",
               "description": "Stereo scope",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "B"
             },
             {"id": 31,
               "type": 2,
               "name": "GlassDoor_C-B",
               "realName": "Glass door",
               "description": "Glass door",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "C"
             },
             {"id": 32,
               "type": 2,
               "name": "GlassDoor_C-D",
               "realName": "Glass door",
               "description": "Glass door",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "C"
             },
             {"id": 33,
               "type": 0,
               "name": "fireExitinguisher5",
               "realName": "Fire extinguisher",
               "description": "Fire extinguisher",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "C"
             },
             {"id": 34,
               "type": 0,
               "name": "stereoScope2",
               "realName": "Stereo scope",
               "description": "Stereo scope",
-              "connectedIDs": [35, 36, 37, 38]
+              "connectedIDs": [35, 36, 37, 38],
+              "__area__": "C"
             },
             {"id": 35,
               "type": 1,
               "name": "stereoScope3",
               "realName": "Stereo scope",
               "description": "Stereo scope",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "C"
             },
             {"id": 36,
               "type": 1,
               "name": "stereoScope4",
               "realName": "Stereo scope",
               "description": "Stereo scope",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "C"
             },
             {"id": 37,
               "type": 1,
               "name": "stereoScope5",
               "realName": "Stereo scope",
               "description": "Stereo scope",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "C"
             },
             {"id": 38,
               "type": 1,
               "name": "stereoScope6",
               "realName": "Stereo scope",
               "description": "Stereo scope",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "C"
             },
             {"id": 39,
               "type": 0,
               "name": "show12",
               "realName": "Show board",
               "description": "Show board",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "C"
             },
             {"id": 40,
               "type": 0,
               "name": "board1",
               "realName": "Board",
               "description": "Board",
-              "connectedIDs": [41, 42, 43]
+              "connectedIDs": [41, 42],
+              "__area__": "C"
             },
             {"id": 41,
               "type": 1,
               "name": "board2",
               "realName": "Board",
               "description": "Board",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "C"
             },
             {"id": 42,
               "type": 1,
               "name": "board3",
               "realName": "Board",
               "description": "Board",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "C"
             },
             {"id": 43,
               "type": 0,
               "name": "model1",
               "realName": "Model",
               "description": "Model",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "C"
             },
             {"id": 44,
               "type": 0,
               "name": "Room_Door_1796",
               "realName": "Room 1796",
               "description": "Carto Coodinator Office",
-              "connectedIDs": [45, 46, 47, 48, 49]
+              "connectedIDs": [],
+              "__area__": "C"
             },
             {"id": 45,
               "type": 1,
               "name": "Room_Door_1778",
               "realName": "Room 1778",
               "description": "PR. Computer Lab",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "C"
             },
             {"id": 46,
               "type": 1,
               "name": "Room_Door_1780",
               "realName": "Room 1780",
               "description": "Remote Sensing Dr. Office",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "C"
             },
             {"id": 47,
               "type": 1,
               "name": "Room_Door_1782",
               "realName": "Room 1782",
               "description": "SignalProcessing & EarthObservation Prof Office",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "C"
             },
             {"id": 48,
-              "type": 1,
+              "type": 0,
               "name": "Room_Door_1783",
               "realName": "Room 1783",
               "description": "Photogrammetry & Remote Sensing Prof Office",
-              "connectedIDs": []
+              "connectedIDs": [45],
+              "__area__": "C"
             },
             {"id": 49,
-              "type": 1,
+              "type": 0,
               "name": "Room_Door_1789",
               "realName": "Room 1789",
               "description": "Remote Sensing Methodology, Prof. Bamler, Prof. Zhu",
-              "connectedIDs": []
+              "connectedIDs": [46, 47],
+              "__area__": "C"
             },
             {"id": 50,
               "type": 0,
               "name": "Room_Door_1795A",
               "realName": "Room 1795 A",
-              "description": "Office.",
-              "connectedIDs": [51]
+              "description": "Emergency balcony.",
+              "connectedIDs": [51],
+              "__area__": "C"
             },
             {"id": 51,
               "type": 1,
               "name": "Room_Door_1795B",
               "realName": "Room 1795 B",
               "description": "Office.",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "C"
             },
             {"id": 52,
               "type": 2,
               "name": "GlassDoor_D-X",
               "realName": "Glass door",
               "description": "Glass door",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "D"
             },
             {"id": 53,
               "type": 0,
               "name": "LectureHall",
               "realName": "Lecture Hall",
               "description": "Lecture Hall",
-              "connectedIDs": [54, 55]
+              "connectedIDs": [54, 55],
+              "__area__": "D"
             },
             {"id": 54,
               "type": 1,
               "name": "Room_1112",
               "realName": "Room 1112",
               "description": "Office.",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "D"
             },
             {"id": 55,
               "type": 1,
               "name": "Lifts",
               "realName": "Lift",
               "description": "Lift",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "D"
             },
             {"id": 56,
               "type": 0,
               "name": "garbage2",
               "realName": "Garbage Can",
               "description": "Garbage Can",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "D"
             },
             {"id": 57,
               "type": 2,
               "name": "GlassDoor_E-A",
               "realName": "Glass door",
               "description": "Glass door",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "E"
             },
             {"id": 58,
               "type": 2,
               "name": "GlassDoor_E-F",
               "realName": "Glass door",
               "description": "Glass door",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "E"
             },
             {"id": 59,
-              "type": 0,
+              "type": 1,
               "name": "Room_Door_1749",
               "realName": "Room 1749",
               "description": "Toilet Female",
-              "connectedIDs": [60]
+              "connectedIDs": [],
+              "__area__": "E"
             },
             {"id": 60,
-              "type": 1,
+              "type": 0,
               "name": "Room_Door_1743",
               "realName": "Room 1743",
               "description": "OpenLAB Dr. Wulfhorst",
-              "connectedIDs": []
+              "connectedIDs": [59, 61],
+              "__area__": "E"
             },
             {"id": 61,
-              "type": 0,
+              "type": 1,
               "name": "garbage1",
               "realName": "Garbage Can",
               "description": "Garbage Can",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "E"
             },
             {"id": 62,
               "type": 0,
               "name": "show4",
               "realName": "Show board",
               "description": "Show board",
-              "connectedIDs": [63]
+              "connectedIDs": [63],
+              "__area__": "E"
             },
             {"id": 63,
               "type": 1,
               "name": "show5",
               "realName": "Show board",
               "description": "Show board",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "E"
             },
             {"id": 64,
               "type": 0,
               "name": "Room_Door_1734",
               "realName": "Room 1734",
               "description": "OpenLab City Mobility",
-              "connectedIDs": [65, 66]
+              "connectedIDs": [65],
+              "__area__": "F"
             },
             {"id": 65,
               "type": 1,
               "name": "Room_Door_1731",
               "realName": "Room 1731",
               "description": "OpenLab City Mobility",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "F"
             },
             {"id": 66,
-              "type": 1,
+              "type": 0,
               "name": "Room_Door_1736",
               "realName": "Room 1736",
-              "description": "Office.",
-              "connectedIDs": []
+              "description": "Settlement Structure and Transport Planning, Prof. Wulfhorst.",
+              "connectedIDs": [],
+              "__area__": "F"
             },
             {"id": 67,
               "type": 2,
               "name": "GlassDoor_F-G",
               "realName": "Glass door",
               "description": "Glass door",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "F"
             },
             {"id": 68,
               "type": 0,
               "name": "show1",
               "realName": "Show board",
               "description": "Show board",
-              "connectedIDs": [69, 70]
+              "connectedIDs": [69, 70],
+              "__area__": "F"
             },
             {"id": 69,
               "type": 1,
               "name": "show2",
               "realName": "Show board",
               "description": "Show board",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "F"
             },
             {"id": 70,
               "type": 1,
               "name": "show3",
               "realName": "Show board",
               "description": "Show board",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "F"
             },
             {"id": 71,
               "type": 0,
               "name": "fireExitinguisher1",
               "realName": "Fire extinguisher",
               "description": "Fire extinguisher",
-              "connectedIDs": [72]
+              "connectedIDs": [72],
+              "__area__": "F"
             },
             {"id": 72,
               "type": 1,
               "name": "fireExitinguisher2",
               "realName": "Fire extinguisher",
               "description": "Fire extinguisher",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "F"
             },
             {"id": 73,
               "type": 2,
               "name": "GlassDoor_G-X",
               "realName": "Glass door",
               "description": "Glass door",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "G"
             },
             {"id": 74,
               "type": 0,
               "name": "Room_Door_1715",
               "realName": "Room 1715",
               "description": "Office.",
-              "connectedIDs": [75]
+              "connectedIDs": [75],
+              "__area__": "G"
             },
             {"id": 75,
               "type": 1,
               "name": "Room_Door_1717",
               "realName": "Room 1717",
-              "description": "Office.",
-              "connectedIDs": []
+              "description": "Hydrology & River Basin Management, Prof. Disse.",
+              "connectedIDs": [],
+              "__area__": "G"
             },
             {"id": 76,
               "type": 0,
               "name": "cabinet1",
               "realName": "Cabinet",
               "description": "Cabinet",
-              "connectedIDs": [77]
+              "connectedIDs": [77],
+              "__area__": "G"
             },
             {"id": 77,
               "type": 1,
               "name": "cabinet2",
               "realName": "Cabinet",
               "description": "Cabinet",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "G"
             },
             {
               "id": 78,
@@ -545,7 +622,8 @@
               "name": "fireExitinguisher6",
               "realName": "Fire extinguisher",
               "description": "Fire extinguisher",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "D"
             },
             {
               "id": 79,
@@ -553,7 +631,8 @@
               "name": "fireExitinguisher7",
               "realName": "Fire extinguisher",
               "description": "Fire extinguisher",
-              "connectedIDs": []
+              "connectedIDs": [],
+              "__area__": "C"
             }
   ]
 }

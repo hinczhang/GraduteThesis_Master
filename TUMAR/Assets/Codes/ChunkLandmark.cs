@@ -24,9 +24,9 @@ public class ChunkLandmark : MonoBehaviour
     private Collider m_Collider;
     private bool isActive = false;
     GameObject obj;
-    GameObject miniMap;
     void Awake()
     {
+        
         // Get main camera
         mainCamera = Camera.main;
         if (mainCamera != null)
@@ -48,7 +48,6 @@ public class ChunkLandmark : MonoBehaviour
             // No collider component found, add one
             m_Collider = obj.AddComponent<Collider>();
         }
-        miniMap = GameObject.Find("MiniMap");
     }
     // Start is called before the first frame update
     void Start()
@@ -63,6 +62,10 @@ public class ChunkLandmark : MonoBehaviour
             if (m_Collider.bounds.Contains(mainCamera.transform.position)) {
                 isActive = true;
                 foreach (var subObj in chunkObjs) {
+                    // string name = subObj.name;
+                    // GameObject miniObj = EnvironmentControl.spheres[name];
+                    
+                    // miniObj.SetActive(true);
                     subObj.SetActive(true);
                 }
                 // miniMap.SendMessage("reDrawMap", chunkName);

@@ -26,7 +26,7 @@ public class miniMapVis : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (var item in testGettingObj.landmarksIdDict) {
+        foreach (var item in EnvironmentControl.landmarksIdDict) {
             landmarksIdDict.Add(item.Key, item.Value);
             /*
             GameObject obj = item.Value.GetGameObject();
@@ -47,9 +47,9 @@ public class miniMapVis : MonoBehaviour
             */
         }
 
-        foreach (var item in testGettingObj.chunks) {
+        /*foreach (var item in EnvironmentControl.chunks) {
             chunks.Add(item.GetChunkName(), item);
-        }
+        }*/
     }
 
     void reDrawMap(string chunkName) {

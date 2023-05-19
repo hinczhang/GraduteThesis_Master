@@ -2,39 +2,40 @@
     "chunks": [
         {
             "name": "Chunk1",
-            "objs": [3, 6]
+            "objs": [3, 4, 5, 6]
         },
         {
             "name": "Chunk2",
-            "objs": [59, 61, 62]
+            "objs": [60, 62]
         },
         {
             "name": "Chunk3",
-            "objs": [64, 68, 71]
+            "objs": [64, 66, 68, 71]
         },
         {
             "name": "Chunk4",
-            "objs": [74, 76]
+            "objs": [74, 76],
+            "__comment__": "not used"
         },
         {
             "name": "Chunk5",
-            "objs": [10, 14]
+            "objs": [8, 9, 15]
         },
         {
             "name": "Chunk6",
-            "objs": [20, 24, 28, 30]
+            "objs": [20, 23, 24, 28, 30]
         },
         {
             "name": "Chunk7",
-            "objs": [40, 43, 44]
+            "objs": [44, 48, 49, 50, 79]
         },
         {
             "name": "Chunk8",
-            "objs": [33, 34, 39, 50]
+            "objs": [33, 34, 39, 40, 43]
         },
         {
             "name": "Chunk9",
-            "objs": [53, 56]
+            "objs": [53, 56, 78]
         }
     ]
 }
