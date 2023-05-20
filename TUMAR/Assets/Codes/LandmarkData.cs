@@ -58,10 +58,10 @@ public class LandmarkData
         objs.Add(new DataCell
         {
             id = 3,
-            type = 0,
+            type = 1,
             name = "Room_Door_1757",
             realName = "Room 1757",
-            description = "Connected Transport Systems, Prof. Antoniou",
+            description = "Transport Systems, Prof. Antoniou",
             connectedIDs = new List<int>()
         });
         objs.Add(new DataCell
@@ -71,7 +71,8 @@ public class LandmarkData
             name = "Room_Door_1755",
             realName = "Room 1755",
             description = "Chair of Traffic Engineering, Prof. Bogenberger",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>() { 3 },
+            color = ColorUtility.DARK_CYAN
         });
         objs.Add(new DataCell
         {
@@ -80,7 +81,8 @@ public class LandmarkData
             name = "Restroom1",
             realName = "Room 1751",
             description = "Toilet",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>(),
+            color = ColorUtility.YELLOW
         });
         objs.Add(new DataCell
         {
@@ -89,16 +91,18 @@ public class LandmarkData
             name = "show6",
             realName = "Show board",
             description = "Show board",
-            connectedIDs = new List<int> { 7 }
+            connectedIDs = new List<int> { 7 },
+            color = ColorUtility.SHALLOW_BLUE
         });
         objs.Add(new DataCell
         {
             id = 7,
-            type = 1,
+            type = 0,
             name = "show7",
             realName = "Show board",
             description = "Show board",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>() { 6 },
+            color = ColorUtility.SHALLOW_BLUE
         });
         // Area B: long route for Cartography
         objs.Add(new DataCell
@@ -108,7 +112,8 @@ public class LandmarkData
             name = "Room_Door_1761",
             realName = "Room 1761",
             description = "Hydrology & River Basin Management, Prof. Broich",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>(),
+            color = ColorUtility.NAVAJO_WHITE
         });
         objs.Add(new DataCell
         {
@@ -117,7 +122,8 @@ public class LandmarkData
             name = "Room_Door_1762",
             realName = "Room 1762",
             description = "Transportation Construction",
-            connectedIDs = new List<int> { 10, 11, 12, 13 }
+            connectedIDs = new List<int> { 10, 11, 12, 13 },
+            color = ColorUtility.PURPLE
         });
         objs.Add(new DataCell
         {
@@ -171,7 +177,8 @@ public class LandmarkData
             name = "Room_Door_1770",
             realName = "Room 1770",
             description = "Photogrammetry & Remote Sensing, workshop",
-            connectedIDs = new List<int> { 17, 19, 21 }
+            connectedIDs = new List<int> { 17, 19, 21 },
+            color = ColorUtility.SIENNA
         });
         objs.Add(new DataCell
         {
@@ -216,7 +223,8 @@ public class LandmarkData
             name = "Room_Door_1775",
             realName = "Room 1775",
             description = "Cartography Prof. Meng",
-            connectedIDs = new List<int> { 14, 16, 18, 22, 44 }
+            connectedIDs = new List<int> { 14, 16, 18, 22, 44 },
+            color = ColorUtility.FOREST_GREEN
         });
         objs.Add(new DataCell
         {
@@ -243,7 +251,8 @@ public class LandmarkData
             name = "Room_Door_1784",
             realName = "Room 1784",
             description = "LRZ node.",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>(),
+            color = ColorUtility.NAVAJO_WHITE
         });
         objs.Add(new DataCell
         {
@@ -252,34 +261,38 @@ public class LandmarkData
             name = "show8",
             realName = "Show board",
             description = "Show board",
-            connectedIDs = new List<int> { 25, 26, 27 }
+            connectedIDs = new List<int> { 25, 26, 27 },
+            color = ColorUtility.SHALLOW_BLUE
         });
         objs.Add(new DataCell
         {
             id = 25,
-            type = 1,
+            type = 0,
             name = "show9",
             realName = "Show board",
             description = "Show board",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>() { 24, 26, 27},
+            color = ColorUtility.SHALLOW_BLUE
         });
         objs.Add(new DataCell
         {
             id = 26,
-            type = 1,
+            type = 0,
             name = "show10",
             realName = "Show board",
             description = "Show board",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>() { 24, 25, 27 },
+            color = ColorUtility.SHALLOW_BLUE
         });
         objs.Add(new DataCell
         {
             id = 27,
-            type = 1,
+            type = 0,
             name = "show11",
             realName = "Show board",
             description = "Show board",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>() { 24, 25, 26 },
+            color = ColorUtility.SHALLOW_BLUE
         });
         objs.Add(new DataCell
         {
@@ -288,16 +301,18 @@ public class LandmarkData
             name = "fireExitinguisher3",
             realName = "Fire extinguisher",
             description = "Fire extinguisher",
-            connectedIDs = new List<int> { 29 }
+            connectedIDs = new List<int> { 29 },
+            color = ColorUtility.PINK
         });
         objs.Add(new DataCell
         {
             id = 29,
-            type = 1,
+            type = 0,
             name = "fireExitinguisher4",
             realName = "Fire extinguisher",
             description = "Fire extinguisher",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>() {28},
+            color = ColorUtility.PINK
         });
         objs.Add(new DataCell
         {
@@ -306,7 +321,8 @@ public class LandmarkData
             name = "stereoScope1",
             realName = "Stereo scope",
             description = "Stereo scope",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>(),
+            color = ColorUtility.GREEN
         });
         // Area C: Cartography coordinator office direction
         objs.Add(new DataCell
@@ -334,7 +350,8 @@ public class LandmarkData
             name = "fireExitinguisher5",
             realName = "Fire extinguisher",
             description = "Fire extinguisher",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>(),
+            color = ColorUtility.PINK
         });
         objs.Add(new DataCell
         {
@@ -343,43 +360,48 @@ public class LandmarkData
             name = "stereoScope2",
             realName = "Stereo scope",
             description = "Stereo scope",
-            connectedIDs = new List<int> { 35, 36, 37, 38 }
+            connectedIDs = new List<int> { 35, 36, 37, 38 },
+            color = ColorUtility.GREEN
         });
         objs.Add(new DataCell
         {
             id = 35,
-            type = 1,
+            type = 0,
             name = "stereoScope3",
             realName = "Stereo scope",
             description = "Stereo scope",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>() { 34, 36, 37, 38 },
+            color = ColorUtility.GREEN
         });
         objs.Add(new DataCell
         {
             id = 36,
-            type = 1,
+            type = 0,
             name = "stereoScope4",
             realName = "Stereo scope",
             description = "Stereo scope",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>() { 34, 35, 37, 38 },
+            color = ColorUtility.GREEN
         });
         objs.Add(new DataCell
         {
             id = 37,
-            type = 1,
+            type = 0,
             name = "stereoScope5",
             realName = "Stereo scope",
             description = "Stereo scope",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>() { 34, 35, 36, 38 },
+            color = ColorUtility.GREEN
         });
         objs.Add(new DataCell
         {
             id = 38,
-            type = 1,
+            type = 0,
             name = "stereoScope6",
             realName = "Stereo scope",
             description = "Stereo scope",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>() { 34, 35, 36, 37 },
+            color = ColorUtility.GREEN
         });
         objs.Add(new DataCell
         {
@@ -388,7 +410,8 @@ public class LandmarkData
             name = "show12",
             realName = "Show board",
             description = "Show board",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>(), 
+            color = ColorUtility.SHALLOW_BLUE
         });
         objs.Add(new DataCell
         {
@@ -397,25 +420,28 @@ public class LandmarkData
             name = "board1",
             realName = "Board",
             description = "Board",
-            connectedIDs = new List<int> { 41, 42 }
+            connectedIDs = new List<int> { 41, 42 },
+            color = ColorUtility.SHALLOW_BLUE
         });
         objs.Add(new DataCell
         {
             id = 41,
-            type = 1,
+            type = 0,
             name = "board2",
             realName = "Board",
             description = "Board",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>() { 40, 42 },
+            color = ColorUtility.SHALLOW_BLUE
         });
         objs.Add(new DataCell
         {
             id = 42,
-            type = 1,
+            type = 0,
             name = "board3",
             realName = "Board",
             description = "Board",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>() { 40, 41 },
+            color = ColorUtility.SHALLOW_BLUE
         });
         objs.Add(new DataCell
         {
@@ -424,7 +450,8 @@ public class LandmarkData
             name = "model1",
             realName = "Model",
             description = "Model",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>(),
+            color = ColorUtility.NAVAJO_WHITE
         });
         objs.Add(new DataCell
         {
@@ -469,7 +496,8 @@ public class LandmarkData
             name = "Room_Door_1783",
             realName = "Room 1783",
             description = "Photogrammetry & Remote Sensing Prof Office",
-            connectedIDs = new List<int> { 45, 46, 47, 49 }
+            connectedIDs = new List<int> { 45, 46, 47, 49 },
+            color = ColorUtility.SIENNA
         });
         objs.Add(new DataCell
         {
@@ -487,7 +515,8 @@ public class LandmarkData
             name = "Room_Door_1795A",
             realName = "Room 1795 A",
             description = "Emergency balcony.",
-            connectedIDs = new List<int> { 51 }
+            connectedIDs = new List<int> { 51 },
+            color = ColorUtility.NAVAJO_WHITE
         });
         objs.Add(new DataCell
         {
@@ -515,7 +544,8 @@ public class LandmarkData
             name = "LectureHall",
             realName = "Lecture Hall",
             description = "Lecture Hall",
-            connectedIDs = new List<int> { 54, 55 }
+            connectedIDs = new List<int> { 54, 55 },
+            color = ColorUtility.NAVAJO_WHITE
         });
         objs.Add(new DataCell
         {
@@ -542,7 +572,8 @@ public class LandmarkData
             name = "garbage2",
             realName = "Garbage Can",
             description = "Garbage Can",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>(),
+            color = ColorUtility.ORANGE
         });
         // Area E: small part beside the corner
         objs.Add(new DataCell
@@ -571,7 +602,8 @@ public class LandmarkData
             name = "Room_Door_1749",
             realName = "Room 1749",
             description = "Toilet Female",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>(),
+            color = ColorUtility.YELLOW
         });
         objs.Add(new DataCell
         {
@@ -585,11 +617,12 @@ public class LandmarkData
         objs.Add(new DataCell
         {
             id = 61,
-            type = 1,
+            type = 0,
             name = "garbage1",
             realName = "Garbage Can",
             description = "Garbage Can",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>(),
+            color = ColorUtility.ORANGE
         });
         objs.Add(new DataCell
         {
@@ -598,16 +631,18 @@ public class LandmarkData
             name = "show4",
             realName = "Show board",
             description = "Show board",
-            connectedIDs = new List<int> { 63 }
+            connectedIDs = new List<int> { 63 },
+            color = ColorUtility.SHALLOW_BLUE
         });
         objs.Add(new DataCell
         {
             id = 63,
-            type = 1,
+            type = 0,
             name = "show5",
             realName = "Show board",
             description = "Show board",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>() { 62 },
+            color = ColorUtility.SHALLOW_BLUE
         });
         // Area F: City Lab area
         objs.Add(new DataCell
@@ -617,7 +652,8 @@ public class LandmarkData
             name = "Room_Door_1734",
             realName = "Room 1734",
             description = "OpenLab City Mobility",
-            connectedIDs = new List<int> { 60, 65, 66 }
+            connectedIDs = new List<int> { 60, 65, 66 },
+            color = ColorUtility.FIRE_BRICK
         });
         objs.Add(new DataCell
         {
@@ -653,25 +689,28 @@ public class LandmarkData
             name = "show1",
             realName = "Show board",
             description = "Show board",
-            connectedIDs = new List<int> { 69, 70 }
+            connectedIDs = new List<int> { 69, 70 },
+            color = ColorUtility.SHALLOW_BLUE
         });
         objs.Add(new DataCell
         {
             id = 69,
-            type = 1,
+            type = 0,
             name = "show2",
             realName = "Show board",
             description = "Show board",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>() { 68, 70 },
+            color = ColorUtility.SHALLOW_BLUE
         });
         objs.Add(new DataCell
         {
             id = 70,
-            type = 1,
+            type = 0,
             name = "show3",
             realName = "Show board",
             description = "Show board",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>() { 68, 69 },
+            color = ColorUtility.SHALLOW_BLUE
         });
         objs.Add(new DataCell
         {
@@ -680,16 +719,18 @@ public class LandmarkData
             name = "fireExitinguisher1",
             realName = "Fire extinguisher",
             description = "Fire extinguisher",
-            connectedIDs = new List<int> { 72 }
+            connectedIDs = new List<int> { 72 },
+            color = ColorUtility.PINK
         });
         objs.Add(new DataCell
         {
             id = 72,
-            type = 1,
+            type = 0,
             name = "fireExitinguisher2",
             realName = "Fire extinguisher",
             description = "Fire extinguisher",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>() { 71 },
+            color = ColorUtility.PINK
         });
         // Area G: abondoned
         objs.Add(new DataCell
@@ -708,7 +749,8 @@ public class LandmarkData
             name = "Room_Door_1715",
             realName = "Room 1715",
             description = "Office.",
-            connectedIDs = new List<int> { 75 }
+            connectedIDs = new List<int> { 75 },
+            color = ColorUtility.NAVAJO_WHITE
         });
         objs.Add(new DataCell
         {
@@ -726,7 +768,8 @@ public class LandmarkData
             name = "cabinet1",
             realName = "Cabinet",
             description = "Cabinet",
-            connectedIDs = new List<int> { 77 }
+            connectedIDs = new List<int> { 77 },
+            color = ColorUtility.NAVAJO_WHITE
         });
         objs.Add(new DataCell
         {
@@ -744,7 +787,8 @@ public class LandmarkData
             name = "fireExitinguisher6",
             realName = "Fire extinguisher",
             description = "Fire extinguisher",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>(),
+            color = ColorUtility.PINK
         });
         objs.Add(new DataCell
         {
@@ -753,7 +797,8 @@ public class LandmarkData
             name = "fireExitinguisher7",
             realName = "Fire extinguisher",
             description = "Fire extinguisher",
-            connectedIDs = new List<int>()
+            connectedIDs = new List<int>(),
+            color = ColorUtility.PINK
         });
 
     }

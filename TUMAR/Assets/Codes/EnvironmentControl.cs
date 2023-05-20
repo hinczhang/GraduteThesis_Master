@@ -45,8 +45,6 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         // string scenePath = Application.dataPath + "/Codes/landmarks.json";
         // string sceneJson = File.ReadAllText(scenePath);
         // ArrayData sceneData = JsonUtility.FromJson<ArrayData>(sceneJson);
-
-        int colorID = 0;
         foreach (var item in data.objs) {
             GameObject obj = GameObject.Find(item.name);
             if(obj == null) {
@@ -76,8 +74,15 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                 default: setColor(ref sphere, VirtualLandmarkType.NOT_SHOW, Color.white); break;
             }*/
             if(item.type == 0) {
-                landmark.SetLandmarkColor(ColorUtility.GetColorById(colorID%ColorUtility.GetLength() + 1));
-                setColor(ref obj, VirtualLandmarkType.PRIMARY, landmark.GetLandmarkColor());
+                if(item.color.HasValue) {
+                    Color tmp_color = item.color.Value;
+                    if(!item.name.Contains("Door")) {
+                        tmp_color = fadingColor(tmp_color);
+                    }
+                    landmark.SetLandmarkColor(tmp_color);
+                    setColor(ref obj, VirtualLandmarkType.PRIMARY, landmark.GetLandmarkColor());
+                }
+                
                 // setColor(ref sphere, VirtualLandmarkType.PRIMARY, landmark.GetLandmarkColor());
             }
             if(item.type == 2) {
@@ -94,7 +99,6 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
             landmarksDict.Add(item.name, landmark);
             landmarksIdDict.Add(item.id, landmark);
             objectNames.Add(item.name);
-            colorID++;
         }
 
         foreach (var item in data.objs) {
@@ -102,19 +106,16 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                 Color color = landmarksDict[item.name].GetLandmarkColor();
                 for(int i = 0; i < item.connectedIDs.Count; i++) {
                     landmarksDict[item.name].AddConnectedLandmark(landmarksIdDict[item.connectedIDs[i]]);
-                    // make the color less bright
-                    Color.RGBToHSV(color, out float initialHue, out float initialSaturation, out float initialValue);
-                    float fadedValue = Mathf.Clamp01(initialSaturation * 0.5f);
-                    Color fadedColor = Color.HSVToRGB(initialHue, fadedValue, initialValue);
-                    // Color fadedColor = color;
-                    // fadedColor.a = 0.5f;
-
-                    landmarksIdDict[item.connectedIDs[i]].SetLandmarkColor(fadedColor);
+                    // make the color less bright if not the important landmark
+                    Color fadedColor;
+                    if(landmarksIdDict[item.connectedIDs[i]].GetLandmarkType() == VirtualLandmarkType.PRIMARY) {
+                        fadedColor = landmarksIdDict[item.connectedIDs[i]].GetLandmarkColor();
+                    } else {
+                        fadedColor = fadingColor(color);
+                        landmarksIdDict[item.connectedIDs[i]].SetLandmarkColor(fadedColor);
+                    }
                     GameObject obj = landmarksIdDict[item.connectedIDs[i]].GetGameObject();
                     setColor(ref obj, VirtualLandmarkType.SECONDARY, fadedColor);
-                    // string name = landmarksIdDict[item.connectedIDs[i]].GetLandmarkName();
-                    // GameObject sphere = spheres[name];
-                    //setColor(ref sphere, VirtualLandmarkType.SECONDARY, landmarksDict[item.name].GetLandmarkColor());
                 }
             }
         }
@@ -261,5 +262,12 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         textMesh.characterSize = 0.02f;
         textMesh.color = Color.blue;
         textMesh.alignment = TextAlignment.Center;
+    }
+
+    private Color fadingColor(Color color, float fadeAmount = 0.25f) {
+        Color.RGBToHSV(color, out float initialHue, out float initialSaturation, out float initialValue);
+        float fadedValue = Mathf.Clamp01(initialSaturation * fadeAmount);
+        Color fadedColor = Color.HSVToRGB(initialHue, fadedValue, initialValue);
+        return fadedColor;
     }
 }
