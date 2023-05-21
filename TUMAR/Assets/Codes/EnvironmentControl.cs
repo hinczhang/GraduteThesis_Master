@@ -77,7 +77,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                 if(item.color.HasValue) {
                     Color tmp_color = item.color.Value;
                     if(!item.name.Contains("Door")) {
-                        tmp_color = fadingColor(tmp_color);
+                        tmp_color = fadingColor(tmp_color, 0.5f);
                     }
                     landmark.SetLandmarkColor(tmp_color);
                     setColor(ref obj, VirtualLandmarkType.PRIMARY, landmark.GetLandmarkColor());
@@ -258,10 +258,22 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
 
         // 设置 TextMesh 的属性
         textMesh.text = description;
-        textMesh.fontSize = 72;
+        textMesh.fontSize = 90;
         textMesh.characterSize = 0.02f;
-        textMesh.color = Color.blue;
+        textMesh.color = Color.white;
         textMesh.alignment = TextAlignment.Center;
+
+        /* TextMesh outlineTextMesh = Instantiate(textMesh, textObject.transform);
+        TextMesh mainTextMesh = Instantiate(textMesh, textObject.transform);
+        outlineTextMesh.transform.localPosition = Vector3.zero; // 重置边缘TextMesh的本地位置
+        outlineTextMesh.color = Color.black; // 设置边缘颜色
+        outlineTextMesh.GetComponent<Renderer>().sortingOrder = textMesh.GetComponent<Renderer>().sortingOrder - 1; // 将边缘TextMesh的渲染层级设为原始TextMesh的前一层
+
+        // 根据相机朝向调整边缘TextMesh的朝向
+        outlineTextMesh.transform.rotation = Quaternion.LookRotation(cameraForward, Vector3.up);
+
+        mainTextMesh.transform.localPosition = Vector3.zero; // 重置主要TextMesh的本地位置
+        mainTextMesh.color = Color.white; // 设置主要文字颜色*/
     }
 
     private Color fadingColor(Color color, float fadeAmount = 0.25f) {
