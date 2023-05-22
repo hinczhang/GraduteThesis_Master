@@ -5,8 +5,6 @@ using System;
 using Microsoft.MixedReality.Toolkit.UI;
 using Microsoft.MixedReality.Toolkit.Input;
 
-
-[Serializable]
 public class InfoData
 {
     public int id;
@@ -17,7 +15,6 @@ public class InfoData
     public List<int> connectedIDs;
 }
 
-[Serializable]
 public class ArrayData
 {
     public List<InfoData> objs;

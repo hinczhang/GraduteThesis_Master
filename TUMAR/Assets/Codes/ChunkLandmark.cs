@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[Serializable]
 public class ChunkData
 {
     public string name;
     public List<int> objs;
 }
 
-[Serializable]
 public class ArrayChunk
 {
     public List<ChunkData> chunks;
