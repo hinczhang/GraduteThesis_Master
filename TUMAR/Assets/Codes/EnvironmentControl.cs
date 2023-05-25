@@ -53,7 +53,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
             }
             VirtualLandmark landmark = new VirtualLandmark();
             landmark.SetLandmarkId(item.id);
-            Debug.Log("Landmark id: " + item.id);
+            // Debug.Log("Landmark id: " + item.id);
             landmark.SetLandmarkName(item.name);
             landmark.SetLandmarkDescription(item.description);
             landmark.SetLandmarkRealName(item.realName);
@@ -147,7 +147,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
 
     // Start is called before the first frame update
     void Start() {
-
+        Debug.Log("Start!");
     }
 
     // Update is called once per frame

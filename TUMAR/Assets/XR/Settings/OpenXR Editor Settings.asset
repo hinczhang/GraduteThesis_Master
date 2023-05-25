@@ -15,5 +15,4 @@ MonoBehaviour:
   Keys: 010000000e000000
   Values:
   - featureSets: []
-  - featureSets:
-    - com.microsoft.openxr.featureset.hololens
+  - featureSets: []
