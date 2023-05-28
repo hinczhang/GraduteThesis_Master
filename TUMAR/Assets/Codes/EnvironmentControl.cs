@@ -147,7 +147,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
 
     // Start is called before the first frame update
     void Start() {
-        Debug.Log("Start!");
+        
     }
 
     // Update is called once per frame
