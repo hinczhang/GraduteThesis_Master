@@ -77,7 +77,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                 if(item.color.HasValue) {
                     Color tmp_color = item.color.Value;
                     if(!item.name.Contains("Door")) {
-                        tmp_color = fadingColor(tmp_color, 0.5f);
+                        tmp_color = fadingColor(tmp_color, 0.75f);
                     }
                     landmark.SetLandmarkColor(tmp_color);
                     setColor(ref obj, VirtualLandmarkType.PRIMARY, landmark.GetLandmarkColor());
@@ -111,7 +111,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                     if(landmarksIdDict[item.connectedIDs[i]].GetLandmarkType() == VirtualLandmarkType.PRIMARY) {
                         fadedColor = landmarksIdDict[item.connectedIDs[i]].GetLandmarkColor();
                     } else {
-                        fadedColor = fadingColor(color);
+                        fadedColor = fadingColor(color, 0.5f);
                         landmarksIdDict[item.connectedIDs[i]].SetLandmarkColor(fadedColor);
                     }
                     GameObject obj = landmarksIdDict[item.connectedIDs[i]].GetGameObject();
@@ -222,7 +222,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                     renderer.material.color = Color.blue;
                 }
             } else {*/
-            renderer.material.color = color;
+            // renderer.material.color = color;
             // }
             
         } else {
@@ -237,8 +237,12 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                     renderer.material.color = Color.blue;
                 }
             } else {*/
-            renderer.material.color = color;
+            // renderer.material.color = color;
             // }
+        }
+        Material[] materials = renderer.materials;
+        foreach (var material in materials) {
+            material.color = color;
         }
     }
 
@@ -280,6 +284,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         Color.RGBToHSV(color, out float initialHue, out float initialSaturation, out float initialValue);
         float fadedValue = Mathf.Clamp01(initialSaturation * fadeAmount);
         Color fadedColor = Color.HSVToRGB(initialHue, fadedValue, initialValue);
+        fadedColor.a = 0.25f;
         return fadedColor;
     }
 }
