@@ -410,7 +410,7 @@ public class LandmarkData
             name = "show12",
             realName = "Show board",
             description = "Show board",
-            connectedIDs = new List<int>(), 
+            connectedIDs = new List<int>() {40, 41, 42}, 
             color = ColorUtility.SHALLOW_BLUE
         });
         objs.Add(new DataCell
@@ -420,7 +420,7 @@ public class LandmarkData
             name = "board1",
             realName = "Board",
             description = "Board",
-            connectedIDs = new List<int> { 41, 42 },
+            connectedIDs = new List<int> { 39, 41, 42 },
             color = ColorUtility.SHALLOW_BLUE
         });
         objs.Add(new DataCell
@@ -430,7 +430,7 @@ public class LandmarkData
             name = "board2",
             realName = "Board",
             description = "Board",
-            connectedIDs = new List<int>() { 40, 42 },
+            connectedIDs = new List<int>() { 39, 40, 42 },
             color = ColorUtility.SHALLOW_BLUE
         });
         objs.Add(new DataCell
@@ -440,7 +440,7 @@ public class LandmarkData
             name = "board3",
             realName = "Board",
             description = "Board",
-            connectedIDs = new List<int>() { 40, 41 },
+            connectedIDs = new List<int>() { 39, 40, 41 },
             color = ColorUtility.SHALLOW_BLUE
         });
         objs.Add(new DataCell

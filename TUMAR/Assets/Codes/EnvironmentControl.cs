@@ -169,12 +169,11 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         {
             VirtualLandmarkType type = landmarksDict[focusedObject.name].GetLandmarkType();
             Color color = landmarksDict[focusedObject.name].GetLandmarkColor();
-            Color highlight = new Color(0f, 0.5f, 1f, 1f);
-            setColor(ref focusedObject, type, highlight);
+            setColor(ref focusedObject, type, ColorUtility.HIGHLIGHT);
             setText(ref focusedObject, landmarksDict[focusedObject.name].GetLandmarkDescription());
             foreach (var item in landmarksDict[focusedObject.name].GetConnectedLandmarks()) {
                 GameObject obj = item.GetGameObject();
-                setColor(ref obj, item.GetLandmarkType(), highlight);
+                setColor(ref obj, item.GetLandmarkType(), ColorUtility.HIGHLIGHT);
             }
             /*if(type == VirtualLandmarkType.PRIMARY) {
                 foreach (var item in landmarksDict[focusedObject.name].GetConnectedLandmarks()) {

@@ -17,6 +17,7 @@ public static class ColorUtility
     public static Color FOREST_GREEN = new Color(34f/256f, 139f/256f, 34f/256f, 1f); // Cartography
     public static Color SIENNA = new Color(205f/256f, 140f/256f, 57f/256f, 1f); // Photogrammetry and Remote Sensing
     public static Color NAVAJO_WHITE = new Color(205f/256f, 179f/256f, 139f/256f, 1f); // Individual item
+    public static Color HIGHLIGHT = new Color(1f, 0f, 0f, 1f); // highlight
 
 
 
