@@ -111,7 +111,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                     if(landmarksIdDict[item.connectedIDs[i]].GetLandmarkType() == VirtualLandmarkType.PRIMARY) {
                         fadedColor = landmarksIdDict[item.connectedIDs[i]].GetLandmarkColor();
                     } else {
-                        fadedColor = fadingColor(color, 0.5f);
+                        fadedColor = fadingColor(color, 0.75f);
                         landmarksIdDict[item.connectedIDs[i]].SetLandmarkColor(fadedColor);
                     }
                     GameObject obj = landmarksIdDict[item.connectedIDs[i]].GetGameObject();
@@ -252,7 +252,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         // 将该对象添加到 cube 上
         Camera mainCamera = Camera.main;
         Vector3 cameraForward = mainCamera.transform.forward;
-        Vector3 textPosition = obj.transform.position - cameraForward * 0.05f;
+        Vector3 textPosition = obj.transform.position - cameraForward * 1f;
         textObject.transform.position = textPosition;
         textObject.transform.forward = mainCamera.transform.forward;
 
@@ -283,7 +283,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         Color.RGBToHSV(color, out float initialHue, out float initialSaturation, out float initialValue);
         float fadedValue = Mathf.Clamp01(initialSaturation * fadeAmount);
         Color fadedColor = Color.HSVToRGB(initialHue, fadedValue, initialValue);
-        fadedColor.a = 0.25f;
+        fadedColor.a = 0.5f;
         return fadedColor;
     }
 }

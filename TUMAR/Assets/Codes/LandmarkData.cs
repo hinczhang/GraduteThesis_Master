@@ -121,7 +121,7 @@ public class LandmarkData
             type = 0,
             name = "Room_Door_1762",
             realName = "Room 1762",
-            description = "Transportation Construction",
+            description = "Transportation Construction (TC)",
             connectedIDs = new List<int> { 10, 11, 12, 13 },
             color = ColorUtility.PURPLE
         });
@@ -176,7 +176,7 @@ public class LandmarkData
             type = 0,
             name = "Room_Door_1770",
             realName = "Room 1770",
-            description = "Photogrammetry & Remote Sensing, workshop",
+            description = "Photogrammetry & Remote Sensing, workshop (PR)",
             connectedIDs = new List<int> { 17, 19, 21 },
             color = ColorUtility.SIENNA
         });
@@ -222,7 +222,7 @@ public class LandmarkData
             type = 0,
             name = "Room_Door_1775",
             realName = "Room 1775",
-            description = "Cartography Prof. Meng",
+            description = "Cartography Prof. Meng (Carto)",
             connectedIDs = new List<int> { 14, 16, 18, 22, 44 },
             color = ColorUtility.FOREST_GREEN
         });
@@ -495,7 +495,7 @@ public class LandmarkData
             type = 0,
             name = "Room_Door_1783",
             realName = "Room 1783",
-            description = "Photogrammetry & Remote Sensing Prof Office",
+            description = "Photogrammetry & Remote Sensing Prof Office (PR)",
             connectedIDs = new List<int> { 45, 46, 47, 49 },
             color = ColorUtility.SIENNA
         });
