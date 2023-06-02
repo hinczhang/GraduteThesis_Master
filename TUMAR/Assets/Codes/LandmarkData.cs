@@ -78,10 +78,10 @@ public class LandmarkData
         {
             id = 5,
             type = 0,
-            name = "Restroom1",
+            name = "Restroom_Door",
             realName = "Room 1751",
             description = "Toilet",
-            connectedIDs = new List<int>(),
+            connectedIDs = new List<int>() {59},
             color = ColorUtility.YELLOW
         });
         objs.Add(new DataCell

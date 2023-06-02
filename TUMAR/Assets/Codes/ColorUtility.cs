@@ -18,6 +18,7 @@ public static class ColorUtility
     public static Color SIENNA = new Color(205f/256f, 140f/256f, 57f/256f, 1f); // Photogrammetry and Remote Sensing
     public static Color NAVAJO_WHITE = new Color(205f/256f, 179f/256f, 139f/256f, 1f); // Individual item
     public static Color HIGHLIGHT = new Color(1f, 0f, 0f, 1f); // highlight
+    public static Color TRANSPARENT = new Color(0f, 0f, 0f, 0f); // transparent
 
 
 
