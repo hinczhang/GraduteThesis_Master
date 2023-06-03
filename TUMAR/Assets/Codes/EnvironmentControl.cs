@@ -74,7 +74,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                         tmp_color = fadingColor(tmp_color, 0.75f);
                     } else {
                         planeToFrame(ref obj);
-                        for(int i = 1; i <= 4; ++i) {
+                        for(int i = 1; i <= 8; ++i) {
                             GameObject cylinder = obj.transform.Find($"{i}").gameObject;
                             if(cylinder != null) {
                                 cylinder.GetComponent<Renderer>().material.color = tmp_color;
@@ -124,7 +124,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                     GameObject obj = landmarksIdDict[item.connectedIDs[i]].GetGameObject();
                     if(obj.name.Contains("Door")) {
                         planeToFrame(ref obj);
-                        for(int id = 1; id <= 4; ++id) {
+                        for(int id = 1; id <= 8; ++id) {
                             GameObject cylinder = obj.transform.Find($"{id}").gameObject;
                             if(cylinder != null) {
                                 cylinder.GetComponent<Renderer>().material.color = fadedColor;
@@ -191,7 +191,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
             VirtualLandmarkType type = landmarksDict[focusedObject.name].GetLandmarkType();
             Color color = landmarksDict[focusedObject.name].GetLandmarkColor();
             if(focusedObject.name.Contains("Door")) {
-                for(int id = 1; id <= 4; ++id) {
+                for(int id = 1; id <= 8; ++id) {
                     GameObject cylinder = focusedObject.transform.Find($"{id}").gameObject;
                     if(cylinder != null) {
                         cylinder.GetComponent<Renderer>().material.color = ColorUtility.HIGHLIGHT;
@@ -206,7 +206,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                 GameObject obj = item.GetGameObject();
                 // setColor(ref obj, item.GetLandmarkType(), ColorUtility.HIGHLIGHT);
                 if(obj.name.Contains("Door")) {
-                    for(int id = 1; id <= 4; ++id) {
+                    for(int id = 1; id <= 8; ++id) {
                         GameObject cylinder = obj.transform.Find($"{id}").gameObject;
                         if(cylinder != null) {
                             cylinder.GetComponent<Renderer>().material.color = ColorUtility.HIGHLIGHT;
@@ -240,7 +240,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
             VirtualLandmarkType type = landmarksDict[focusedObject.name].GetLandmarkType();
             //setColor(ref focusedObject, type, landmarksDict[focusedObject.name].GetLandmarkColor());
             if(focusedObject.name.Contains("Door")) {
-                for(int id = 1; id <= 4; ++id) {
+                for(int id = 1; id <= 8; ++id) {
                     GameObject cylinder = focusedObject.transform.Find($"{id}").gameObject;
                     if(cylinder != null) {
                         cylinder.GetComponent<Renderer>().material.color = landmarksDict[focusedObject.name].GetLandmarkColor();
@@ -253,7 +253,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                 GameObject obj = item.GetGameObject();
                 //setColor(ref obj, item.GetLandmarkType(), item.GetLandmarkColor());
                 if(obj.name.Contains("Door")) {
-                    for(int id = 1; id <= 4; ++id) {
+                    for(int id = 1; id <= 8; ++id) {
                         GameObject cylinder = obj.transform.Find($"{id}").gameObject;
                         if(cylinder != null) {
                             cylinder.GetComponent<Renderer>().material.color = item.GetLandmarkColor();
@@ -379,10 +379,10 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         DrawCylinderBetweenPoints(topRightVertex, bottomRightVertex, "2", ref planeTransform);
         DrawCylinderBetweenPoints(bottomRightVertex, bottomLeftVertex, "3", ref planeTransform);
         DrawCylinderBetweenPoints(bottomLeftVertex, topLeftVertex, "4", ref planeTransform);
-        GenerateSphere(topLeftVertex, ref planeTransform);
-        GenerateSphere(topRightVertex, ref planeTransform);
-        GenerateSphere(bottomLeftVertex, ref planeTransform);
-        GenerateSphere(bottomRightVertex, ref planeTransform);
+        GenerateSphere(topLeftVertex, "5",ref planeTransform);
+        GenerateSphere(topRightVertex, "6",ref planeTransform);
+        GenerateSphere(bottomLeftVertex, "7", ref planeTransform);
+        GenerateSphere(bottomRightVertex, "8", ref planeTransform);
     }
 
     private void DrawCylinderBetweenPoints(Vector3 pointA, Vector3 pointB, string name, ref Transform planeTransform , float radius = 0.005f) {
@@ -403,11 +403,11 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         edge.transform.SetParent(planeTransform);
     }
 
-    private void GenerateSphere(Vector3 position, ref Transform planeTransform ,float radius = 0.05f)
+    private void GenerateSphere(Vector3 position, string name, ref Transform planeTransform, float radius = 0.05f)
     {
         // 创建球体游戏对象
         GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-
+        sphere.name = name;
         // 设置球体的缩放，使其半径与指定的半径匹配
         sphere.transform.localScale = new Vector3(radius * 2f, radius * 2f, radius * 2f);
         sphere.transform.position = position;
