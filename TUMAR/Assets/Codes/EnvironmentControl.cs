@@ -45,8 +45,6 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         // string scenePath = Application.dataPath + "/Codes/landmarks.json";
         // string sceneJson = File.ReadAllText(scenePath);
         // ArrayData sceneData = JsonUtility.FromJson<ArrayData>(sceneJson);
-
-        int colorID = 0;
         foreach (var item in data.objs) {
             GameObject obj = GameObject.Find(item.name);
             if(obj == null) {
@@ -55,7 +53,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
             }
             VirtualLandmark landmark = new VirtualLandmark();
             landmark.SetLandmarkId(item.id);
-            Debug.Log("Landmark id: " + item.id);
+            // Debug.Log("Landmark id: " + item.id);
             landmark.SetLandmarkName(item.name);
             landmark.SetLandmarkDescription(item.description);
             landmark.SetLandmarkRealName(item.realName);
@@ -69,15 +67,29 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
             // sphere.layer = minimapLayer;
             // sphere.transform.SetParent(Environment.transform, false);
             
-            /* switch(item.type) {
-                case 0: setColor(ref sphere, VirtualLandmarkType.PRIMARY, Color.white); break;
-                case 1: setColor(ref sphere, VirtualLandmarkType.SECONDARY, Color.white); break;
-                case 2: setColor(ref sphere, VirtualLandmarkType.NOT_SHOW, Color.white); break;
-                default: setColor(ref sphere, VirtualLandmarkType.NOT_SHOW, Color.white); break;
-            }*/
             if(item.type == 0) {
-                landmark.SetLandmarkColor(ColorUtility.GetColorById(colorID%ColorUtility.GetLength() + 1));
-                setColor(ref obj, VirtualLandmarkType.PRIMARY, landmark.GetLandmarkColor());
+                if(item.color.HasValue) {
+                    Color tmp_color = item.color.Value;
+                    if(!item.name.Contains("Door")) {
+                        tmp_color = fadingColor(tmp_color, 0.75f);
+                    } else {
+                        planeToFrame(ref obj);
+                        for(int i = 1; i <= 8; ++i) {
+                            GameObject cylinder = obj.transform.Find($"{i}").gameObject;
+                            if(cylinder != null) {
+                                cylinder.GetComponent<Renderer>().material.color = tmp_color;
+                            }
+                        }
+                    }
+                    landmark.SetLandmarkColor(tmp_color);
+                    if(item.name.Contains("Door")) {
+                        setColor(ref obj, VirtualLandmarkType.PRIMARY, ColorUtility.TRANSPARENT);
+                    } else {
+                        setColor(ref obj, VirtualLandmarkType.PRIMARY, landmark.GetLandmarkColor());
+                    }
+                    
+                }
+                
                 // setColor(ref sphere, VirtualLandmarkType.PRIMARY, landmark.GetLandmarkColor());
             }
             if(item.type == 2) {
@@ -94,7 +106,6 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
             landmarksDict.Add(item.name, landmark);
             landmarksIdDict.Add(item.id, landmark);
             objectNames.Add(item.name);
-            colorID++;
         }
 
         foreach (var item in data.objs) {
@@ -102,19 +113,30 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                 Color color = landmarksDict[item.name].GetLandmarkColor();
                 for(int i = 0; i < item.connectedIDs.Count; i++) {
                     landmarksDict[item.name].AddConnectedLandmark(landmarksIdDict[item.connectedIDs[i]]);
-                    // make the color less bright
-                    Color.RGBToHSV(color, out float initialHue, out float initialSaturation, out float initialValue);
-                    float fadedValue = Mathf.Clamp01(initialSaturation * 0.5f);
-                    Color fadedColor = Color.HSVToRGB(initialHue, fadedValue, initialValue);
-                    // Color fadedColor = color;
-                    // fadedColor.a = 0.5f;
-
-                    landmarksIdDict[item.connectedIDs[i]].SetLandmarkColor(fadedColor);
+                    // make the color less bright if not the important landmark
+                    Color fadedColor;
+                    if(landmarksIdDict[item.connectedIDs[i]].GetLandmarkType() == VirtualLandmarkType.PRIMARY) {
+                        fadedColor = landmarksIdDict[item.connectedIDs[i]].GetLandmarkColor();
+                    } else {
+                        fadedColor = fadingColor(color, 0.75f);
+                        landmarksIdDict[item.connectedIDs[i]].SetLandmarkColor(fadedColor);
+                    }
                     GameObject obj = landmarksIdDict[item.connectedIDs[i]].GetGameObject();
-                    setColor(ref obj, VirtualLandmarkType.SECONDARY, fadedColor);
-                    // string name = landmarksIdDict[item.connectedIDs[i]].GetLandmarkName();
-                    // GameObject sphere = spheres[name];
-                    //setColor(ref sphere, VirtualLandmarkType.SECONDARY, landmarksDict[item.name].GetLandmarkColor());
+                    if(obj.name.Contains("Door")) {
+                        planeToFrame(ref obj);
+                        for(int id = 1; id <= 8; ++id) {
+                            GameObject cylinder = obj.transform.Find($"{id}").gameObject;
+                            if(cylinder != null) {
+                                cylinder.GetComponent<Renderer>().material.color = fadedColor;
+                            }
+                        }
+                    }
+
+                    if(item.name.Contains("Door")) {
+                        setColor(ref obj, VirtualLandmarkType.PRIMARY, ColorUtility.TRANSPARENT);
+                    } else {
+                        setColor(ref obj, VirtualLandmarkType.PRIMARY, fadedColor);
+                    }
                 }
             }
         }
@@ -146,7 +168,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
 
     // Start is called before the first frame update
     void Start() {
-
+        
     }
 
     // Update is called once per frame
@@ -168,12 +190,31 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         {
             VirtualLandmarkType type = landmarksDict[focusedObject.name].GetLandmarkType();
             Color color = landmarksDict[focusedObject.name].GetLandmarkColor();
-            Color highlight = new Color(0f, 0.5f, 1f, 1f);
-            setColor(ref focusedObject, type, highlight);
+            if(focusedObject.name.Contains("Door")) {
+                for(int id = 1; id <= 8; ++id) {
+                    GameObject cylinder = focusedObject.transform.Find($"{id}").gameObject;
+                    if(cylinder != null) {
+                        cylinder.GetComponent<Renderer>().material.color = ColorUtility.HIGHLIGHT;
+                    }
+                }
+            } else {
+                setColor(ref focusedObject, type, ColorUtility.HIGHLIGHT);
+            }
+            // setColor(ref focusedObject, type, ColorUtility.HIGHLIGHT);
             setText(ref focusedObject, landmarksDict[focusedObject.name].GetLandmarkDescription());
             foreach (var item in landmarksDict[focusedObject.name].GetConnectedLandmarks()) {
                 GameObject obj = item.GetGameObject();
-                setColor(ref obj, item.GetLandmarkType(), highlight);
+                // setColor(ref obj, item.GetLandmarkType(), ColorUtility.HIGHLIGHT);
+                if(obj.name.Contains("Door")) {
+                    for(int id = 1; id <= 8; ++id) {
+                        GameObject cylinder = obj.transform.Find($"{id}").gameObject;
+                        if(cylinder != null) {
+                            cylinder.GetComponent<Renderer>().material.color = ColorUtility.HIGHLIGHT;
+                        }
+                    }
+                } else {
+                    setColor(ref obj, type, ColorUtility.HIGHLIGHT);
+                }
             }
             /*if(type == VirtualLandmarkType.PRIMARY) {
                 foreach (var item in landmarksDict[focusedObject.name].GetConnectedLandmarks()) {
@@ -197,10 +238,30 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         if (focusedObject != null && objectNames.Contains(focusedObject.name))
         {
             VirtualLandmarkType type = landmarksDict[focusedObject.name].GetLandmarkType();
-            setColor(ref focusedObject, type, landmarksDict[focusedObject.name].GetLandmarkColor());
+            //setColor(ref focusedObject, type, landmarksDict[focusedObject.name].GetLandmarkColor());
+            if(focusedObject.name.Contains("Door")) {
+                for(int id = 1; id <= 8; ++id) {
+                    GameObject cylinder = focusedObject.transform.Find($"{id}").gameObject;
+                    if(cylinder != null) {
+                        cylinder.GetComponent<Renderer>().material.color = landmarksDict[focusedObject.name].GetLandmarkColor();
+                    }
+                }
+            } else {
+                setColor(ref focusedObject, type, landmarksDict[focusedObject.name].GetLandmarkColor());
+            }
             foreach (var item in landmarksDict[focusedObject.name].GetConnectedLandmarks()) {
                 GameObject obj = item.GetGameObject();
-                setColor(ref obj, item.GetLandmarkType(), item.GetLandmarkColor());
+                //setColor(ref obj, item.GetLandmarkType(), item.GetLandmarkColor());
+                if(obj.name.Contains("Door")) {
+                    for(int id = 1; id <= 8; ++id) {
+                        GameObject cylinder = obj.transform.Find($"{id}").gameObject;
+                        if(cylinder != null) {
+                            cylinder.GetComponent<Renderer>().material.color = item.GetLandmarkColor();
+                        }
+                    }
+                } else {
+                    setColor(ref obj, type, item.GetLandmarkColor());
+                }
             }
             DestroyImmediate(GameObject.Find("Text_Notation"));
         }
@@ -221,7 +282,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                     renderer.material.color = Color.blue;
                 }
             } else {*/
-            renderer.material.color = color;
+            // renderer.material.color = color;
             // }
             
         } else {
@@ -236,8 +297,12 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                     renderer.material.color = Color.blue;
                 }
             } else {*/
-            renderer.material.color = color;
+            // renderer.material.color = color;
             // }
+        }
+        Material[] materials = renderer.materials;
+        foreach (var material in materials) {
+            material.color = color;
         }
     }
 
@@ -248,7 +313,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         // 将该对象添加到 cube 上
         Camera mainCamera = Camera.main;
         Vector3 cameraForward = mainCamera.transform.forward;
-        Vector3 textPosition = obj.transform.position - cameraForward * 0.05f;
+        Vector3 textPosition = obj.transform.position - cameraForward * 1f;
         textObject.transform.position = textPosition;
         textObject.transform.forward = mainCamera.transform.forward;
 
@@ -257,9 +322,96 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
 
         // 设置 TextMesh 的属性
         textMesh.text = description;
-        textMesh.fontSize = 72;
+        textMesh.fontSize = 90;
         textMesh.characterSize = 0.02f;
-        textMesh.color = Color.blue;
+        textMesh.color = Color.white;
         textMesh.alignment = TextAlignment.Center;
+
+        /* TextMesh outlineTextMesh = Instantiate(textMesh, textObject.transform);
+        TextMesh mainTextMesh = Instantiate(textMesh, textObject.transform);
+        outlineTextMesh.transform.localPosition = Vector3.zero; // 重置边缘TextMesh的本地位置
+        outlineTextMesh.color = Color.black; // 设置边缘颜色
+        outlineTextMesh.GetComponent<Renderer>().sortingOrder = textMesh.GetComponent<Renderer>().sortingOrder - 1; // 将边缘TextMesh的渲染层级设为原始TextMesh的前一层
+
+        // 根据相机朝向调整边缘TextMesh的朝向
+        outlineTextMesh.transform.rotation = Quaternion.LookRotation(cameraForward, Vector3.up);
+
+        mainTextMesh.transform.localPosition = Vector3.zero; // 重置主要TextMesh的本地位置
+        mainTextMesh.color = Color.white; // 设置主要文字颜色*/
     }
+
+    private Color fadingColor(Color color, float fadeAmount = 0.25f) {
+        Color.RGBToHSV(color, out float initialHue, out float initialSaturation, out float initialValue);
+        float fadedValue = Mathf.Clamp01(initialSaturation * fadeAmount);
+        Color fadedColor = Color.HSVToRGB(initialHue, fadedValue, initialValue);
+        fadedColor.a = 0.5f;
+        return fadedColor;
+    }
+
+    private void planeToFrame(ref GameObject obj) {
+        // 获取 Plane 对象的变换组件
+        Transform planeTransform = obj.transform;
+        Vector3 position = planeTransform.position;
+        Vector3 n = planeTransform.TransformDirection(Vector3.up);
+        
+
+        float h = planeTransform.localScale.x*10;
+        float w = planeTransform.localScale.z*10;
+
+        // 计算四个顶点的坐标
+        Vector3 topLeftVertex = position + new Vector3(0, h/2, 0);
+        Vector3 topRightVertex = position + new Vector3(0, h/2, 0);
+        Vector3 bottomLeftVertex = position + new Vector3(0, -h/2, 0);
+        Vector3 bottomRightVertex = position + new Vector3(0, -h/2, 0);
+        if (n.z == 0.0f) {
+            topLeftVertex.z -= w/2;
+            topRightVertex.z += w/2;
+            bottomLeftVertex.z -= w/2;
+            bottomRightVertex.z += w/2;
+        } else {
+            topLeftVertex.x -= w/2;
+            topRightVertex.x += w/2;
+            bottomLeftVertex.x -= w/2;
+            bottomRightVertex.x += w/2;
+        }
+
+        DrawCylinderBetweenPoints(topLeftVertex, topRightVertex, "1" ,ref planeTransform);
+        DrawCylinderBetweenPoints(topRightVertex, bottomRightVertex, "2", ref planeTransform);
+        DrawCylinderBetweenPoints(bottomRightVertex, bottomLeftVertex, "3", ref planeTransform);
+        DrawCylinderBetweenPoints(bottomLeftVertex, topLeftVertex, "4", ref planeTransform);
+        GenerateSphere(topLeftVertex, "5",ref planeTransform);
+        GenerateSphere(topRightVertex, "6",ref planeTransform);
+        GenerateSphere(bottomLeftVertex, "7", ref planeTransform);
+        GenerateSphere(bottomRightVertex, "8", ref planeTransform);
+    }
+
+    private void DrawCylinderBetweenPoints(Vector3 pointA, Vector3 pointB, string name, ref Transform planeTransform , float radius = 0.005f) {
+        GameObject edge = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        edge.name = name;
+        float distance = Vector3.Distance(pointA, pointB);
+        // 设置圆柱体位置为两个点的中点
+        edge.transform.position = (pointA + pointB) / 2f;
+        // 设置圆柱体的缩放，使其长度与两个点之间的距离匹配
+        edge.transform.localScale = new Vector3(radius * 2f, distance / 2f, radius * 2f);
+        // 计算圆柱体的方向向量
+        Vector3 direction = pointB - pointA;
+        // 设置圆柱体的旋转，使其朝向两个点之间的方向
+        //edge.transform.rotation = Quaternion.LookRotation(direction);
+        edge.transform.up = direction.normalized;
+        // 获取圆柱体的渲染器组件
+        Renderer renderer = edge.GetComponent<Renderer>();
+        edge.transform.SetParent(planeTransform);
+    }
+
+    private void GenerateSphere(Vector3 position, string name, ref Transform planeTransform, float radius = 0.05f)
+    {
+        // 创建球体游戏对象
+        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        sphere.name = name;
+        // 设置球体的缩放，使其半径与指定的半径匹配
+        sphere.transform.localScale = new Vector3(radius * 2f, radius * 2f, radius * 2f);
+        sphere.transform.position = position;
+        sphere.transform.SetParent(planeTransform);
+    }
+    
 }

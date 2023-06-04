@@ -6,6 +6,22 @@ public static class ColorUtility
     private static Dictionary<int, Color> colorById = new Dictionary<int, Color>();
     private static Dictionary<string, Color> colorByName = new Dictionary<string, Color>();
 
+    public static Color PINK = new Color(1f, 0.5f, 0.5f, 0.5f); // fire extinguisher
+    public static Color ORANGE = new Color(1f, 0.5f, 0f, 0.5f); // garbage can
+    public static Color SHALLOW_BLUE = new Color(0f, 0.5f, 1f, 0.5f); // show board
+    public static Color GREEN = new Color(0f, 1f, 0f, 0.5f); // stereoscope
+    public static Color YELLOW = new Color(1f, 1f, 0f, 1f); // toilet
+    public static Color DARK_CYAN = new Color(0f, 139f/256f, 139f/256f, 1f); // traffic engineering
+    public static Color FIRE_BRICK = new Color(178f/256f, 34f/256f, 34f/256f, 1f); // open lab
+    public static Color PURPLE = new Color(160f/256f, 32f/256f, 240f/256f, 1f); // Trasport Construction
+    public static Color FOREST_GREEN = new Color(34f/256f, 139f/256f, 34f/256f, 1f); // Cartography
+    public static Color SIENNA = new Color(205f/256f, 140f/256f, 57f/256f, 1f); // Photogrammetry and Remote Sensing
+    public static Color NAVAJO_WHITE = new Color(205f/256f, 179f/256f, 139f/256f, 1f); // Individual item
+    public static Color HIGHLIGHT = new Color(1f, 0f, 0f, 1f); // highlight
+    public static Color TRANSPARENT = new Color(0f, 0f, 0f, 0f); // transparent
+
+
+
     static ColorUtility()
     {
         // 添加颜色ID和RGBA值的映射关系
