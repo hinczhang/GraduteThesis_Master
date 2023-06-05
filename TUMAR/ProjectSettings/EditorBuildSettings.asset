@@ -6,12 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene1.unity
-    guid: 296fab28660c3cf4cb64f96e935ba2fb
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
-    Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: a3a0dbf4e23b69741a3335b732479074,
-      type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2b6c34aceeb2b314ebbc80a972918c03,
-      type: 2}
-    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 9f3a86b7358297c49ab7cc6a28b92562,
-      type: 2}
+    Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 0a3e3f9edb3028e45b0417d92d1e0807, type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: efc11bea84cc9ee419df9bda40764ba0, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ac7e9c02cfeb7eb4b9e52d9581fbf49b, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 9f59febf6c898a244ba38a7b340db6f2, type: 2}

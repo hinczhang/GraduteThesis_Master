@@ -28,6 +28,8 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         // minimapLayer = LayerMask.NameToLayer("MinimapObjects");
         // loc = GameObject.Find("Localization");
         // Get main camera
+        Debug.Log("Awake!!!!!!!!!!");
+        
         mainCamera = Camera.main;
         // miniCamera = GameObject.Find("miniCamera").GetComponent<Camera>();
         
@@ -139,6 +141,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                     }
                 }
             }
+            // DontDestroyOnLoad(this.gameObject);
         }
         // foreach (var item in landmarks) {
         //    GameObject obj = item.GetGameObject();
