@@ -629,10 +629,10 @@ PlayerSettings:
   metroPackageName: TUMAR
   metroPackageVersion: 1.2.0.0
   metroCertificatePath: Assets/WSATestCertificate.pfx
-  metroCertificatePassword: '=>?89:'
-  metroCertificateSubject: TUM_Jiongyan
-  metroCertificateIssuer: TUM_Jiongyan
-  metroCertificateNotAfter: 800bc948fcb6da01
+  metroCertificatePassword: 
+  metroCertificateSubject: StandardCyco
+  metroCertificateIssuer: StandardCyco
+  metroCertificateNotAfter: 00694178f2b8da01
   metroApplicationDescription: TUM AR Spatial Learning
   wsaImages: {}
   metroTileShortName: InSituGrid

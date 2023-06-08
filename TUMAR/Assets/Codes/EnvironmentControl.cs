@@ -24,6 +24,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
 
     void Awake()
     {
+        PointerUtils.SetGazePointerBehavior(PointerBehavior.AlwaysOn);
         // Environment = GameObject.Find("Environment");
         // minimapLayer = LayerMask.NameToLayer("MinimapObjects");
         // loc = GameObject.Find("Localization");
@@ -82,6 +83,13 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                                 cylinder.GetComponent<Renderer>().material.color = tmp_color;
                             }
                         }
+                        if(obj.transform.Find("Plane") != null) {
+                            GameObject plane = obj.transform.Find("Plane").gameObject;
+                            Vector3 scale = plane.transform.localScale;
+                            scale.x *= 0.25f;
+                            scale.z *= 0.25f;
+                            plane.transform.localScale = scale;
+                        }
                     }
                     landmark.SetLandmarkColor(tmp_color);
                     if(item.name.Contains("Door")) {
@@ -120,7 +128,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                     if(landmarksIdDict[item.connectedIDs[i]].GetLandmarkType() == VirtualLandmarkType.PRIMARY) {
                         fadedColor = landmarksIdDict[item.connectedIDs[i]].GetLandmarkColor();
                     } else {
-                        fadedColor = fadingColor(color, 0.8f);
+                        fadedColor = fadingColor(color, 0.25f);
                         landmarksIdDict[item.connectedIDs[i]].SetLandmarkColor(fadedColor);
                     }
                     GameObject obj = landmarksIdDict[item.connectedIDs[i]].GetGameObject();
@@ -131,6 +139,13 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                             if(cylinder != null) {
                                 cylinder.GetComponent<Renderer>().material.color = fadedColor;
                             }
+                        }
+                        if(obj.transform.Find("Plane") != null) {
+                            GameObject plane = obj.transform.Find("Plane").gameObject;
+                            Vector3 scale = plane.transform.localScale;
+                            scale.x *= 0.25f;
+                            scale.z *= 0.25f;
+                            plane.transform.localScale = scale;
                         }
                     }
 
@@ -325,7 +340,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
 
         // 设置 TextMesh 的属性
         textMesh.text = description;
-        textMesh.fontSize = 90;
+        textMesh.fontSize = 45;
         textMesh.characterSize = 0.02f;
         textMesh.color = Color.white;
         textMesh.alignment = TextAlignment.Center;
@@ -347,7 +362,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         Color.RGBToHSV(color, out float initialHue, out float initialSaturation, out float initialValue);
         float fadedValue = Mathf.Clamp01(initialSaturation * fadeAmount);
         Color fadedColor = Color.HSVToRGB(initialHue, fadedValue, initialValue);
-        fadedColor.a = 0.2f;
+        fadedColor.a = 0.8f;
         return fadedColor;
     }
 
