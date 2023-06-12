@@ -360,7 +360,7 @@ public class LandmarkData
             name = "stereoScope2",
             realName = "Stereo scope",
             description = "Stereo scope",
-            connectedIDs = new List<int> { 35, 36, 37, 38 },
+            connectedIDs = new List<int> { 35, 36, 37, 38, 82, 83 },
             color = ColorUtility.GREEN
         });
         objs.Add(new DataCell
@@ -370,7 +370,7 @@ public class LandmarkData
             name = "stereoScope3",
             realName = "Stereo scope",
             description = "Stereo scope",
-            connectedIDs = new List<int>() { 34, 36, 37, 38 },
+            connectedIDs = new List<int>() { 34, 36, 37, 38, 82, 83  },
             color = ColorUtility.GREEN
         });
         objs.Add(new DataCell
@@ -380,7 +380,7 @@ public class LandmarkData
             name = "stereoScope4",
             realName = "Stereo scope",
             description = "Stereo scope",
-            connectedIDs = new List<int>() { 34, 35, 37, 38 },
+            connectedIDs = new List<int>() { 34, 35, 37, 38, 82, 83  },
             color = ColorUtility.GREEN
         });
         objs.Add(new DataCell
@@ -390,7 +390,7 @@ public class LandmarkData
             name = "stereoScope5",
             realName = "Stereo scope",
             description = "Stereo scope",
-            connectedIDs = new List<int>() { 34, 35, 36, 38 },
+            connectedIDs = new List<int>() { 34, 35, 36, 38, 82, 83  },
             color = ColorUtility.GREEN
         });
         objs.Add(new DataCell
@@ -400,7 +400,7 @@ public class LandmarkData
             name = "stereoScope6",
             realName = "Stereo scope",
             description = "Stereo scope",
-            connectedIDs = new List<int>() { 34, 35, 36, 37 },
+            connectedIDs = new List<int>() { 34, 35, 36, 37, 82, 83 },
             color = ColorUtility.GREEN
         });
         objs.Add(new DataCell
@@ -819,6 +819,26 @@ public class LandmarkData
             description = "Show board",
             connectedIDs = new List<int>() { 6, 7, 80 },
             color = ColorUtility.SHALLOW_BLUE
+        });
+        objs.Add(new DataCell
+        {
+            id = 82,
+            type = 0,
+            name = "stereoScope7",
+            realName = "Stereo scope",
+            description = "Stereo scope",
+            connectedIDs = new List<int>() { 34, 35, 36, 37, 83, 38 },
+            color = ColorUtility.GREEN
+        });
+        objs.Add(new DataCell
+        {
+            id = 83,
+            type = 0,
+            name = "stereoScope8",
+            realName = "Stereo scope",
+            description = "Stereo scope",
+            connectedIDs = new List<int>() { 34, 35, 36, 37, 82, 38 },
+            color = ColorUtility.GREEN
         });
 
     }
