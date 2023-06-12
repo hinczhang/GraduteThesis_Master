@@ -24,10 +24,13 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
 
     void Awake()
     {
+        PointerUtils.SetGazePointerBehavior(PointerBehavior.AlwaysOn);
         // Environment = GameObject.Find("Environment");
         // minimapLayer = LayerMask.NameToLayer("MinimapObjects");
         // loc = GameObject.Find("Localization");
         // Get main camera
+        Debug.Log("Awake!!!!!!!!!!");
+        
         mainCamera = Camera.main;
         // miniCamera = GameObject.Find("miniCamera").GetComponent<Camera>();
         
@@ -80,6 +83,13 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                                 cylinder.GetComponent<Renderer>().material.color = tmp_color;
                             }
                         }
+                        if(obj.transform.Find("Plane") != null) {
+                            GameObject plane = obj.transform.Find("Plane").gameObject;
+                            Vector3 scale = plane.transform.localScale;
+                            scale.x *= 0.25f;
+                            scale.z *= 0.25f;
+                            plane.transform.localScale = scale;
+                        }
                     }
                     landmark.SetLandmarkColor(tmp_color);
                     if(item.name.Contains("Door")) {
@@ -118,7 +128,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                     if(landmarksIdDict[item.connectedIDs[i]].GetLandmarkType() == VirtualLandmarkType.PRIMARY) {
                         fadedColor = landmarksIdDict[item.connectedIDs[i]].GetLandmarkColor();
                     } else {
-                        fadedColor = fadingColor(color, 0.75f);
+                        fadedColor = fadingColor(color, 0.25f);
                         landmarksIdDict[item.connectedIDs[i]].SetLandmarkColor(fadedColor);
                     }
                     GameObject obj = landmarksIdDict[item.connectedIDs[i]].GetGameObject();
@@ -130,6 +140,13 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                                 cylinder.GetComponent<Renderer>().material.color = fadedColor;
                             }
                         }
+                        if(obj.transform.Find("Plane") != null) {
+                            GameObject plane = obj.transform.Find("Plane").gameObject;
+                            Vector3 scale = plane.transform.localScale;
+                            scale.x *= 0.25f;
+                            scale.z *= 0.25f;
+                            plane.transform.localScale = scale;
+                        }
                     }
 
                     if(item.name.Contains("Door")) {
@@ -139,6 +156,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
                     }
                 }
             }
+            // DontDestroyOnLoad(this.gameObject);
         }
         // foreach (var item in landmarks) {
         //    GameObject obj = item.GetGameObject();
@@ -322,7 +340,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
 
         // 设置 TextMesh 的属性
         textMesh.text = description;
-        textMesh.fontSize = 90;
+        textMesh.fontSize = 45;
         textMesh.characterSize = 0.02f;
         textMesh.color = Color.white;
         textMesh.alignment = TextAlignment.Center;
@@ -344,7 +362,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         Color.RGBToHSV(color, out float initialHue, out float initialSaturation, out float initialValue);
         float fadedValue = Mathf.Clamp01(initialSaturation * fadeAmount);
         Color fadedColor = Color.HSVToRGB(initialHue, fadedValue, initialValue);
-        fadedColor.a = 0.5f;
+        fadedColor.a = 0.8f;
         return fadedColor;
     }
 
@@ -385,7 +403,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         GenerateSphere(bottomRightVertex, "8", ref planeTransform);
     }
 
-    private void DrawCylinderBetweenPoints(Vector3 pointA, Vector3 pointB, string name, ref Transform planeTransform , float radius = 0.005f) {
+    private void DrawCylinderBetweenPoints(Vector3 pointA, Vector3 pointB, string name, ref Transform planeTransform , float radius = 0.02f) {
         GameObject edge = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
         edge.name = name;
         float distance = Vector3.Distance(pointA, pointB);
@@ -400,6 +418,8 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         edge.transform.up = direction.normalized;
         // 获取圆柱体的渲染器组件
         Renderer renderer = edge.GetComponent<Renderer>();
+        Material cylinder = Resources.Load("Materials/Cylinder") as Material;
+        renderer.material = cylinder;
         edge.transform.SetParent(planeTransform);
     }
 
@@ -411,6 +431,9 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
         // 设置球体的缩放，使其半径与指定的半径匹配
         sphere.transform.localScale = new Vector3(radius * 2f, radius * 2f, radius * 2f);
         sphere.transform.position = position;
+        Renderer renderer = sphere.GetComponent<Renderer>();
+        Material cylinder = Resources.Load("Materials/Cylinder") as Material;
+        renderer.material = cylinder;
         sphere.transform.SetParent(planeTransform);
     }
     
