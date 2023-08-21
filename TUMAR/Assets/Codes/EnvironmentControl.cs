@@ -6,6 +6,15 @@ using Microsoft.MixedReality.Toolkit.UI;
 using Microsoft.MixedReality.Toolkit.Input;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class PlayerData
+{
+    public string objectName;
+    public float x;
+    public float y;
+    public int style;
+}
+
 public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
 {
     // private GameObject obj;
@@ -24,6 +33,7 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
 
     void Awake()
     {
+        List<PlayerData> list = new List<PlayerData>();
         PointerUtils.SetGazePointerBehavior(PointerBehavior.AlwaysOn);
         // Environment = GameObject.Find("Environment");
         // minimapLayer = LayerMask.NameToLayer("MinimapObjects");
@@ -69,6 +79,9 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
             // sphere.transform.position = spherePosition;
             // sphere.layer = minimapLayer;
             // sphere.transform.SetParent(Environment.transform, false);
+            if(item.type == 0 || item.type == 1) {
+                list.Add(new PlayerData {objectName = item.description, x = obj.transform.position.x, y = obj.transform.position.z, style = item.type});
+            }
             
             if(item.type == 0) {
                 if(item.color.HasValue) {
@@ -117,6 +130,22 @@ public class EnvironmentControl : MonoBehaviour, IMixedRealityFocusHandler
             landmarksIdDict.Add(item.id, landmark);
             objectNames.Add(item.name);
         }
+
+         // 手动构建JSON数组的字符串
+        string jsonArray = "[";
+        for (int i = 0; i < list.Count; i++)
+        {
+            string playerJson = JsonUtility.ToJson(list[i]);
+            jsonArray += playerJson;
+
+            if (i < list.Count - 1)
+            {
+                jsonArray += ",";
+            }
+        }
+        jsonArray += "]";
+        string filePath = Application.dataPath + "/Codes/landmarks.json";
+        File.WriteAllText(filePath,jsonArray);
 
         foreach (var item in data.objs) {
             if(item.type == 0) {
