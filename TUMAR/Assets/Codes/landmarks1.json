@@ -1,0 +1,346 @@
+[{
+	"objectName": "Transport Systems, Prof. Antoniou",
+	"x": -4.150000095367432,
+	"y": 2.200000047683716,
+	"style": 0
+}, {
+	"objectName": "Chair of Traffic Engineering, Prof. Bogenberger",
+	"x": -4.150000095367432,
+	"y": -2.0,
+	"style": 0
+}, {
+	"objectName": "Toilet",
+	"x": 4.099999904632568,
+	"y": -2.0,
+	"style": 0
+}, {
+	"objectName": "Show board 1",
+	"x": -3.9000000953674318,
+	"y": 0.30000001192092898,
+	"style": 1
+}, {
+	"objectName": "Show board 2",
+	"x": -2.0,
+	"y": 3.700000047683716,
+	"style": 1
+}, {
+	"objectName": "Hydrology & River Basin Management, Prof. Broich",
+	"x": -1.75,
+	"y": 10.399999618530274,
+	"style": 0
+}, {
+	"objectName": "Transportation Construction (TC)",
+	"x": 1.75,
+	"y": 10.399999618530274,
+	"style": 0
+}, {
+	"objectName": "TC Secretariat",
+	"x": -1.75,
+	"y": 14.5,
+	"style": 0
+}, {
+	"objectName": "TC Library",
+	"x": 1.75,
+	"y": 14.5,
+	"style": 0
+}, {
+	"objectName": "TC Prof. Freudenstein",
+	"x": -1.75,
+	"y": 18.600000381469728,
+	"style": 0
+}, {
+	"objectName": "TC Dr. Lechner, Msc. Lillin",
+	"x": 1.75,
+	"y": 18.600000381469728,
+	"style": 0
+}, {
+	"objectName": "Carto Library",
+	"x": -1.75,
+	"y": 22.700000762939454,
+	"style": 0
+}, {
+	"objectName": "Photogrammetry & Remote Sensing, workshop (PR)",
+	"x": 1.75,
+	"y": 22.700000762939454,
+	"style": 0
+}, {
+	"objectName": "Carto Msc. office",
+	"x": -1.75,
+	"y": 26.799999237060548,
+	"style": 0
+}, {
+	"objectName": "PR Msc. office",
+	"x": 1.75,
+	"y": 26.799999237060548,
+	"style": 0
+}, {
+	"objectName": "Carto Dr. office",
+	"x": -1.75,
+	"y": 30.899999618530275,
+	"style": 0
+}, {
+	"objectName": "PR Msc. office",
+	"x": 1.75,
+	"y": 30.899999618530275,
+	"style": 0
+}, {
+	"objectName": "Cartography Prof. Meng (Carto)",
+	"x": -1.75,
+	"y": 39.400001525878909,
+	"style": 0
+}, {
+	"objectName": "PR Msc. office",
+	"x": 1.75,
+	"y": 35.20000076293945,
+	"style": 0
+}, {
+	"objectName": "Cartography Prof. Meng",
+	"x": -1.7500009536743165,
+	"y": 43.5,
+	"style": 0
+}, {
+	"objectName": "LRZ node.",
+	"x": 1.75,
+	"y": 43.0,
+	"style": 0
+}, {
+	"objectName": "Show board 3",
+	"x": -1.5,
+	"y": 45.5,
+	"style": 1
+}, {
+	"objectName": "Show board 4",
+	"x": 1.5,
+	"y": 45.5,
+	"style": 1
+}, {
+	"objectName": "Show board 5",
+	"x": 1.5,
+	"y": 39.5,
+	"style": 1
+}, {
+	"objectName": "Show board 6",
+	"x": -1.5,
+	"y": 35.0,
+	"style": 1
+}, {
+	"objectName": "Fire extinguisher 1",
+	"x": 1.5,
+	"y": 24.5,
+	"style": 1
+}, {
+	"objectName": "Fire extinguisher 2",
+	"x": 1.5,
+	"y": 46.0,
+	"style": 1
+}, {
+	"objectName": "Stereo scope 1",
+	"x": -1.5,
+	"y": 32.5,
+	"style": 1
+}, {
+	"objectName": "Fire extinguisher 3",
+	"x": 27.5,
+	"y": 50.29999923706055,
+	"style": 1
+}, {
+	"objectName": "Stereo scope 2",
+	"x": 17.0,
+	"y": 50.0,
+	"style": 1
+}, {
+	"objectName": "Stereo scope 3",
+	"x": 17.5,
+	"y": 50.0,
+	"style": 1
+}, {
+	"objectName": "Stereo scope 4",
+	"x": 19.0,
+	"y": 50.0,
+	"style": 1
+}, {
+	"objectName": "Stereo scope 5",
+	"x": 19.5,
+	"y": 50.0,
+	"style": 1
+}, {
+	"objectName": "Stereo scope 6",
+	"x": 27.5,
+	"y": 47.5,
+	"style": 1
+}, {
+	"objectName": "Show board 7",
+	"x": 22.0,
+	"y": 46.5,
+	"style": 1
+}, {
+	"objectName": "Show board 15",
+	"x": 3.0,
+	"y": 50.0,
+	"style": 1
+}, {
+	"objectName": "Show board 16",
+	"x": 13.5,
+	"y": 46.5,
+	"style": 1
+}, {
+	"objectName": "Show board 17",
+	"x": 17.0,
+	"y": 46.5,
+	"style": 1
+}, {
+	"objectName": "Model",
+	"x": 8.0,
+	"y": 50.0,
+	"style": 1
+}, {
+	"objectName": "Carto Coodinator Office",
+	"x": -1.7999999523162842,
+	"y": 48.29999923706055,
+	"style": 0
+}, {
+	"objectName": "PR. Computer Lab",
+	"x": 15.300000190734864,
+	"y": 46.29999923706055,
+	"style": 0
+}, {
+	"objectName": "PR. Dr. Office",
+	"x": 18.899999618530275,
+	"y": 46.29999923706055,
+	"style": 0
+}, {
+	"objectName": "SignalProcessing & EarthObservation Prof Office",
+	"x": 26.5,
+	"y": 46.29999923706055,
+	"style": 0
+}, {
+	"objectName": "Photogrammetry & Remote Sensing Prof Office (PR)",
+	"x": -0.699999988079071,
+	"y": 50.400001525878909,
+	"style": 0
+}, {
+	"objectName": "PR, Prof. Bamler, Prof. Zhu",
+	"x": 5.699999809265137,
+	"y": 50.400001525878909,
+	"style": 0
+}, {
+	"objectName": "Emergency balcony.",
+	"x": 15.699999809265137,
+	"y": 50.400001525878909,
+	"style": 1
+}, {
+	"objectName": "Office.",
+	"x": 24.299999237060548,
+	"y": 50.400001525878909,
+	"style": 0
+}, {
+	"objectName": "Garbage Can",
+	"x": 36.5,
+	"y": 48.0,
+	"style": 1
+}, {
+	"objectName": "Toilet Female",
+	"x": 8.0,
+	"y": 0.30000001192092898,
+	"style": 0
+}, {
+	"objectName": "OpenLAB Dr. Wulfhorst",
+	"x": 12.399999618530274,
+	"y": 0.30000001192092898,
+	"style": 0
+}, {
+	"objectName": "Garbage Can",
+	"x": 6.0,
+	"y": 3.5999999046325685,
+	"style": 1
+}, {
+	"objectName": "Show board 8",
+	"x": 10.5,
+	"y": 0.699999988079071,
+	"style": 1
+}, {
+	"objectName": "Show board 9",
+	"x": 6.0,
+	"y": 0.699999988079071,
+	"style": 1
+}, {
+	"objectName": "OpenLab City Mobility",
+	"x": 26.600000381469728,
+	"y": 0.4000000059604645,
+	"style": 0
+}, {
+	"objectName": "OpenLab City Mobility",
+	"x": 34.400001525878909,
+	"y": 0.4000000059604645,
+	"style": 0
+}, {
+	"objectName": "Settlement Structure and Transport Planning, Prof. Wulfhorst.",
+	"x": 20.0,
+	"y": 0.4000000059604645,
+	"style": 0
+}, {
+	"objectName": "Show board 10",
+	"x": 32.0,
+	"y": 0.699999988079071,
+	"style": 1
+}, {
+	"objectName": "Show board 11",
+	"x": 30.0,
+	"y": 0.699999988079071,
+	"style": 1
+}, {
+	"objectName": "Show board 12",
+	"x": 24.5,
+	"y": 0.699999988079071,
+	"style": 1
+}, {
+	"objectName": "Fire extinguisher 4",
+	"x": 17.0,
+	"y": 0.699999988079071,
+	"style": 1
+}, {
+	"objectName": "Fire extinguisher 5",
+	"x": 14.0,
+	"y": 3.700000047683716,
+	"style": 1
+}, {
+	"objectName": "Office.",
+	"x": 51.400001525878909,
+	"y": -2.0999999046325685,
+	"style": 0
+}, {
+	"objectName": "Hydrology & River Basin Management, Prof. Disse.",
+	"x": 53.400001525878909,
+	"y": -2.0999999046325685,
+	"style": 0
+}, {
+	"objectName": "Fire extinguisher 6",
+	"x": 36.5,
+	"y": 44.5,
+	"style": 1
+}, {
+	"objectName": "Fire extinguisher 7",
+	"x": -1.5,
+	"y": 46.79999923706055,
+	"style": 1
+}, {
+	"objectName": "Show board 13",
+	"x": 2.5,
+	"y": 3.700000047683716,
+	"style": 1
+}, {
+	"objectName": "Show board 14",
+	"x": 4.0,
+	"y": 0.0,
+	"style": 1
+}, {
+	"objectName": "Stereo scope 7",
+	"x": 5.0,
+	"y": 46.5,
+	"style": 1
+}, {
+	"objectName": "Stereo scope 8",
+	"x": 5.5,
+	"y": 46.5,
+	"style": 1
+}]
