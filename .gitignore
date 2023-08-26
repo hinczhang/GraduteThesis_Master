@@ -5,7 +5,10 @@
 [Bb]uilds/
 [Pp]ackages/MixedReality
 Assets/AssetStoreTools*
- 
+
+__pycache__/
+.ipynb_checkpoints/
+
 # Visual Studio cache directory
 .vs/
  
