@@ -1,0 +1,102 @@
+{
+    "standard" : {
+        "1-1": "ABCDEFGHIJK",
+        "1-2": "AB",
+        "2-1": "ABCDEFGHIJKLMNOP",
+        "2-2": "ABCDEFGHIJKLMNO",
+        "3-1": "ABCDEFGHI",
+        "3-2": "ABCDEFGHIJKL",
+        "fire": 0,
+        "time": "00:00"
+    },
+    "1": {
+        "1-1": "AZZZZZZZZZZ",
+        "1-2": "ZZ",
+        "2-1": "ZZZZZZZZZZZZZZZZ",
+        "2-2": "ZZZZZZZZZZZZZZZ",
+        "3-1": "ZZZZZZZZZ",
+        "3-2": "ZZZZEZZZZZZZ",
+        "fire": 1,
+        "time": "05:52"
+    },
+    "2": {
+        "1-1": "ZZZZZZGZZZZ",
+        "1-2": "AZ",
+        "2-1": "ZZZZZZZHZZZZMZZZ",
+        "2-2": "ZZZZZZZZZZZZZZZ",
+        "3-1": "ZZZZZZZZZ",
+        "3-2": "ZZZZEZZZZZZZ",
+        "fire": 1,
+        "time": "03:09"
+    },
+    "3": {
+        "1-1": "ZZZZZZZZZJZ",
+        "1-2": "ZZ",
+        "2-1": "ZZZZZZZHZZZZZZZZ",
+        "2-2": "ZZZZZZZZZZZZZZZ",
+        "3-1": "ZZZZZZZZZ",
+        "3-2": "ZZZZZZGHZZZZ",
+        "fire": 0,
+        "time": "02:16"
+    },
+    "4": {
+        "1-1": "ZZBZZZZZZZZ",
+        "1-2": "ZZ",
+        "2-1": "ZZZZZZZKZZZZZZZZ",
+        "2-2": "ZZZZZZZZZZZZZZZ",
+        "3-1": "ZZZZZZZZZ",
+        "3-2": "ZZZZZZGZZZZZ",
+        "fire": 2,
+        "time": "02:29"
+    },
+    "5": {
+        "1-1": "ZZZZZZZZZZZ",
+        "1-2": "ZZ",
+        "2-1": "ZZZZZZZZZZZZZZZZ",
+        "2-2": "ZZZZZZZZZZZZZZZ",
+        "3-1": "ZZZZZZZZZ",
+        "3-2": "ZZZZZZGHIZZZ",
+        "fire": 0,
+        "time": "02:24"
+    },
+    "6": {
+        "1-1": "ZZZZZZZZZZZ",
+        "1-2": "AZ",
+        "2-1": "ZZZZZZZZZZZZZNZZ",
+        "2-2": "ZZZZZZZZZZZZZZZ",
+        "3-1": "ZZZDEZZZZ",
+        "3-2": "ZBZZZZZZZZZZ",
+        "fire": 1,
+        "time": "05:53"
+    },
+    "7": {
+        "1-1": "ZZZZZZZZZZZ",
+        "1-2": "AZ",
+        "2-1": "ZZZZZZZZZZZZZZZZ",
+        "2-2": "ZZZZZZZZZZZZZZZ",
+        "3-1": "ZZZZZZZZI",
+        "3-2": "ZZZZZZZZZZZZ",
+        "fire": 0,
+        "time": "02:42"
+    },
+    "8": {
+        "1-1": "ZZZZZZZZZZG",
+        "1-2": "AZ",
+        "2-1": "ZZZZZZZZZZZZZZZZ",
+        "2-2": "ZZZZZZZZZZZZZZZ",
+        "3-1": "ZZZZZZZZZ",
+        "3-2": "ZGHIJZZZZZZZ",
+        "fire": 0,
+        "time": "03:40"
+    },
+    "9": {
+        "1-1": "AZZZZBZZZZZJ",
+        "1-2": "ZZ",
+        "2-1": "ZZZZEZZZZZKZZZZZ",
+        "2-2": "ZZZZZZZZZZZZZZZ",
+        "3-1": "ZZZZZZZZI",
+        "3-2": "ZZZDZZZZZZZZ",
+        "fire": 0,
+        "time": "04:22"
+    }
+}
