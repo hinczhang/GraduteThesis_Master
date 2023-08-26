@@ -98,5 +98,85 @@
         "3-2": "ZZZDZZZZZZZZ",
         "fire": 0,
         "time": "04:22"
+    },
+    "10": {
+        "1-1": "ZZZZZZZZZZZ",
+        "1-2": "ZZ",
+        "2-1": "AZCZZZZZZZZZZZZP",
+        "2-2": "ZZZZZZZZZZZMZZZ",
+        "3-1": "ZZZABZZZZ",
+        "3-2": "ZZZZZZZZZZZZ",
+        "fire": 1,
+        "time": "05:30"
+    },
+    "11": {
+        "1-1": "ZZZZZZZZZZZ",
+        "1-2": "ZZ",
+        "2-1": "ZZZZEZZZIJZZMZZP",
+        "2-2": "ZZZZZZZZZZZZZZZ",
+        "3-1": "ZZZZZZZAZ",
+        "3-2": "ZZZZZZZZGHZZ",
+        "fire": 1,
+        "time": "03:41"
+    },
+    "12": {
+        "1-1": "ZZZZZBZZZZZ",
+        "1-2": "AZ",
+        "2-1": "AZZZZZZZZZZZMZZZ",
+        "2-2": "ZZZZZZZZZZZZZZZ",
+        "3-1": "ZZZZZZZZZ",
+        "3-2": "ZZZZZZZZZZZZ",
+        "fire": 1,
+        "time": "04:34"
+    },
+    "13": {
+        "1-1": "ZZZDZZZZZJZ",
+        "1-2": "AZ",
+        "2-1": "ZZZZZZZZZZZZZZZZ",
+        "2-2": "ZZZZZZZZZZZZZZZ",
+        "3-1": "ABZZZZZZZ",
+        "3-2": "ZZZZZFZZZZZZ",
+        "fire": 1,
+        "time": "02:58"
+    },
+    "14": {
+        "1-1": "AZZDZZZZZZZ",
+        "1-2": "AZ",
+        "2-1": "AZZZZZZZZZZZZZZZ",
+        "2-2": "ZZZZZZZZZZZZZZZ",
+        "3-1": "ZZZZZZZZI",
+        "3-2": "ZBZZZZZZZZZZ",
+        "fire": 0,
+        "time": "03:00"
+    },
+    "15": {
+        "1-1": "ZZZZZZZZZJZ",
+        "1-2": "ZZ",
+        "2-1": "ZZZZZZZZIZZZZZZZ",
+        "2-2": "ZZZZZZZZIJZZZZZ",
+        "3-1": "ZZZZZZZZZ",
+        "3-2": "ZZZZZZZZZZZZ",
+        "fire": 1,
+        "time": "03:30"
+    },
+    "16": {
+        "1-1": "ZZZZZZZZZZZ",
+        "1-2": "ZZ",
+        "2-1": "ZZZZZZZZZZKZZZZZ",
+        "2-2": "ZZZZZZZZZZZZZZZ",
+        "3-1": "ZZZZZZZZZ",
+        "3-2": "ZZZZZZZZZZZZ",
+        "fire": 1,
+        "time": "02:39"
+    },
+    "17": {
+        "1-1": "ZZZZZZZZZZZ",
+        "1-2": "ZZ",
+        "2-1": "ZZZZEZZZZZZZZZZZ",
+        "2-2": "ZZZZZZZZZZZZZZZ",
+        "3-1": "ZZZZZZZZZ",
+        "3-2": "ZZZDEZZZZZZZ",
+        "fire": 0,
+        "time": "05:21"
     }
 }
