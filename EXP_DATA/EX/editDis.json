@@ -148,5 +148,35 @@
         "3-2": "ABZZZZZZZZZL",
         "fire": 1,
         "time": "05:40"
+    },
+    "15": {
+        "1-1": "ABZDEFIZZJZ",
+        "1-2": "ZZ",
+        "2-1": "ZZZZEFZHIJKZMNZZ",
+        "2-2": "ZZZDZZZZZZZZZZZ",
+        "3-1": "ZZZDZZZZI",
+        "3-2": "ZZZZZFGZIZZZ",
+        "fire": 0,
+        "time": "03:37"
+    },
+    "16": {
+        "1-1": "BACDGFZHZJZ",
+        "1-2": "ZZ",
+        "2-1": "AZCDEZZHIZKLMNZP",
+        "2-2": "ABCDEFGHIZZZMNZ",
+        "3-1": "ZZZDZZZZZ",
+        "3-2": "ABCZZZGZIZZL",
+        "fire": 4,
+        "time": "06:05"
+    },
+    "17": {
+        "1-1": "ABCDEFGZZZZ",
+        "1-2": "ZZ",
+        "2-1": "AZCZEFGHIJKZMNOZ",
+        "2-2": "ZZZDZZZZJZZZZZZ",
+        "3-1": "ABZZZZZZZ",
+        "3-2": "AZZZZZGHIJZZ",
+        "fire": 2,
+        "time": "04:40"
     }
 }
