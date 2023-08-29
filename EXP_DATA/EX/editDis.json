@@ -1,0 +1,152 @@
+{
+    "standard" : {
+        "1-1": "ABCDEFGHIJK",
+        "1-2": "AB",
+        "2-1": "ABCDEFGHIJKLMNOP",
+        "2-2": "ABCDEFGHIJKLMNO",
+        "3-1": "ABCDEFGHI",
+        "3-2": "ABCDEFGHIJKL",
+        "fire": 0,
+        "time": "00:00"
+    },
+    "1": {
+        "1-1": "ZZZAZZZZZZZ",
+        "1-2": "ZB",
+        "2-1": "AZZZZZZHZZKZMZZZ",
+        "2-2": "AZZZZZZZZZZZZZZ",
+        "3-1": "ZZZDZZZZZ",
+        "3-2": "ZBZZZZGHIJZZ",
+        "fire": 0,
+        "time": "03:34"
+    },
+    "2": {
+        "1-1": "AZZDZZZZZZZ",
+        "1-2": "ZB",
+        "2-1": "ABCDZZZHIZZZMZZZ",
+        "2-2": "ABZZZFZHIZZZZZO",
+        "3-1": "ZZZZZZZZZ",
+        "3-2": "ZZZDZZGHIJZZ",
+        "fire": 1,
+        "time": "04:20"
+    },
+    "3": {
+        "1-1": "AZZDZZGZZJZ",
+        "1-2": "ZZ",
+        "2-1": "ZZZZZZZHIZKZMZZZ",
+        "2-2": "ZZZZZZZZZJZZZZO",
+        "3-1": "ZZZDZZZZZ",
+        "3-2": "AZZZZZGHIJZL",
+        "fire": 1,
+        "time": "03:58"
+    },
+    "4": {
+        "1-1": "ABZZZZZZZZZ",
+        "1-2": "ZB",
+        "2-1": "ABCZZZZZZZKLZZZZ",
+        "2-2": "AZZZZFZZZJZZZZZ",
+        "3-1": "ZZCZEZGZI",
+        "3-2": "ABZZZZGHIJZZ",
+        "fire": 1,
+        "time": "04:12"
+    },
+    "5": {
+        "1-1": "ABZZZZZZZJZ",
+        "1-2": "ZB",
+        "2-1": "ABCDZZZHZZZZMZZZ",
+        "2-2": "ZZZZZZZZIJZZZZZ",
+        "3-1": "ZZZZZZZZZ",
+        "3-2": "AZZZZZGHIZZZ",
+        "fire": 2,
+        "time": "04:26"
+    },
+    "6": {
+        "1-1": "ABCDEFGHIJZ",
+        "1-2": "BZ",
+        "2-1": "AZCZEFGHIJZLMNZZ",
+        "2-2": "ZZZDEFGZIJKZMZZ",
+        "3-1": "AZZZZZZZZ",
+        "3-2": "ABZZZZGHIJZZ",
+        "fire": 1,
+        "time": "05:03"
+    },
+    "7": {
+        "1-1": "ZZZZZZZZZZZ",
+        "1-2": "ZZ",
+        "2-1": "EZZZZZZZZZKZZZZZ",
+        "2-2": "ZZZZZZZZZZZZZZZ",
+        "3-1": "ZZZZZZZZZ",
+        "3-2": "AZZZZZGZIZZZ",
+        "fire": 1,
+        "time": "01:18"
+    },
+    "8": {
+        "1-1": "ABCDEFZZZZZ",
+        "1-2": "ZB",
+        "2-1": "ABZZZZZZZZKZZZOZ",
+        "2-2": "AZZZEZZZZZZZZZZ",
+        "3-1": "ABZZZZZZZ",
+        "3-2": "ABZZZZGHIJZZ",
+        "fire": 1,
+        "time": "06:23"
+    },
+    "9": {
+        "1-1": "ZZZZZFGHZJZ",
+        "1-2": "ZB",
+        "2-1": "ZZZZEZZZZZKZZNZZ",
+        "2-2": "AZZDZZZHZZZZZZO",
+        "3-1": "ABZZZZGZZ",
+        "3-2": "ABZDZZZZZZZZ",
+        "fire": 2,
+        "time": "04:14"
+    },
+    "10": {
+        "1-1": "ABZZZZZZZZZZ",
+        "1-2": "ZZ",
+        "2-1": "ZAZZZZZHZZZZMNZZ",
+        "2-2": "ZZZZEZZZZZZZZZZ",
+        "3-1": "ZZZZZZZZZ",
+        "3-2": "ZZZZZZGHIJZZ",
+        "fire": 1,
+        "time": "02:30"
+    },
+    "11": {
+        "1-1": "ABCEZZZZZZZ",
+        "1-2": "ZA",
+        "2-1": "ZBZZZZZHZZKZMNZZ",
+        "2-2": "AZZZEZZZZZKZZZO",
+        "3-1": "ZZZDZZZHZ",
+        "3-2": "AZCZZZGHIJZZ",
+        "fire": 2,
+        "time": "04:33"
+    },
+    "12": {
+        "1-1": "ADZZEZZHZZZ",
+        "1-2": "ZB",
+        "2-1": "AZZZEZZZZZKZMZZZ",
+        "2-2": "AZZBEZGHIZZZZZO",
+        "3-1": "ZZZZZZGZZ",
+        "3-2": "AZCZZZZZZZZZ",
+        "fire": 1,
+        "time": "03:46"
+    },
+    "13": {
+        "1-1": "AZZDZZZZZJZ",
+        "1-2": "BA",
+        "2-1": "ABZZZZZHIJZZZZZZ",
+        "2-2": "ZZZZEZZZIJZZZZZ",
+        "3-1": "ZZZZZZZZZ",
+        "3-2": "AZCZZZGHIJZZ",
+        "fire": 2,
+        "time": "06:40"
+    },
+    "14": {
+        "1-1": "ADCBZZZZZJZ",
+        "1-2": "ZZ",
+        "2-1": "ABZZZZZHZZKZMZZZ",
+        "2-2": "ABZZEZZZIJZZZZZ",
+        "3-1": "ZBZDZZZZZ",
+        "3-2": "ABZZZZZZZZZL",
+        "fire": 1,
+        "time": "05:40"
+    }
+}
