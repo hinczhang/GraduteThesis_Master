@@ -178,5 +178,25 @@
         "3-2": "AZZZZZGHIJZZ",
         "fire": 2,
         "time": "04:40"
+    },
+    "18": {
+        "1-1": "AZZDZZZZZJZ",
+        "1-2": "ZZ",
+        "2-1": "AZZZEZZHZZZZMNZZ",
+        "2-2": "AZZDEFZZZZZZZOZ",
+        "3-1": "ABZZZZZZZ",
+        "3-2": "AZCZZZGHIJKZ",
+        "fire": 0,
+        "time": "04:36"
+    },
+    "19": {
+        "1-1": "ABCDZFZZZJZ",
+        "1-2": "AB",
+        "2-1": "ABCDEFZHIJKZMZZZ",
+        "2-2": "AZZDEFZZZZZZZZZ",
+        "3-1": "ZZZZZZZZZ",
+        "3-2": "AZCDEZGHIJZZ",
+        "fire": 3,
+        "time": "05:32"
     }
 }

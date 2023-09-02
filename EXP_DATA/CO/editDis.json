@@ -178,5 +178,15 @@
         "3-2": "ZZZDEZZZZZZZ",
         "fire": 0,
         "time": "05:21"
+    },
+    "18": {
+        "1-1": "AZZDZZZZZZZ",
+        "1-2": "ZB",
+        "2-1": "ZZZZZZZZZZZZZZZZ",
+        "2-2": "ZZZZZZZZZZZZZZZ",
+        "3-1": "ZZZZZZZZZ",
+        "3-2": "AZZZZZGHIJZZ",
+        "fire": 0,
+        "time": "03:13"
     }
 }

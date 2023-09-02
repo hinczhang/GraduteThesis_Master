@@ -20,7 +20,7 @@ library(stringr)
 
 
 ```{r}
-testDataPathName = './Data/test_Scatter - Copy.csv'
+testDataPathName = 'D://GraduteThesis_Master//EXP_DATA//NASA.csv'
 testData <- read_csv(testDataPathName)
 colnames(testData)<- c('Pid', 'Group','Mental1','Physical1','Temporal1','Performance1','Effort1','Frustration1','Mental2',
                        'Physical2','Temporal2','Performance2','Effort2','Frustration2')
