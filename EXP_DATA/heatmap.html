@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d32864d275005408eee62aa6b140b845 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_d32864d275005408eee62aa6b140b845" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_d32864d275005408eee62aa6b140b845 = L.map(
+                "map_d32864d275005408eee62aa6b140b845",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 2,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var heat_map_1dabee4ea79b35d6b33e756916fd7a2d = L.heatLayer(
+                [[-4.150000095, 2.200000048, 0.9473684210526315], [-4.150000095, -2.0, 1.0], [4.099999905, -2.0, 2.210526315789474], [-3.900000095, 0.300000012, 0.47368421052631576], [-2.0, 3.700000048, 0.47368421052631576], [-1.75, 10.39999962, 0.8947368421052632], [1.75, 10.39999962, 0.5789473684210527], [-1.75, 14.5, 0.5263157894736842], [1.75, 14.5, 1.0526315789473684], [-1.75, 18.60000038, 0.5263157894736842], [1.75, 18.60000038, 0.47368421052631576], [-1.75, 22.70000076, 2.1052631578947367], [1.75, 22.70000076, 0.47368421052631576], [-1.75, 26.79999924, 1.3157894736842106], [1.75, 26.79999924, 0.6842105263157895], [-1.75, 30.89999962, 0.8947368421052632], [1.75, 30.89999962, 0.631578947368421], [-1.75, 39.40000153, 2.210526315789474], [1.75, 35.20000076, 0.9473684210526315], [-1.750000954, 43.5, 0.9473684210526315], [1.75, 43.0, 0.7368421052631579], [-1.5, 45.5, 0.3157894736842105], [1.5, 45.5, 0.3157894736842105], [1.5, 39.5, 0.15789473684210525], [-1.5, 35.0, 0.15789473684210525], [1.5, 24.5, 0.15789473684210525], [1.5, 46.0, 0.0], [-1.5, 32.5, 1.5789473684210527], [2.5, 3.700000048, 0.21052631578947367], [4.0, 0.0, 0.05263157894736842], [-1.5, 46.79999924, 0.3157894736842105], [27.5, 50.29999924, 0.15789473684210525], [17.0, 50.0, 2.526315789473684], [17.5, 50.0, 2.210526315789474], [19.0, 50.0, 2.3684210526315788], [19.5, 50.0, 1.894736842105263], [27.5, 47.5, 0.47368421052631576], [5.0, 46.5, 0.3157894736842105], [5.5, 46.5, 0.3157894736842105], [22.0, 46.5, 0.15789473684210525], [3.0, 50.0, 0.15789473684210525], [13.5, 46.5, 0.47368421052631576], [17.0, 46.5, 0.3157894736842105], [8.0, 50.0, 0.15789473684210525], [-1.799999952, 48.29999924, 1.2105263157894737], [15.30000019, 46.29999924, 0.5789473684210527], [18.89999962, 46.29999924, 0.15789473684210525], [26.5, 46.29999924, 0.3684210526315789], [-0.699999988, 50.40000153, 0.7894736842105263], [5.699999809, 50.40000153, 0.631578947368421], [15.69999981, 50.40000153, 0.3157894736842105], [24.29999924, 50.40000153, 0.5789473684210527], [8.0, 0.300000012, 1.105263157894737], [12.39999962, 0.300000012, 0.631578947368421], [6.0, 3.599999905, 1.5789473684210527], [10.5, 0.699999988, 0.3157894736842105], [6.0, 0.699999988, 0.0], [26.60000038, 0.400000006, 1.4736842105263157], [34.40000153, 0.400000006, 1.5789473684210527], [20.0, 0.400000006, 0.631578947368421], [32.0, 0.699999988, 1.263157894736842], [30.0, 0.699999988, 0.9473684210526315], [24.5, 0.699999988, 1.105263157894737], [17.0, 0.699999988, 0.47368421052631576], [14.0, 3.700000048, 0.15789473684210525]],
+                {"blur": 15, "maxZoom": 18, "minOpacity": 0.5, "radius": 25}
+            ).addTo(map_d32864d275005408eee62aa6b140b845);
+        
+</script>
+</html>
