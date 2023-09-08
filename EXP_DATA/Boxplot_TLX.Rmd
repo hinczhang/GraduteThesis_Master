@@ -1,0 +1,243 @@
+---
+title: "Boxplot_TLX"
+output: html_document
+date: "2023-02-06"
+---
+
+```{r}
+library(readr)
+library(ggpubr)
+library(ggplot2)
+library(ggsignif)
+library(car)
+library(rstatix)
+library(ggprism)
+library(gtools)
+library(wesanderson)
+library(colorspace)
+library(stringr)
+```
+
+
+```{r}
+testDataPathName = 'D://GraduteThesis_Master//EXP_DATA//NASA.csv'
+testData <- read_csv(testDataPathName)
+colnames(testData)<- c('Pid', 'Group','Mental1','Physical1','Temporal1','Performance1','Effort1','Frustration1','Mental2',
+                       'Physical2','Temporal2','Performance2','Effort2','Frustration2')
+class(testData)
+
+testData$Group[testData$Group == 'test'] <- 'Test'
+testData$Group[testData$Group == 'control'] <- 'Control'
+
+testData<- cbind(testData[,c(1:2)], stack(testData[, c(3:14)]))
+testData<-data.frame(testData[,c(2,4,3)])
+colnames(testData)<- c('Group','Index','Value')
+
+testData$Index_char <- as.character(testData$Index)
+testData$Task <-substr(testData$Index_char,nchar(testData$Index_char),                   nchar(testData$Index_char))
+testData$Index <-substr(testData$Index_char, 1, nchar(testData$Index_char)-1)
+
+testData$Task[testData$Task == '1'] <- 'Learning'
+testData$Task[testData$Task == '2'] <- 'Recalling'
+
+testData$Task <-as.factor(testData$Task)
+testData$Task<-ordered(testData$Task,levels=c('Learning','Recalling'))
+
+testData$Index <-as.factor(testData$Index)
+testData$Index<-ordered(testData$Index,
+                       levels=c('Mental','Physical','Temporal',
+                                'Performance','Effort','Frustration'))
+
+testData<-data.frame(testData[,c(1,2,5,3)])
+
+LData<-data.frame(testData[testData$Task == 'Learning',])
+RData<-data.frame(testData[testData$Task == 'Recalling',])
+
+```
+```{r}
+signifLevel <- c(0, 0.0001, 0.001, 0.01, 0.05, 1)
+signifSymbols <-c('****', '***', '**', '*', 'NS.')
+stat.LDataGroup <- LData %>%
+  #group_by(Index, Task) %>%
+  group_by(Index) %>%
+  t_test(Value ~ Group) %>%
+  #wilcox_test(Value ~ Group) %>%
+  add_significance(cutpoints = signifLevel, symbols = signifSymbols)%>%
+  filter(p.signif != "NS.")
+stat.LDataGroup <- stat.LDataGroup %>%
+  add_xy_position(x = 'Index', dodge = 0.8)
+
+p_boxplot_LData <- ggboxplot(
+  LData, x = 'Index', y = 'Value', fill = 'Group', color = 'Group',
+  xlab = 'Spatial Learning Section', ylab = 'Evaluation Value', lab.size = 8, 
+  width = 0.5, size = 0.8,
+  outlier.shape = NA,
+  add="mean",
+  #facet.by = 'Task', nrow = 2,
+  )+
+  stat_pvalue_manual(
+    stat.LDataGroup, 
+    label = 'p.signif',
+    #label = 'p',
+    tip.length = 0.01,bracket.size = 1,
+    y.position = 12.5,
+    label.size = 8,
+    hide.ns = FALSE
+  )+
+  coord_cartesian(ylim = c(-12,13), clip = 'off')+
+  scale_color_manual(values=c('#018786','#890507'))+
+  scale_fill_manual(values=c('#95C4C3','#C49595'))+
+  theme(
+    #plot.margin = unit(c(8, 4, 7, 2), 'lines'),
+    panel.grid.major.y = element_line(size = 0.5, linetype = 'solid', colour = 'gray'),
+    #panel.grid.minor.y = element_line(size = 0.5, linetype = 'solid', colour = 'gray'),
+    
+    axis.title.x = element_text(size = 35,margin = unit(c(0.75, 0, 0, 0), 'lines')),
+    axis.title.y = element_text(size = 35, margin = unit(c(0, 0.75, 0, 0), 'lines'), angle = 90),
+    axis.text = element_text(size = 24),
+    axis.line = element_line(size = 1.2),
+    axis.ticks = element_line(size = 1),
+    axis.ticks.length = unit(0.3, 'cm'),
+    
+    strip.text.x = element_text(size = 24),
+    
+    legend.position = 'right', 
+    legend.title = element_text(size = 0),
+    legend.key.width = unit(1.5, 'cm'),
+    legend.key.height = unit(2, 'cm'),
+    legend.text = element_text(size = 24),
+    )
+
+print(p_boxplot_LData)
+
+ggexport(p_boxplot_LData, filename = './Plot/Box_TLX/Box_TLX_Learning.png',
+         width = 6000, height = 3000,
+         #width = 8000, height = 3000,
+         res = 330)
+
+```
+```{r}
+signifLevel <- c(0, 0.0001, 0.001, 0.01, 0.05, 1)
+signifSymbols <-c('****', '***', '**', '*', 'NS.')
+stat.RDataGroup <- RData %>%
+  #group_by(Index, Task) %>%
+  group_by(Index) %>%
+  t_test(Value ~ Group) %>%
+  #wilcox_test(Value ~ Group) %>%
+  add_significance(cutpoints = signifLevel, symbols = signifSymbols)%>%
+  filter(p.signif != "NS.")
+stat.RDataGroup <- stat.RDataGroup %>%
+  add_xy_position(x = 'Index', dodge = 0.8)
+
+p_boxplot_RData <- ggboxplot(
+  RData, x = 'Index', y = 'Value', fill = 'Group', color = 'Group',
+  xlab = 'Landmark Recalling Section', ylab = 'Evaluation Value', lab.size = 8, 
+  width = 0.5, size = 0.8,
+  outlier.shape = NA,
+  add="mean",
+  #facet.by = 'Task', nrow = 2,
+  )+
+  stat_pvalue_manual(
+    stat.RDataGroup, 
+    label = 'p.signif',
+    #label = 'p',
+    tip.length = 0.01,bracket.size = 1,
+    y.position = 12.5,
+    label.size = 8,
+    hide.ns = FALSE
+  )+
+  coord_cartesian(ylim = c(-12,10), clip = 'off')+
+  scale_color_manual(values=c('#018786','#890507'))+
+  scale_fill_manual(values=c('#95C4C3','#C49595'))+
+  theme(
+    #plot.margin = unit(c(8, 4, 7, 2), 'lines'),
+    panel.grid.major.y = element_line(size = 0.5, linetype = 'solid', colour = 'gray'),
+    #panel.grid.minor.y = element_line(size = 0.5, linetype = 'solid', colour = 'gray'),
+    
+    axis.title.x = element_text(size = 35,margin = unit(c(0.75, 0, 0, 0), 'lines')),
+    axis.title.y = element_text(size = 35, margin = unit(c(0, 0.75, 0, 0), 'lines'), angle = 90),
+    axis.text = element_text(size = 24),
+    axis.line = element_line(size = 1.2),
+    axis.ticks = element_line(size = 1),
+    axis.ticks.length = unit(0.3, 'cm'),
+    
+     strip.text.x = element_text(size = 24),
+    
+    legend.position = 'right', 
+    legend.title = element_text(size = 0),
+    legend.key.width = unit(1.5, 'cm'),
+    legend.key.height = unit(2, 'cm'),
+    legend.text = element_text(size = 24),
+    )
+
+print(p_boxplot_RData)
+
+ggexport(p_boxplot_RData, filename = './Plot/Box_TLX/Box_TLX_Recalling.png',
+         width = 6000, height = 2800,
+         #width = 8000, height = 3000,
+         res = 330)
+
+```
+
+
+
+```{r}
+signifLevel <- c(0, 0.0001, 0.001, 0.01, 0.05, 1)
+signifSymbols <-c('****', '***', '**', '*', 'NS.')
+stat.testDistGroup <- testData %>%
+  #group_by(Index, Task) %>%
+  group_by(Index) %>%
+  t_test(Value ~ Group) %>%
+  #wilcox_test(Value ~ Group) %>%
+  add_significance(cutpoints = signifLevel, symbols = signifSymbols)
+stat.testDistGroup <- stat.testDistGroup %>%
+  add_xy_position(x = 'Index', dodge = 0.8)
+
+p_boxplot_dist <- ggboxplot(
+  testData, x = 'Index', y = 'Value', fill = 'Group', color = 'Group',
+  xlab = FALSE, ylab = FALSE, lab.size = 8, 
+  width = 0.5, size = 0.8,
+  outlier.shape = NA,
+  #facet.by = 'Task', nrow = 2,
+  )+
+  stat_pvalue_manual(
+    stat.testDistGroup, 
+    #label = 'p.signif',
+    label = 'p',
+    tip.length = 0.01,bracket.size = 1,
+    y.position = 12.5,
+    label.size = 5,
+    hide.ns = FALSE
+  )+
+  coord_cartesian(ylim = c(-12,14), clip = 'off')+
+  scale_color_manual(values=c('#018786','#890507'))+
+  scale_fill_manual(values=c('#95C4C3','#C49595'))+
+  theme(
+    #plot.margin = unit(c(8, 4, 7, 2), 'lines'),
+    panel.grid.major.y = element_line(size = 0.5, linetype = 'solid', colour = 'gray'),
+    #panel.grid.minor.y = element_line(size = 0.5, linetype = 'solid', colour = 'gray'),
+    
+    axis.title.x = element_text(size = 0),
+    axis.title.y = element_text(size = 15, margin = unit(c(0, 0.75, 0, 0), 'lines')),
+    axis.text = element_text(size = 15),
+    axis.line = element_line(size = 1.2),
+    axis.ticks = element_line(size = 1),
+    axis.ticks.length = unit(0.3, 'cm'),
+    
+     strip.text.x = element_text(size = 18),
+    
+    legend.position = 'right', 
+    legend.title = element_text(size = 0),
+    legend.key.width = unit(1.5, 'cm'),
+    legend.key.height = unit(2, 'cm'),
+    legend.text = element_text(size = 15),
+    )
+
+print(p_boxplot_dist)
+
+ggexport(p_boxplot_dist, filename = './Plot/Box_TLX/Box_TLX.png',
+         #width = 4000, height = 3000,
+         width = 8000, height = 3000,
+         res = 330)
+```
+
