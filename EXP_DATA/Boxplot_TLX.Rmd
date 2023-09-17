@@ -20,13 +20,13 @@ library(stringr)
 
 
 ```{r}
-testDataPathName = 'D://GraduteThesis_Master//EXP_DATA//NASA.csv'
+testDataPathName = 'D://NASA.csv'
 testData <- read_csv(testDataPathName)
 colnames(testData)<- c('Pid', 'Group','Mental1','Physical1','Temporal1','Performance1','Effort1','Frustration1','Mental2',
                        'Physical2','Temporal2','Performance2','Effort2','Frustration2')
 class(testData)
 
-testData$Group[testData$Group == 'test'] <- 'Test'
+testData$Group[testData$Group == 'test'] <- 'Experimental'
 testData$Group[testData$Group == 'control'] <- 'Control'
 
 testData<- cbind(testData[,c(1:2)], stack(testData[, c(3:14)]))
@@ -106,11 +106,12 @@ p_boxplot_LData <- ggboxplot(
     legend.key.width = unit(1.5, 'cm'),
     legend.key.height = unit(2, 'cm'),
     legend.text = element_text(size = 24),
-    )
+    )+
+  theme_gray()
 
 print(p_boxplot_LData)
 
-ggexport(p_boxplot_LData, filename = './Plot/Box_TLX/Box_TLX_Learning.png',
+ggexport(p_boxplot_LData, filename = 'D:\\Box_TLX_Learning.png',
          width = 6000, height = 3000,
          #width = 8000, height = 3000,
          res = 330)
@@ -131,7 +132,7 @@ stat.RDataGroup <- stat.RDataGroup %>%
 
 p_boxplot_RData <- ggboxplot(
   RData, x = 'Index', y = 'Value', fill = 'Group', color = 'Group',
-  xlab = 'Landmark Recalling Section', ylab = 'Evaluation Value', lab.size = 8, 
+  xlab = 'Drawing Map Section', ylab = 'Evaluation Value', lab.size = 8, 
   width = 0.5, size = 0.8,
   outlier.shape = NA,
   add="mean",
@@ -168,11 +169,12 @@ p_boxplot_RData <- ggboxplot(
     legend.key.width = unit(1.5, 'cm'),
     legend.key.height = unit(2, 'cm'),
     legend.text = element_text(size = 24),
-    )
+    )+
+  theme_gray()
 
 print(p_boxplot_RData)
 
-ggexport(p_boxplot_RData, filename = './Plot/Box_TLX/Box_TLX_Recalling.png',
+ggexport(p_boxplot_RData, filename = 'D:\\Box_TLX_Recalling.png',
          width = 6000, height = 2800,
          #width = 8000, height = 3000,
          res = 330)
@@ -235,7 +237,7 @@ p_boxplot_dist <- ggboxplot(
 
 print(p_boxplot_dist)
 
-ggexport(p_boxplot_dist, filename = './Plot/Box_TLX/Box_TLX.png',
+ggexport(p_boxplot_dist, filename = 'D:\\Box_TLX.png',
          #width = 4000, height = 3000,
          width = 8000, height = 3000,
          res = 330)
