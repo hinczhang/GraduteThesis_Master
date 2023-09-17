@@ -30,3 +30,8 @@ Every Thursday or Friday.
 
 ## Paper work
 Please refer to [the sharelatex site](https://sharelatex.tum.de/project/63a8a5565ac510008631f18f) of TU Munich.
+
+## Project structure
+1. The folder `TUMARTest` contains the Unity project for the AR project, which suits our experiment group.  
+2. The folder `TUMARBlackTest` contains the Unity project for the AR project, which suits our control group.  
+3. The folder `EXP_DATA` contains our digitialized data from the experiment, along with the analysis code.
